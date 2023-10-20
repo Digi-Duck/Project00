@@ -29,6 +29,36 @@ const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
 // 聲明方塊模型
 const cube = new THREE.Mesh(geometry, material);
 
+const canvas = document.querySelector('canvas');
+console.log(canvas);
+let isDown = false;
+let startX;
+let scrollLeft;
+
+canvas.addEventListener("mousedown", (e) => {
+    isDown = true;
+    startX = e.pageX - canvas.offsetLeft; //  slider.offsetLeft 現在這東西會是 0
+    // scrollLeft = canvas.scrollLeft;
+    // console.log(e.pageX, canvas.offsetLeft, scrollLeft)
+    console.log(startX);
+});
+
+canvas.addEventListener("mouseleave", () => {
+    isDown = false;
+});
+
+canvas.addEventListener("mouseup", () => {
+    isDown = false;
+});
+
+canvas.addEventListener("mousemove", (e) => {
+    if (!isDown) return; // stop the fn from running
+    // e.preventDefault();
+    // const x = e.pageX - canvas.offsetLeft;
+    // console.log(e.pageX, startX);
+    // const walk = x - startX;
+    // canvas.scrollLeft = scrollLeft - walk;
+});
 
 gltfLoader.load(
     "../model/1019-test-bake-3.glb",
@@ -46,34 +76,6 @@ gltfLoader.load(
         houseFolder.add(object.rotation, "z", 0, Math.PI * 2);
 
         object.rotation.y = 5.9;
-
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        object.addEventListener("mousedown", (e) => {
-            isDown = true;
-            startX = e.pageX - object.offsetLeft; //  slider.offsetLeft 現在這東西會是 0
-            scrollLeft = object.scrollLeft;
-            console.log(e.pageX, slider.offsetLeft, scrollLeft)
-        });
-
-        object.addEventListener("mouseleave", () => {
-            isDown = false;
-        });
-
-        object.addEventListener("mouseup", () => {
-            isDown = false;
-        });
-
-        object.addEventListener("mousemove", (e) => {
-            if (!isDown) return; // stop the fn from running
-            e.preventDefault();
-            const x = e.pageX - object.offsetLeft;
-            console.log(e.pageX, startX);
-            const walk = x - startX;
-            object.scrollLeft = scrollLeft - walk;
-        });
     }
 );
 
