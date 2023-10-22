@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script type="module" src="/main.js"></script>
+  <script type="importmap">
+        {
+          "imports": {
+            "three": "https://unpkg.com/three@<latest/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@<latest/examples/jsm/"
+          }
+        }
+        
+    </script>
+  <script>
+    import * as THREE from 'three';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+    //scene
+    const scene = new THREE.Scene();
+
+    //camera
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+    //renderer
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    //model
+    const loader = new GLTFLoader();
+    
+    //loader
+    loader.load(
+      // resource URL
+      'models/gltf/duck/duck.gltf',
+      // called when the resource is loaded
+      function (gltf) {
+
+        scene.add(gltf.scene);
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene; // THREE.Group
+        gltf.scenes; // Array<THREE.Group>
+        gltf.cameras; // Array<THREE.Camera>
+        gltf.asset; // Object
+
+      },
+    );
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,63 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!--<version>的部分要換成latest，才會是最新版本-->
-    <script type="importmap">
-    {
-        "imports": {
-            "three": "https://unpkg.com/three@latest/build/three.module.js",
-            "three/addons/": "https://unpkg.com/three@latest/examples/jsm/"
-        }
-    }
-    </script>
-    <link rel="stylesheet" href="../css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/mian-style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <title>中興大學地圖導覽</title>
 </head>
 
 <body>
-    <div class="all">
-        <div class="container">
-            <nav>
-                <a href="#">
-                    <img src="../images/logo.nchu.png" alt="">
+    <div class="container">
+        <nav class="nav">
+            <!-- 回首頁按鈕 -->
+            <a href="../html/index.html">
+                <img src="https://www.nchu.edu.tw/tem/tw/images/logo.nchu.png" alt="">
+            </a>
+        </nav>
+        <!-- 中間兩個按鈕 -->
+        <main class="mid">
+            <div class="main-menu">
+                <!-- 連結到整個中興校園 -->
+                <a href="../html/campus.html">
+                    <div class="the-map">
+                        <div class="img-background-left">
+                            <img src="../img/4-去背-陰影.png" alt="">
+                        </div>
+                        <div class="txt">
+                            <div class="text-name">興大校園</div>
+                        </div>
+                    </div>
                 </a>
-            </nav>
-            <section class="section-1">
-                <div class="content">
-                    <div class="jumpToBtn"><a href="#">
-                        <canvas id="bg-1"></canvas>
-                        <p>興大校園</p>
-                    </a></div>
-                    <div class="jumpToBtn"><a href="#">
-                        <canvas id="bg-2"></canvas>
-                        <p>學院科系/公共資源</p>
-                    </a></div>
-                </div>
-            </section>
-        </div>
+                <!-- 連結到15格學院科系頁面 -->
+                <a href="../html/academy-btn.html">
+                    <div class="the-map">
+                        <div class="img-background-right">
+                            <img src="../img/3-去背-陰影.png" alt="">
+                        </div>
+                        <div class="txt">
+                            <div class="text-name">學院科系/公共資源</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </main>
     </div>
 
-    <script type="module" src="../js/main.js"></script>
-    <script type="x-shader/x-vertex" id="gradient-vertex">
-        void main() {
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-    </script>
-    
-    <script type="x-shader/x-fragment" id="gradient-fragment">
-        uniform vec3 color1;
-        uniform vec3 color2;
-        void main() {
-            gl_FragColor = vec4(mix(color1, color2, gl_FragCoord.y / resolution.y), 1.0);
-        }
-    </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
