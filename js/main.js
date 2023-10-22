@@ -14,13 +14,26 @@ const camera = new THREE.PerspectiveCamera(
 
 const gui = new GUI();
 
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
+const renderer = new THREE.WebGLRenderer({
+    canvas: document.querySelector('#bg-1'),
+});
+
+renderer.setSize(450, 400);
+console.log(renderer);
 // 下列這一串代碼是將模型導入至html的body裡面
 document.body.appendChild(renderer.domElement);
 
+var gradientMaterial = new THREE.ShaderMaterial({
+    uniforms: {
+        color1: { value: new THREE.Color(0x0000ff) },
+        color2: { value: new THREE.Color(0x00ff00) }
+    },
+    vertexShader: document.getElementById('gradient-vertex').textContent,
+    fragmentShader: document.getElementById('gradient-fragment').textContent
+});
+
 const axesHelper = new THREE.AxesHelper(5);
-const color = new THREE.Color(0x76c5fb);
+const color = new THREE.Color(0x0000ff);
 const gltfLoader = new GLTFLoader();
 // 聲明模型樣式及大小
 const geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -29,36 +42,9 @@ const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
 // 聲明方塊模型
 const cube = new THREE.Mesh(geometry, material);
 
-const canvas = document.querySelector('canvas');
-console.log(canvas);
-let isDown = false;
-let startX;
-let scrollLeft;
 
-canvas.addEventListener("mousedown", (e) => {
-    isDown = true;
-    startX = e.pageX - canvas.offsetLeft; //  slider.offsetLeft 現在這東西會是 0
-    // scrollLeft = canvas.scrollLeft;
-    // console.log(e.pageX, canvas.offsetLeft, scrollLeft)
-    console.log(startX);
-});
-
-canvas.addEventListener("mouseleave", () => {
-    isDown = false;
-});
-
-canvas.addEventListener("mouseup", () => {
-    isDown = false;
-});
-
-canvas.addEventListener("mousemove", (e) => {
-    if (!isDown) return; // stop the fn from running
-    // e.preventDefault();
-    // const x = e.pageX - canvas.offsetLeft;
-    // console.log(e.pageX, startX);
-    // const walk = x - startX;
-    // canvas.scrollLeft = scrollLeft - walk;
-});
+const pointLight = new THREE.PointLight( 0xffffff );
+pointLight.position.set( 5, 5, 5 );
 
 gltfLoader.load(
     "../model/1019-test-bake-3.glb",
@@ -74,21 +60,27 @@ gltfLoader.load(
         houseFolder.add(object.rotation, "x", 0, Math.PI * 2);
         houseFolder.add(object.rotation, "y", 0, Math.PI * 2);
         houseFolder.add(object.rotation, "z", 0, Math.PI * 2);
+        houseFolder.add(object.scale, "x", -10, 10);
+        houseFolder.add(object.scale, "y", -10, 10);
+        houseFolder.add(object.scale, "z", -10, 10);
 
         object.rotation.y = 5.9;
     }
 );
 
 const cameraFolder = gui.addFolder("攝影機");
-cameraFolder.add(camera.position, "x", -20, 20);
-cameraFolder.add(camera.position, "y", -20, 20);
-cameraFolder.add(camera.position, "z", -20, 20);
-cameraFolder.add(camera.rotation, "x", 0, Math.PI * 2);
-cameraFolder.add(camera.rotation, "y", 0, Math.PI * 2);
-cameraFolder.add(camera.rotation, "z", 0, Math.PI * 2);
+cameraFolder.add(cube.position, "x", -20, 20);
+cameraFolder.add(cube.position, "y", -20, 20);
+cameraFolder.add(cube.position, "z", -20, 20);
+cameraFolder.add(cube.rotation, "x", 0, Math.PI * 2);
+cameraFolder.add(cube.rotation, "y", 0, Math.PI * 2);
+cameraFolder.add(cube.rotation, "z", 0, Math.PI * 2);
 
-scene.background = color;
+console.log(camera);
+
+scene.background = gradientMaterial;
 scene.add(axesHelper);
+scene.add(pointLight);
 // 將聲明的方塊模型增加到場景
 scene.add(cube);
 cube.add(camera)

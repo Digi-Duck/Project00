@@ -14,7 +14,6 @@
         }
     }
     </script>
-    <script type="module" src="../js/main.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,9 +23,41 @@
 <body>
     <div class="all">
         <div class="container">
-            <p>電機系</p>
+            <nav>
+                <a href="#">
+                    <img src="../images/logo.nchu.png" alt="">
+                </a>
+            </nav>
+            <section class="section-1">
+                <div class="content">
+                    <div class="jumpToBtn"><a href="#">
+                        <canvas id="bg-1"></canvas>
+                        <p>興大校園</p>
+                    </a></div>
+                    <div class="jumpToBtn"><a href="#">
+                        <canvas id="bg-2"></canvas>
+                        <p>學院科系/公共資源</p>
+                    </a></div>
+                </div>
+            </section>
         </div>
     </div>
+
+    <script type="module" src="../js/main.js"></script>
+    <script type="x-shader/x-vertex" id="gradient-vertex">
+        void main() {
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+    </script>
+    
+    <script type="x-shader/x-fragment" id="gradient-fragment">
+        uniform vec3 color1;
+        uniform vec3 color2;
+        void main() {
+            gl_FragColor = vec4(mix(color1, color2, gl_FragCoord.y / resolution.y), 1.0);
+        }
+    </script>
+
 </body>
 
 </html>
