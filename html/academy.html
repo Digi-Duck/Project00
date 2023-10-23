@@ -1,11 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/academy.css" />
     <title>Document</title>
 </head>
+
 <body>
-    
+    <div class="container">
+        <nav class="nav">
+            <!-- 導覽列按鈕 -->
+            <div class="itemBox">
+                <!-- home鍵 -->
+                <a href="../html/index.html" class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                        <path
+                            d="M25.666 3.66667H18.3327V7.33334H14.666V11H10.9993V14.6667H7.33268V18.3333H3.66602V22H7.33268V40.3333H20.166V29.3333H23.8327V40.3333H36.666V22H40.3327V18.3333H36.666V14.6667H32.9993V11H29.3327V7.33334H25.666V3.66667ZM25.666 7.33334V11H29.3327V14.6667H32.9993V18.3333H36.666V22H32.9993V36.6667H27.4993V25.6667H16.4993V36.6667H10.9993V22H7.33268V18.3333H10.9993V14.6667H14.666V11H18.3327V7.33334H25.666Z"
+                            fill="#C0AE67" />
+                    </svg>
+                </a>
+                <!-- about us 按鈕 -->
+                <a href="" class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                        <path
+                            d="M27.5004 9.89999C27.5004 11.3587 26.9209 12.7576 25.8895 13.7891C24.858 14.8205 23.4591 15.4 22.0004 15.4C20.5417 15.4 19.1428 14.8205 18.1113 13.7891C17.0799 12.7576 16.5004 11.3587 16.5004 9.89999C16.5004 8.4413 17.0799 7.04236 18.1113 6.01091C19.1428 4.97946 20.5417 4.39999 22.0004 4.39999C23.4591 4.39999 24.858 4.97946 25.8895 6.01091C26.9209 7.04236 27.5004 8.4413 27.5004 9.89999ZM38.5004 11C38.5004 12.1669 38.0368 13.2861 37.2117 14.1113C36.3865 14.9364 35.2673 15.4 34.1004 15.4C32.9334 15.4 31.8143 14.9364 30.9891 14.1113C30.164 13.2861 29.7004 12.1669 29.7004 11C29.7004 9.83304 30.164 8.71388 30.9891 7.88872C31.8143 7.06356 32.9334 6.59999 34.1004 6.59999C35.2673 6.59999 36.3865 7.06356 37.2117 7.88872C38.0368 8.71388 38.5004 9.83304 38.5004 11ZM9.90039 15.4C11.0673 15.4 12.1865 14.9364 13.0117 14.1113C13.8368 13.2861 14.3004 12.1669 14.3004 11C14.3004 9.83304 13.8368 8.71388 13.0117 7.88872C12.1865 7.06356 11.0673 6.59999 9.90039 6.59999C8.73344 6.59999 7.61428 7.06356 6.78912 7.88872C5.96396 8.71388 5.50039 9.83304 5.50039 11C5.50039 12.1669 5.96396 13.2861 6.78912 14.1113C7.61428 14.9364 8.73344 15.4 9.90039 15.4ZM13.2004 20.35C13.2004 18.832 14.4324 17.6 15.9504 17.6H28.0504C29.5684 17.6 30.8004 18.832 30.8004 20.35V30.8C30.8004 33.1339 29.8733 35.3722 28.2229 37.0225C26.5726 38.6729 24.3343 39.6 22.0004 39.6C19.6665 39.6 17.4282 38.6729 15.7779 37.0225C14.1275 35.3722 13.2004 33.1339 13.2004 30.8V20.35ZM11.0004 20.35C11.0004 19.3314 11.3084 18.3876 11.8342 17.6H7.15039C5.63239 17.6 4.40039 18.832 4.40039 20.35V28.6C4.40029 29.5419 4.60178 30.4728 4.99131 31.3304C5.38085 32.1879 5.94942 32.9521 6.65881 33.5717C7.3682 34.1913 8.20199 34.6518 9.10414 34.9224C10.0063 35.193 10.9559 35.2674 11.8892 35.1406C11.3006 33.7693 10.9981 32.2923 11.0004 30.8V20.35ZM33.0004 30.8C33.0004 32.34 32.6836 33.8096 32.1116 35.1406C33.0449 35.2674 33.9945 35.193 34.8966 34.9224C35.7988 34.6518 36.6326 34.1913 37.342 33.5717C38.0514 32.9521 38.6199 32.1879 39.0095 31.3304C39.399 30.4728 39.6005 29.5419 39.6004 28.6V20.35C39.6004 18.832 38.3684 17.6 36.8504 17.6H32.1666C32.6946 18.3876 33.0004 19.3314 33.0004 20.35V30.8Z"
+                            fill="#C0AE67" />
+                    </svg>
+                </a>
+            </div>
+        </nav>
+
+        <main class="big-box">
+            <div id="bg"></div>
+            <div class="info">
+                <div class="info-left">
+                    <ul class="building">
+                        <li class="building-list">
+                            <p>森林館</p>
+                        </li>
+                        <li class="building-list">
+                            <p>森林館</p>
+                        </li>
+                        <li class="building-list">
+                            <p>森林館</p>
+                        </li>
+                        <li class="building-list">
+                            <p>森林館</p>
+                        </li>
+                        <li class="building-list">
+                            <p>森林館</p>
+                        </li>
+                        <li class="building-list">
+                            <p>森林館</p>
+                        </li>
+                        <li class="building-list">
+                            <p>森林館</p>
+                        </li>
+                        <li class="building-list">
+                            <p>森林館</p>
+                        </li>
+                        <li class="building-list">
+                            <p>森林館</p>
+                        </li>
+                        <li class="building-list">
+                            <p>森林館</p>
+                        </li>
+                    </ul>
+                    <div class="choose-btn">
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="39" height="45" viewBox="0 0 39 45" fill="none">
+                                <path
+                                    d="M16.7143 45H22.2857V11.25H27.8571V5.625H22.2857V0H16.7143V5.625H11.1429V11.25H16.7143V45ZM5.57143 16.875V11.25H11.1429V16.875H5.57143ZM5.57143 16.875V22.5H0V16.875H5.57143ZM33.4286 16.875V11.25H27.8571V16.875H33.4286ZM33.4286 16.875V22.5H39V16.875H33.4286Z"
+                                    fill="#C0AE67" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="info-right">
+                    <div class="right-title">農業暨自然資源學院</div>
+                    <div class="right-content">
+                        農藝學系 <br>
+                        園藝學系 <br>
+                        森林學系 <br>
+                        應用經濟學系 <br>
+                        植物病理學系 <br>
+                        昆蟲學系 <br>
+                        動物科學系 <br>
+                        土壤環境科學系 <br>
+                        水土保持學系 <br>
+                        食品暨應用生物科技學系 <br>
+                        生物產業機電工程學系 <br>
+                        生物產業管理研究所 <br>
+                        生物科技學研究所 <br>
+                        食品安全研究所 <br>
+                        生物產業管理進修學士學位學程 <br>
+                        生物科技學士學位學程 <br>
+                        景觀與遊憩學士學位、碩士學位學程 <br>
+                        國際農企業學士學程 <br>
+                        國際農學碩士學程 <br>
+                        農業企業經營管理碩士在職專班 <br>
+                        農業經濟與行銷碩士學位學程 <br>
+                        植物醫學暨安全農業碩士學位學程 <br>
+                        國際農學博士學位學程 <br>
+                        <hr>
+                        <h2>本院簡史</h2>
+                        國立中興大學農資學院成立於1948年，最初名為「國立中興大學農學院」。1999年更名為「農業暨自然資源學院」以反映更多元化的學科領域。 <hr>
+                        <h2>教育目標</h2>
+                        學院的創立是為了提供農業和資源管理領域的教育和研究機會，以支持台灣的農業發展和自然資源管理。農學院的主要任務是培育農業專業人才，以應對農業產業的需求。在教學國際化方面，為求發展多元，因此強化課程整合與英語教學已成為當前努力目標
+                    </div>
+                </div>
+            </div>
+            
+            <div class="jump-menu hidden">
+                <div class="close-menu">
+                    <a href="#" class="close-menu-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 73 60" fill="none">
+                            <path d="M13.2734 13.5454H59.728V20.1818H56.4098V23.5H53.0916V26.8182H49.7734V30.1363H46.4553V33.4545H43.1371V36.7727H39.8189V40.0909H33.1825V36.7727H29.8643V33.4545H26.5462V30.1363H23.228V26.8182H19.9098V23.5H16.5916V20.1818H13.2734V13.5454ZM26.5462 20.1818V23.5H29.8643V26.8182H33.1825V30.1363H39.8189V26.8182H43.1371V23.5H46.4553V20.1818H26.5462Z" fill="#C0AE67"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="menu-btn-box"></div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const academy = [
+        {
+                name: '文學院',
+                img: '../img/btn-images.jpg',
+                info: ['人文大樓'],
+            },
+            {
+                name: '農業暨自然資源學院',
+                img: '../img/btn-images.jpg',
+                info: ['作物科學大樓', '作物科學大樓2樓', '森林館', '應經一館', '農環大樓',
+                    '動科系館', '水土保持館', '食品暨生物科技大樓', '生機大樓', '生管所', '食安大樓',
+                    '綜合教學大樓', '國農大樓', '舊理工大樓', '國農中心', '應用經濟學系一館']
+            },
+            {
+                name: '理學院',
+                img: '../img/btn-images.jpg',
+                info: ['化學館', '資訊科學大樓', '理學大樓', '資訊科學大樓']
+            },
+            {
+                name: '工學院',
+                img: '../img/btn-images.jpg',
+                info: ['土木環工大樓', '混擬土科技研究中心', '應用科技大樓', '機械系館'
+                    , '化材大樓', '應用科技大樓']
+            },
+            {
+                name: '生命科學院',
+                img: '../img/btn-images.jpg',
+                info: ['生命科學大樓', '防疫檢疫大樓']
+            },
+            {
+                name: '獸醫學院',
+                img: '../img/btn-images.jpg',
+                info: ['獸醫系館', '動物疾病診斷中心']
+            },
+            {
+                name: '管理學院',
+                img: '../img/btn-images.jpg',
+                info: ['社管大樓', '綜合教學大樓']
+            },
+            {
+                name: '法政學院',
+                img: '../img/btn-images.jpg',
+                info: ['社管大樓']
+            },
+            {
+                name: '電機資訊學院',
+                img: '../img/btn-images.jpg',
+                info: ['電機大樓', '理學大樓']
+            },
+            {
+                name: '醫學院',
+                img: '../img/btn-images.jpg',
+                info: ['國農中心', '生命科學大樓', '防疫檢疫大樓']
+            },
+            {
+                name: '創新產業暨國際學院',
+                img: '../img/btn-images.jpg',
+                info: ['綜合教學大樓', '國農中心']
+            },
+            {
+                name: '行政',
+                img: '../img/btn-images.jpg',
+            },
+            {
+                name: '圖書',
+                img: '../img/btn-images.jpg',
+            },
+            {
+                name: '體育',
+                img: '../img/btn-images.jpg',
+            },
+            {
+                name: '餐廳',
+                img: '../img/btn-images.jpg',
+            },
+
+        ]
+
+        const openMenu = document.querySelector('.choose-btn');
+        const closeMenu = document.querySelector('.close-menu');
+        const menu = document.querySelector('.jump-menu');
+
+        openMenu.addEventListener('click', (toggle) => {
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                openMenu.classList.add('hidden');
+            }else {
+                menu.classList.add('hidden');
+            }
+        });
+
+        closeMenu.addEventListener('click', (close) => {
+            if (menu.classList.contains('hidden')) {
+                return;
+            }else {
+                menu.classList.add('hidden');
+                openMenu.classList.remove('hidden');
+            }
+        });
+
+        const menuBox = document.querySelector('.menu-btn-box');
+
+        academy.forEach (e => {
+            console.log(e);
+            menuBox.innerHTML += `
+                <div class="menu-btn">${e.name}</div>
+            `
+        });
+
+    </script>
 </body>
+
 </html>
