@@ -70,7 +70,7 @@
         const scene = new THREE.Scene();
         // scene.background = new THREE.Color('skyblue');
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.set(-5, 2, -10);
+        camera.position.set(-15, 2, -15);
         const renderer = new THREE.WebGLRenderer({
             alpha: true, // canvas是否包含alpha (透明度) 默认为 false
             antialias: true,
@@ -89,7 +89,7 @@
         // GLTF載入器
         const loader = new GLTFLoader()
 
-        loader.load('../model/01-vol10.glb', function (object) {
+        loader.load('../model/1.glb', function (object) {
             // ALL是整個模組 root是模組裡各個"模型"的陣列
             const all = object.scene
             const root = object.scenes[0].children
@@ -123,10 +123,10 @@
 
             // 點擊到的物件陣列裡是否有CUBE1110
             if (intersects.some(function (obj) {
-                return obj.object.name == 'Cube110'
+                return obj.object.name == "cube110"
             })) {
                 // 會到指定位置
-                location.href = "room.html#2";
+                location.href = "/html/academy.html";
             }
             console.log(event);
         };
@@ -221,18 +221,22 @@
             {
                 name: '行政',
                 img: '../img/btn-images.jpg',
+                info: []
             },
             {
                 name: '圖書',
                 img: '../img/btn-images.jpg',
+                info: []
             },
             {
                 name: '體育',
                 img: '../img/btn-images.jpg',
+                info: []
             },
             {
                 name: '餐廳',
                 img: '../img/btn-images.jpg',
+                info: []
             },
         ];
 
@@ -257,20 +261,7 @@
                             <a href="#"><li class="option">${e.name}</li></a>
                         `
 
-                        const options = document.querySelectorAll('.option');
 
-                        options.forEach((option, index) => {
-                            option.addEventListener('click', (btn) => {
-                                card.innerHTML = '';
-                                printCard(0);
-
-                                const closeBtn = document.querySelector('.close');
-                                closeBtn.addEventListener('click', (close) => {
-                                    card.innerHTML = '';
-                                });
-                                console.log(closeBtn);
-                            });
-                        });
                     });
                 } else if (index === 1) {
                     e.classList.add('active');
@@ -278,30 +269,18 @@
                         list.innerHTML += `
                             <a href="#"><li class="option">${e.name}</li></a>
                         `
-
-                        const options = document.querySelectorAll('.option');
-
-                        options.forEach((option, index) => {
-                            option.addEventListener('click', (btn) => {
-                                card.innerHTML = '';
-                                printCard(0);
-
-                                const closeBtn = document.querySelector('.close');
-                                closeBtn.addEventListener('click', (close) => {
-                                    card.innerHTML = '';
-                                });
-                                console.log(closeBtn);
-                            });
-                        });
                     });
                 }
             });
         });
 
+        const options = document.querySelectorAll('.option');
 
+        options.forEach((option, index) => {
+            option.addEventListener('click', () => {
+                card.innerHTML = '';
 
-        function printCard(print) {
-            card.innerHTML += `
+                card.innerHTML += `
                 <div class="card-nav">
                     <a href="#" class="close">
                         <svg xmlns="http://www.w3.org/2000/svg" width="53" height="53" viewBox="0 0 53 53" fill="none">
@@ -312,8 +291,8 @@
                     </a>
                 </div>
                 <div class="card-content">
-                    <div class="card-title">人文館</div>
-                    <div class="card-txt">人文大樓</div>
+                    <div class="card-title"></div>
+                    <div class="card-txt"></div>
                     <div class="card-more">
                         <a href="#">
                             <span>更多資訊</span>
@@ -327,9 +306,82 @@
                     </div>
                 </div>
                 `
-        }
+
+                console.log(option);
+
+                const title = document.querySelector('.card-title');
+                const txt = document.querySelector('.card-txt');
+
+                const literatureInfo = academy.find(item => item.name === '文學院');
+                const naturalResourcesInfo = academy.find(item => item.name === '農業暨自然資源學院');
+                const facultyofScienceInfo = academy.find(item => item.name === '理學院');
+                const EngineeringInfo = academy.find(item => item.name === '工學院');
+                const lifeSciencesInfo = academy.find(item => item.name === '生命科學院');
+                const veterinaryMedicineInfo = academy.find(item => item.name === '獸醫學院');
+                const managementInfo = academy.find(item => item.name === '管理學院');
+                const lawAndPoliticsInfo = academy.find(item => item.name === '法政學院');
+                const electricalEngineeringInfo = academy.find(item => item.name === '電機資訊學院');
+                const medicalInfo = academy.find(item => item.name === '醫學院');
+                const industryInfo = academy.find(item => item.name === '創新產業暨國際學院');
+                const administrativeInfo = resource.find(item => item.name === '行政');
+                const booksInfo = resource.find(item => item.name === '圖書');
+                const physicalEducationInfo = resource.find(item => item.name === '體育');
+                const restaurantInfo = resource.find(item => item.name === '餐廳');
 
 
+                if (option.textContent === literatureInfo.name) {
+                    title.innerHTML = `${literatureInfo.name}`;
+                    txt.innerHTML = `${literatureInfo.info.join('|')}`;
+                } else if (option.textContent === naturalResourcesInfo.name) {
+                    title.innerHTML = `${naturalResourcesInfo.name}`;
+                    txt.innerHTML = `${naturalResourcesInfo.info.join('|')}`;
+                }else if (option.textContent === facultyofScienceInfo.name) {
+                    title.innerHTML = `${facultyofScienceInfo.name}`;
+                    txt.innerHTML = `${facultyofScienceInfo.info.join('|')}`;
+                }else if (option.textContent === EngineeringInfo.name) {
+                    title.innerHTML = `${EngineeringInfo.name}`;
+                    txt.innerHTML = `${EngineeringInfo.info.join('|')}`;
+                }else if (option.textContent === lifeSciencesInfo.name) {
+                    title.innerHTML = `${lifeSciencesInfo.name}`;
+                    txt.innerHTML = `${lifeSciencesInfo.info.join('|')}`;
+                }else if (option.textContent === veterinaryMedicineInfo.name) {
+                    title.innerHTML = `${veterinaryMedicineInfo.name}`;
+                    txt.innerHTML = `${veterinaryMedicineInfo.info.join('|')}`;
+                }else if (option.textContent === managementInfo.name) {
+                    title.innerHTML = `${managementInfo.name}`;
+                    txt.innerHTML = `${managementInfo.info.join('|')}`;
+                }else if (option.textContent === lawAndPoliticsInfo.name) {
+                    title.innerHTML = `${lawAndPoliticsInfo.name}`;
+                    txt.innerHTML = `${lawAndPoliticsInfo.info.join('|')}`;
+                }else if (option.textContent === electricalEngineeringInfo.name) {
+                    title.innerHTML = `${electricalEngineeringInfo.name}`;
+                    txt.innerHTML = `${electricalEngineeringInfo.info.join('|')}`;
+                }else if (option.textContent === medicalInfo.name) {
+                    title.innerHTML = `${medicalInfo.name}`;
+                    txt.innerHTML = `${medicalInfo.info.join('|')}`;
+                }else if (option.textContent === industryInfo.name) {
+                    title.innerHTML = `${industryInfo.name}`;
+                    txt.innerHTML = `${industryInfo.info.join('|')}`;
+                }else if (option.textContent === administrativeInfo.name) {
+                    title.innerHTML = `${administrativeInfo.name}`;
+                    txt.innerHTML = `${administrativeInfo.info.join('|')}`;
+                }else if (option.textContent === booksInfo.name) {
+                    title.innerHTML = `${booksInfo.name}`;
+                    txt.innerHTML = `${booksInfo.info.join('|')}`;
+                }else if (option.textContent === physicalEducationInfo.name) {
+                    title.innerHTML = `${physicalEducationInfo.name}`;
+                    txt.innerHTML = `${physicalEducationInfo.info.join('|')}`;
+                }else if (option.textContent === restaurantInfo.name) {
+                    title.innerHTML = `${restaurantInfo.name}`;
+                    txt.innerHTML = `${restaurantInfo.info.join('|')}`;
+                }
+
+                const closeBtn = document.querySelector('.close');
+                closeBtn.addEventListener('click', (close) => {
+                    card.innerHTML = '';
+                });
+            });
+        });
 
     </script>
 
