@@ -70,17 +70,17 @@
         const scene = new THREE.Scene();
         // scene.background = new THREE.Color('skyblue');
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.set(-15, 2, -15);
+        camera.position.set(-50, 20, -50);
         const renderer = new THREE.WebGLRenderer({
             alpha: true, // canvas是否包含alpha (透明度) 默认为 false
             antialias: true,
             precision: 'highp',
         });
-        const light = new THREE.AmbientLight(0x404040); // soft white light
-        scene.add(light);
-        const spotLight = new THREE.SpotLight(0x404040, 10000);
-        spotLight.position.set(0, 10, 0);
-        scene.add(spotLight);
+        // const light = new THREE.AmbientLight(0x404040); // soft white light
+        // scene.add(light);
+        // const spotLight = new THREE.SpotLight(0x404040, 10000);
+        // spotLight.position.set(0, 10, 0);
+        // scene.add(spotLight);
         // 如果丟掉某個東西上大小要記得改
         renderer.setSize(window.innerWidth, window.innerHeight);
         // 把東西丟到idiot這個ID上
@@ -89,12 +89,29 @@
         // GLTF載入器
         const loader = new GLTFLoader()
 
-        loader.load('../model/1.glb', function (object) {
+        loader.load('../model/0-campus-Vol2.glb', function (object) {
             // ALL是整個模組 root是模組裡各個"模型"的陣列
             const all = object.scene
             const root = object.scenes[0].children
             scene.add(all)
             console.log(root);
+
+            const extensionsUsed = object.parser.json.extensionsUsed;
+            const extensions = object.parser.json.extensions;
+
+            if (extensionsUsed.includes('KHR_lights_punctual')) {
+                // 扩展已使用，你可以访问 extensions 对象来获取扩展的数据
+                const lightsPunctualData = extensions.KHR_lights_punctual;
+                lightsPunctualData.lights[0].intensity = 10;
+                lightsPunctualData.lights[1].intensity = 10;
+                lightsPunctualData.lights[2].intensity = 10;
+                lightsPunctualData.lights[3].intensity = 10;
+                lightsPunctualData.lights[4].intensity = 10;
+                console.log('KHR_lights_punctual 数据:', lightsPunctualData.lights[0].intensity);
+                
+            } else {
+                console.log('未使用 KHR_lights_punctual 扩展');
+            }
         })
 
 
@@ -123,20 +140,20 @@
 
             // 點擊到的物件陣列裡是否有CUBE1110
             if (intersects.some(function (obj) {
-                return obj.object.name == "cube110"
+                return obj.object.name == "cube166"
             })) {
                 // 會到指定位置
-                location.href = "/html/academy.html";
+                // location.href = "/html/academy.html";
             }
-            console.log(event);
+            // console.log(event);
         };
         window.addEventListener('click', onclick);
 
         // 新增控制器
         const controls = new OrbitControls(camera, renderer.domElement);
 
-        controls.maxDistance = 10;
-        controls.minDistance = 5;
+        // controls.maxDistance = 10;
+        // controls.minDistance = 5;
 
         const gui = new GUI()
 
@@ -221,22 +238,22 @@
             {
                 name: '行政',
                 img: '../img/btn-images.jpg',
-                info: []
+                info: ['綜合教學大樓', '國農中心']
             },
             {
                 name: '圖書',
                 img: '../img/btn-images.jpg',
-                info: []
+                info: ['綜合教學大樓', '國農中心']
             },
             {
                 name: '體育',
                 img: '../img/btn-images.jpg',
-                info: []
+                info: ['綜合教學大樓', '國農中心']
             },
             {
                 name: '餐廳',
                 img: '../img/btn-images.jpg',
-                info: []
+                info: ['綜合教學大樓', '國農中心']
             },
         ];
 
@@ -271,11 +288,13 @@
                         `
                     });
                 }
+
             });
         });
 
         const options = document.querySelectorAll('.option');
-
+        
+        
         options.forEach((option, index) => {
             option.addEventListener('click', () => {
                 card.innerHTML = '';
@@ -294,7 +313,7 @@
                     <div class="card-title"></div>
                     <div class="card-txt"></div>
                     <div class="card-more">
-                        <a href="#">
+                        <a href="../html/academy.html">
                             <span>更多資訊</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="41" height="51" viewBox="0 0 41 51"
                                 fill="none">
@@ -306,8 +325,6 @@
                     </div>
                 </div>
                 `
-
-                console.log(option);
 
                 const title = document.querySelector('.card-title');
                 const txt = document.querySelector('.card-txt');
@@ -335,43 +352,43 @@
                 } else if (option.textContent === naturalResourcesInfo.name) {
                     title.innerHTML = `${naturalResourcesInfo.name}`;
                     txt.innerHTML = `${naturalResourcesInfo.info.join('|')}`;
-                }else if (option.textContent === facultyofScienceInfo.name) {
+                } else if (option.textContent === facultyofScienceInfo.name) {
                     title.innerHTML = `${facultyofScienceInfo.name}`;
                     txt.innerHTML = `${facultyofScienceInfo.info.join('|')}`;
-                }else if (option.textContent === EngineeringInfo.name) {
+                } else if (option.textContent === EngineeringInfo.name) {
                     title.innerHTML = `${EngineeringInfo.name}`;
                     txt.innerHTML = `${EngineeringInfo.info.join('|')}`;
-                }else if (option.textContent === lifeSciencesInfo.name) {
+                } else if (option.textContent === lifeSciencesInfo.name) {
                     title.innerHTML = `${lifeSciencesInfo.name}`;
                     txt.innerHTML = `${lifeSciencesInfo.info.join('|')}`;
-                }else if (option.textContent === veterinaryMedicineInfo.name) {
+                } else if (option.textContent === veterinaryMedicineInfo.name) {
                     title.innerHTML = `${veterinaryMedicineInfo.name}`;
                     txt.innerHTML = `${veterinaryMedicineInfo.info.join('|')}`;
-                }else if (option.textContent === managementInfo.name) {
+                } else if (option.textContent === managementInfo.name) {
                     title.innerHTML = `${managementInfo.name}`;
                     txt.innerHTML = `${managementInfo.info.join('|')}`;
-                }else if (option.textContent === lawAndPoliticsInfo.name) {
+                } else if (option.textContent === lawAndPoliticsInfo.name) {
                     title.innerHTML = `${lawAndPoliticsInfo.name}`;
                     txt.innerHTML = `${lawAndPoliticsInfo.info.join('|')}`;
-                }else if (option.textContent === electricalEngineeringInfo.name) {
+                } else if (option.textContent === electricalEngineeringInfo.name) {
                     title.innerHTML = `${electricalEngineeringInfo.name}`;
                     txt.innerHTML = `${electricalEngineeringInfo.info.join('|')}`;
-                }else if (option.textContent === medicalInfo.name) {
+                } else if (option.textContent === medicalInfo.name) {
                     title.innerHTML = `${medicalInfo.name}`;
                     txt.innerHTML = `${medicalInfo.info.join('|')}`;
-                }else if (option.textContent === industryInfo.name) {
+                } else if (option.textContent === industryInfo.name) {
                     title.innerHTML = `${industryInfo.name}`;
                     txt.innerHTML = `${industryInfo.info.join('|')}`;
-                }else if (option.textContent === administrativeInfo.name) {
+                } else if (option.textContent === administrativeInfo.name) {
                     title.innerHTML = `${administrativeInfo.name}`;
                     txt.innerHTML = `${administrativeInfo.info.join('|')}`;
-                }else if (option.textContent === booksInfo.name) {
+                } else if (option.textContent === booksInfo.name) {
                     title.innerHTML = `${booksInfo.name}`;
                     txt.innerHTML = `${booksInfo.info.join('|')}`;
-                }else if (option.textContent === physicalEducationInfo.name) {
+                } else if (option.textContent === physicalEducationInfo.name) {
                     title.innerHTML = `${physicalEducationInfo.name}`;
                     txt.innerHTML = `${physicalEducationInfo.info.join('|')}`;
-                }else if (option.textContent === restaurantInfo.name) {
+                } else if (option.textContent === restaurantInfo.name) {
                     title.innerHTML = `${restaurantInfo.name}`;
                     txt.innerHTML = `${restaurantInfo.info.join('|')}`;
                 }
