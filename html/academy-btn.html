@@ -84,12 +84,12 @@
             var currentData = academy[i];
             // console.log(currentData);
             academyBtn.innerHTML += `
-            <button class="link" id="${currentData.link}">
+            <a class="link" id="${currentData.link}">
                 <div class="box">
-                    <div class="img"><img src=" ${currentData.img} " alt=""></div>
+                    <img src=" ${currentData.image} " alt="">
                     <div class="txt"> ${currentData.name}</div>
                 </div>
-            </button>           
+            </a>           
             `
         }
 

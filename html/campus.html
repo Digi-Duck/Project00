@@ -14,7 +14,7 @@
 
 <body>
     <!-- loading -->
-    <!-- <div id="loader">
+    <div id="loader">
         <div class="scene">
             <div class="cube-wrapper">
                 <div class="cube">
@@ -31,7 +31,7 @@
             </div>
             <span class="loader"></span>
         </div>
-    </div> -->
+    </div>
     <!-- 本頁內容 -->
     <div class="container">
         <nav class="nav">
@@ -90,7 +90,7 @@
         import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
         import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-        import { GUI } from "three/addons/libs/lil-gui.module.min.js";
+        // import { GUI } from "three/addons/libs/lil-gui.module.min.js";
         import * as THREE from 'three';
         import { academy } from "../js/main.js"
 
@@ -259,7 +259,7 @@
                     <div class="card-title">${info.name}</div>
                     <div class="card-txt">${info.info.join('|')}</div>
                     <div class="card-more">
-                        <button id="${info.link}">
+                        <a href="#" id="${info.link}">
                             <span>更多資訊</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="41" height="51" viewBox="0 0 41 51"
                                 fill="none">
@@ -267,7 +267,7 @@
                                     d="M7.45459 18.5455H33.5455V23.1818H31.6819V25.5H29.8182V27.8182H27.9546V30.1364H26.091V32.4546H24.2273V34.7727H22.3637V37.0909H18.6364V34.7727H16.7728V32.4546H14.9091V30.1364H13.0455V27.8182H11.1819V25.5H9.31823V23.1818H7.45459V18.5455ZM14.9091 23.1818V25.5H16.7728V27.8182H18.6364V30.1364H22.3637V27.8182H24.2273V25.5H26.091V23.1818H14.9091Z"
                                     fill="#C0AE67" />
                             </svg>
-                        </button>  
+                        </a>  
                     </div>
                 </div>
                 `
@@ -299,8 +299,8 @@
             precision: 'highp',
             antialias: true,
         });
-        const light = new THREE.AmbientLight(0x404040); // soft white light
-        scene.add(light);
+        // const light = new THREE.AmbientLight(0x404040); // soft white light
+        // scene.add(light);
         const spotLight = new THREE.SpotLight(0x404040, 100000);
         spotLight.position.set(0, 50, 0);
         scene.add(spotLight);
@@ -312,19 +312,16 @@
         // 把東西丟到idiot這個ID上
         idiot.appendChild(renderer.domElement);
 
-        const group = new THREE.Group();
-
         // GLTF載入器
         const loader = new GLTFLoader()
 
         let model1;
-        let model2;
 
         loader.load('../model/0.glb', function (object) {
             // ALL是整個模組 root是模組裡各個"模型"的陣列
             model1 = object.scene;
             const root = object.scenes[0].children;
-            group.add(model1);
+            scene.add(model1);
             console.log(root);
 
             // const extensionsUsed = object.parser.json.extensionsUsed;
@@ -345,21 +342,13 @@
             // }
         })
 
-        loader.load('../model/5.glb', function (model) {
-            model2 = model.scene;
-            model2.position.set(15, 0, -15);
-            group.add(model2);
-        })
-
-        scene.add(group);
-
         // 宣告zoom-in的效果
         const zoomInTimeline = (x, y, z, zoomOutFactor = 0) => {
             let tl = gsap
                 .timeline({ defaults: { duration: 1.5, ease: "expo.out" } })
                 .to(controls.target, { x, y, z })
                 .to(camera.position, { x, y, z: z + zoomOutFactor }, 0)
-                .to(group.rotation, { x: 0, y: 0 }, 0);
+            // .to(group.rotation, { x: 0, y: 0 }, 0);
         };
 
         console.log(options[0]);
@@ -367,76 +356,105 @@
         // 文學院
         options[0].addEventListener("click", () => {
             zoomInTimeline(35, 8, 55);
+            spotLight.position.set(35, 40, 55);
         });
 
         // 農業暨自然資源學院
         options[1].addEventListener("click", () => {
             zoomInTimeline(-4, 10, 23);
+            spotLight.position.set(-4, 40, 23);
+
         });
 
         // 理學院
         options[2].addEventListener("click", () => {
             zoomInTimeline(-18, 8, 15);
+            spotLight.position.set(-18, 40, 15);
+
         });
 
         // 工學院
         options[3].addEventListener("click", () => {
             zoomInTimeline(-34, 8, 18);
+            spotLight.position.set(-34, 40, 18);
+
         });
 
         // 生命科學院
         options[4].addEventListener("click", () => {
             zoomInTimeline(5, 8, 35);
+            spotLight.position.set(5, 40, 35);
+
         });
 
         // 獸醫學院
         options[5].addEventListener("click", () => {
             zoomInTimeline(-34, 8, -16);
+            spotLight.position.set(-34, 40, -16);
+
         });
 
         // 管理學院
         options[6].addEventListener("click", () => {
             zoomInTimeline(35, 8, 32);
+            spotLight.position.set(35, 40, 32);
+
         });
 
         // 法政學院
         options[7].addEventListener("click", () => {
             zoomInTimeline(29, 8, 18);
+            spotLight.position.set(29, 40, 18);
+
         });
 
         // 電機資訊學院
         options[8].addEventListener("click", () => {
             zoomInTimeline(-8, 8, 44);
+            spotLight.position.set(-8, 40, 44);
+
         });
 
         // 醫學院
         options[9].addEventListener("click", () => {
             zoomInTimeline(-33, 8, 45);
+            spotLight.position.set(-33, 40, 45);
+
         });
 
         // 創新產業暨國際學院
         options[10].addEventListener("click", () => {
             zoomInTimeline(35, 8, 32);
+            spotLight.position.set(35, 40, 32);
+
         });
 
         // 行政
         options[11].addEventListener("click", () => {
             zoomInTimeline(17, 8, 38);
+            spotLight.position.set(17, 40, 38);
+
         });
 
         // 圖書
         options[12].addEventListener("click", () => {
             zoomInTimeline(18, 8, 10);
+            spotLight.position.set(18, 40, 10);
+
         });
 
         // 體育
         options[13].addEventListener("click", () => {
             zoomInTimeline(20, 8, -2);
+            spotLight.position.set(20, 40, -2);
+
         });
 
         // 餐廳
         options[14].addEventListener("click", () => {
-            zoomInTimeline(24, 8, 10);
+            zoomInTimeline(-17, 10, 55);
+            spotLight.position.set(-17, 40, 55);
+
         });
 
         function animate() {
@@ -507,30 +525,30 @@
         // controls.minPolarAngle = Math.PI / 2; // 最小极角（垂直旋转）为45度
         // controls.maxPolarAngle = Math.PI / 2; // 最大极角也为45度
 
-        controls.mouseButtons = {
-            LEFT: THREE.MOUSE.PAN,
-            MIDDLE: THREE.MOUSE.DOLLY,
-            RIGHT: THREE.MOUSE.ROTATE
-        }
+        // controls.mouseButtons = {
+        //     LEFT: THREE.MOUSE.PAN,
+        //     MIDDLE: THREE.MOUSE.DOLLY,
+        //     RIGHT: THREE.MOUSE.ROTATE
+        // }
 
-        // const onWindowResize = () => {
-        //     camera.aspect = idiot.clientWidth / idiot.clientHeight;
-        //     camera.updateProjectionMatrix();
-        //     renderer.setSize(idiot.clientWidth, idiot.clientHeight);
-        // };
+        const onWindowResize = () => {
+            camera.aspect = idiot.clientWidth / idiot.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(idiot.clientWidth, idiot.clientHeight);
+        };
 
-        // window.addEventListener("resize", onWindowResize, false);
+        window.addEventListener("resize", onWindowResize, false);
 
-        const gui = new GUI()
+        // const gui = new GUI()
 
-        const cameraFolder = gui.addFolder('Camera')
-        cameraFolder.add(camera.position, 'z', 0, 10)
-        cameraFolder.open()
+        // const cameraFolder = gui.addFolder('Camera')
+        // cameraFolder.add(camera.position, 'z', 0, 10)
+        // cameraFolder.open()
 
         animate();
     </script>
 
-    <!-- <script>
+    <script>
         //loading
         const loading = document.onreadystatechange = function () {
             if (document.readyState === "complete") {
@@ -544,7 +562,7 @@
             } else { }
         };
         console.log(loading)
-    </script> -->
+    </script>
 
 </body>
 

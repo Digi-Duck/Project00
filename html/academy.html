@@ -145,11 +145,11 @@
 
 
         // 聚光燈顏色跟強度 參數一是顏色 參數二是強度
-        const spotLight = new THREE.SpotLight(0x404040, 100000);
-        scene.add(spotLight);
+        const ambientLight = new THREE.AmbientLight( 0x404040, 100 );
+        scene.add(ambientLight);
 
         // 聚光燈位置，如果模型不會亮調整中間的數值就可以
-        spotLight.position.set(0, 20, 0);
+        // ambientLight.position.set(0, 20, 0);
         // 如果丟掉某個東西上大小要記得改
         renderer.setSize(window.innerWidth, window.innerHeight);
         // 把東西丟到idiot這個ID上
