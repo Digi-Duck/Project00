@@ -350,13 +350,6 @@
             // }
         })
 
-        const controls = new OrbitControls(camera, renderer.domElement);
-
-        controls.enableRotate = false;
-        // 固定模型在45度角
-        controls.target.set(0, 0, 0); // 将控制器的目标点设置在原点
-
-
         // 宣告zoom-in的效果
         const zoomInTimeline = (x, y, z, zoomOutFactor = 0) => {
             let tl = gsap
@@ -477,35 +470,6 @@
             renderer.render(scene, camera);
         }
 
-        // 下面是RAYCASTER
-        // const raycaster = new THREE.Raycaster();
-        // const pointer = new THREE.Vector2();
-
-        // // onclick這個function是滑鼠點到指定事件會觸發指定事件
-        // function onclick(event) {
-
-        //     // 将鼠标位置归一化为设备坐标。x 和 y 方向的取值范围是 (-1 to +1)
-        //     // 1920和955這個數值是three.js視窗大小(應該)
-        //     // 如果把three.js丟到東西上 OFFEST參數可能不大依樣
-        //     pointer.x = (event.offsetX / 1920) * 2 - 1;
-        //     pointer.y = - (event.offsetY / 955) * 2 + 1;
-        //     raycaster.setFromCamera(pointer, camera);
-        //     // 获取raycaster直线和所有模型相交的数组集合
-        //     var intersects = raycaster.intersectObjects(scene.children);
-
-        //     // 點擊到的物件陣列裡是否有CUBE1110
-        //     if (intersects.some(function (obj) {
-        //         return obj.object.name == "cube148";
-        //     })) {
-        //         // 會到指定位置
-        //         // location.href = "/html/academy.html";
-        //         console.log(123);
-        //     }
-        //     // console.log(event);
-        // };
-
-        // window.addEventListener('click', onclick);
-
         // 添加事件监听器
         // window.addEventListener('click', onDocumentClick);
 
@@ -529,7 +493,15 @@
         //     }
         // }
 
+        // 問老師
         // 新增控制器
+        const controls = new OrbitControls(camera, renderer.domElement);
+
+        // controls.enableRotate = false;
+        // // 固定模型在45度角
+        // controls.target.set(0, 0, 0); // 将控制器的目标点设置在原点
+
+
 
         // // 限制控制器只能左右旋转
         // controls.minPolarAngle = Math.PI / 2; // 最小极角（垂直旋转）为45度
@@ -555,12 +527,6 @@
         // };
 
         // window.addEventListener("resize", onWindowResize, false);
-
-        // const gui = new GUI()
-
-        // const cameraFolder = gui.addFolder('Camera')
-        // cameraFolder.add(camera.position, 'z', 0, 10)
-        // cameraFolder.open()
 
         animate();
     </script>
