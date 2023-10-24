@@ -14,7 +14,7 @@
 
 <body>
     <!-- loading -->
-    <div id="loader">
+    <!-- <div id="loader">
         <div class="scene">
             <div class="cube-wrapper">
                 <div class="cube">
@@ -31,7 +31,7 @@
             </div>
             <span class="loader"></span>
         </div>
-    </div>
+    </div> -->
     <!-- 本頁內容 -->
     <div class="container">
         <nav class="nav">
@@ -277,6 +277,12 @@
                     localStorage.setItem('data', `${info.name}`);
                     location.href = 'academy.html';
                 });
+
+                const closeCard = document.querySelector('.close');
+
+                closeCard.addEventListener('click', () => {
+                    card.innerHTML = '';
+                });
             });
         });
 
@@ -286,7 +292,7 @@
         const scene = new THREE.Scene();
         // scene.background = new THREE.Color('skyblue');
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.set(-15, 5, -15);
+        camera.position.set(45, 15, 55);
         const renderer = new THREE.WebGLRenderer({
             alpha: true, // canvas是否包含alpha (透明度) 默认为 false
             antialias: true,
@@ -358,13 +364,79 @@
 
         console.log(options[0]);
 
+        // 文學院
         options[0].addEventListener("click", () => {
-            zoomInTimeline(-15, 5, -15);
+            zoomInTimeline(35, 8, 55);
         });
 
+        // 農業暨自然資源學院
         options[1].addEventListener("click", () => {
-            zoomInTimeline((model2.position.x - 5), (model2.position.y + 2), (model2.position.z - 5));
-            console.log(model2);
+            zoomInTimeline(-4, 10, 23);
+        });
+
+        // 理學院
+        options[2].addEventListener("click", () => {
+            zoomInTimeline(-18, 8, 15);
+        });
+
+        // 工學院
+        options[3].addEventListener("click", () => {
+            zoomInTimeline(-34, 8, 18);
+        });
+
+        // 生命科學院
+        options[4].addEventListener("click", () => {
+            zoomInTimeline(5, 8, 35);
+        });
+
+        // 獸醫學院
+        options[5].addEventListener("click", () => {
+            zoomInTimeline(-34, 8, -16);
+        });
+
+        // 管理學院
+        options[6].addEventListener("click", () => {
+            zoomInTimeline(35, 8, 32);
+        });
+
+        // 法政學院
+        options[7].addEventListener("click", () => {
+            zoomInTimeline(29, 8, 18);
+        });
+
+        // 電機資訊學院
+        options[8].addEventListener("click", () => {
+            zoomInTimeline(-8, 8, 44);
+        });
+
+        // 醫學院
+        options[9].addEventListener("click", () => {
+            zoomInTimeline(-33, 8, 45);
+        });
+
+        // 創新產業暨國際學院
+        options[10].addEventListener("click", () => {
+            zoomInTimeline(35, 8, 32);
+        });
+
+        // 行政
+        options[11].addEventListener("click", () => {
+            zoomInTimeline(17, 8, 38);
+        });
+
+        // 圖書
+        options[12].addEventListener("click", () => {
+            zoomInTimeline(18, 8, 10);
+        });
+
+        // 體育
+        options[13].addEventListener("click", () => {
+            zoomInTimeline(20, 8, -2);
+        });
+
+        // 餐廳
+        options[14].addEventListener("click", () => {
+            zoomInTimeline(24, 8, 10);
         });
 
         function animate() {
@@ -373,46 +445,81 @@
         }
 
         // 下面是RAYCASTER
-        const raycaster = new THREE.Raycaster();
-        const pointer = new THREE.Vector2();
+        // const raycaster = new THREE.Raycaster();
+        // const pointer = new THREE.Vector2();
 
-        // onclick這個function是滑鼠點到指定事件會觸發指定事件
-        function onclick(event) {
+        // // onclick這個function是滑鼠點到指定事件會觸發指定事件
+        // function onclick(event) {
 
-            // 将鼠标位置归一化为设备坐标。x 和 y 方向的取值范围是 (-1 to +1)
-            // 1920和955這個數值是three.js視窗大小(應該)
-            // 如果把three.js丟到東西上 OFFEST參數可能不大依樣
-            pointer.x = (event.offsetX / 1920) * 2 - 1;
-            pointer.y = - (event.offsetY / 955) * 2 + 1;
-            raycaster.setFromCamera(pointer, camera);
-            // 获取raycaster直线和所有模型相交的数组集合
-            var intersects = raycaster.intersectObjects(scene.children);
+        //     // 将鼠标位置归一化为设备坐标。x 和 y 方向的取值范围是 (-1 to +1)
+        //     // 1920和955這個數值是three.js視窗大小(應該)
+        //     // 如果把three.js丟到東西上 OFFEST參數可能不大依樣
+        //     pointer.x = (event.offsetX / 1920) * 2 - 1;
+        //     pointer.y = - (event.offsetY / 955) * 2 + 1;
+        //     raycaster.setFromCamera(pointer, camera);
+        //     // 获取raycaster直线和所有模型相交的数组集合
+        //     var intersects = raycaster.intersectObjects(scene.children);
 
-            // 點擊到的物件陣列裡是否有CUBE1110
-            if (intersects.some(function (obj) {
-                return obj.object.name == "cube148";
-            })) {
-                // 會到指定位置
-                // location.href = "/html/academy.html";
-                console.log(123);
+        //     // 點擊到的物件陣列裡是否有CUBE1110
+        //     if (intersects.some(function (obj) {
+        //         return obj.object.name == "cube148";
+        //     })) {
+        //         // 會到指定位置
+        //         // location.href = "/html/academy.html";
+        //         console.log(123);
+        //     }
+        //     // console.log(event);
+        // };
+
+        // window.addEventListener('click', onclick);
+
+        // 添加事件监听器
+        window.addEventListener('click', onDocumentClick);
+
+        function onDocumentClick(event) {
+            // 获取鼠标点击位置的屏幕坐标
+            const mouse = new THREE.Vector2((event.clientX / window.innerWidth) * 2 - 1, -(event.clientY / window.innerHeight) * 2 + 1);
+
+            // 从相机位置发射一条射线
+            const raycaster = new THREE.Raycaster();
+            raycaster.setFromCamera(mouse, camera);
+
+            // 计算射线与模型的相交点
+            const intersects = raycaster.intersectObject(model1, true);
+
+            if (intersects.length > 0) {
+                // 获取第一个相交点的坐标
+                const intersectionPoint = intersects[0].point;
+
+                // 在这里，你可以根据相交点的坐标来计算建筑物的相对位置
+                console.log('相对位置:', intersectionPoint);
             }
-            // console.log(event);
-        };
-
-        window.addEventListener('click', onclick);
+        }
 
         // 新增控制器
         const controls = new OrbitControls(camera, renderer.domElement);
 
-        controls.enableRotate = false;
+        // controls.enableRotate = false;
+        // 固定模型在45度角
+        // controls.target.set(0, 0, 0); // 将控制器的目标点设置在原点
 
-        const onWindowResize = () => {
-            camera.aspect = idiot.clientWidth / idiot.clientHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(idiot.clientWidth, idiot.clientHeight);
-        };
+        // // 限制控制器只能左右旋转
+        // controls.minPolarAngle = Math.PI / 2; // 最小极角（垂直旋转）为45度
+        // controls.maxPolarAngle = Math.PI / 2; // 最大极角也为45度
 
-        window.addEventListener("resize", onWindowResize, false);
+        controls.mouseButtons = {
+            LEFT: THREE.MOUSE.PAN,
+            MIDDLE: THREE.MOUSE.DOLLY,
+            RIGHT: THREE.MOUSE.ROTATE
+        }
+
+        // const onWindowResize = () => {
+        //     camera.aspect = idiot.clientWidth / idiot.clientHeight;
+        //     camera.updateProjectionMatrix();
+        //     renderer.setSize(idiot.clientWidth, idiot.clientHeight);
+        // };
+
+        // window.addEventListener("resize", onWindowResize, false);
 
         const gui = new GUI()
 
@@ -422,6 +529,22 @@
 
         animate();
     </script>
+
+    <!-- <script>
+        //loading
+        const loading = document.onreadystatechange = function () {
+            if (document.readyState === "complete") {
+                setTimeout(function () {
+                    document.querySelector("#loader").style.opacity = "0";
+                    setTimeout(function () {
+                        document.querySelector("#loader").style.display = "none";
+                    }, 2000);
+                }, 4200);
+
+            } else { }
+        };
+        console.log(loading)
+    </script> -->
 
 </body>
 
