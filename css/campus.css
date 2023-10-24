@@ -151,6 +151,12 @@ main canvas {
     display: block;
 }
 
+.option.light {
+    color: #C0AE67;
+    border-bottom: solid 3px #C0AE67;
+    background-color: #293855;
+}
+
 .card {
     position: absolute;
     width: 700px;
@@ -282,6 +288,13 @@ main canvas {
     height: 225px;
     border-radius: 50%;
     background-color: #293855;
+}
+
+.group-img  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .group-position {
