@@ -77,6 +77,8 @@
 
     <script type="module">
         import { academy } from "../js/main.js";
+        import { groupMember } from "../js/member.js";
+
         const academyBtn = document.querySelector('.big-box');
 
         // 用迴圈生成出個系所的按鈕
@@ -186,28 +188,28 @@
         // });
 
 
-        const groupMember = [
-            {
-                name: '黃絜琳',
-                position: '組長/程式',
-            },
-            {
-                name: '蔡明哲',
-                position: '程式',
-            },
-            {
-                name: '陳映達',
-                position: '企劃',
-            },
-            {
-                name: '吳睿燊',
-                position: '設計',
-            },
-            {
-                name: '賴菱俐',
-                position: '設計',
-            },
-        ]
+        // const groupMember = [
+        //     {
+        //         name: '黃絜琳',
+        //         position: '組長/程式',
+        //     },
+        //     {
+        //         name: '蔡明哲',
+        //         position: '程式',
+        //     },
+        //     {
+        //         name: '陳映達',
+        //         position: '企劃',
+        //     },
+        //     {
+        //         name: '吳睿燊',
+        //         position: '設計',
+        //     },
+        //     {
+        //         name: '賴菱俐',
+        //         position: '設計',
+        //     },
+        // ]
         const aboutUs = document.querySelector('.about-us');
         const aboutBtn = document.querySelector('.about-icon');
 
@@ -236,7 +238,7 @@
             groupMember.forEach((member) => {
                 group.innerHTML += `
                 <div class="group">
-                    <div class="group-img"></div>
+                    <div class="group-img"><img src="${member.image}" alt=""></div>
                     <div class="group-position">${member.position}</div>
                     <div class="group-member">${member.name}</div>
                 </div>
