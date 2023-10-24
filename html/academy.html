@@ -7,11 +7,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/loading-style.css">
     <link rel="stylesheet" href="../css/academy.css" />
     <title>Document</title>
 </head>
 
 <body>
+    <!-- loading -->
+    <div id="loader">
+        <div class="scene">
+            <div class="cube-wrapper">
+                <div class="cube">
+                    <div class="cube-faces">
+                        <div class="cube-face shadow"></div>
+                        <div class="cube-face bottom"></div>
+                        <div class="cube-face top"></div>
+                        <div class="cube-face left"></div>
+                        <div class="cube-face right"></div>
+                        <div class="cube-face back"></div>
+                        <div class="cube-face front"></div>
+                    </div>
+                </div>
+            </div>
+            <span class="loader"></span>
+        </div>
+    </div>
+    <!-- 本頁內容 -->
     <div class="container">
         <nav class="nav">
             <!-- 導覽列按鈕 -->
@@ -25,7 +46,7 @@
                     </svg>
                 </a>
                 <!-- about us 按鈕 -->
-                <a href="" class="icon">
+                <a href="#" class="about-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
                         <path
                             d="M27.5004 9.89999C27.5004 11.3587 26.9209 12.7576 25.8895 13.7891C24.858 14.8205 23.4591 15.4 22.0004 15.4C20.5417 15.4 19.1428 14.8205 18.1113 13.7891C17.0799 12.7576 16.5004 11.3587 16.5004 9.89999C16.5004 8.4413 17.0799 7.04236 18.1113 6.01091C19.1428 4.97946 20.5417 4.39999 22.0004 4.39999C23.4591 4.39999 24.858 4.97946 25.8895 6.01091C26.9209 7.04236 27.5004 8.4413 27.5004 9.89999ZM38.5004 11C38.5004 12.1669 38.0368 13.2861 37.2117 14.1113C36.3865 14.9364 35.2673 15.4 34.1004 15.4C32.9334 15.4 31.8143 14.9364 30.9891 14.1113C30.164 13.2861 29.7004 12.1669 29.7004 11C29.7004 9.83304 30.164 8.71388 30.9891 7.88872C31.8143 7.06356 32.9334 6.59999 34.1004 6.59999C35.2673 6.59999 36.3865 7.06356 37.2117 7.88872C38.0368 8.71388 38.5004 9.83304 38.5004 11ZM9.90039 15.4C11.0673 15.4 12.1865 14.9364 13.0117 14.1113C13.8368 13.2861 14.3004 12.1669 14.3004 11C14.3004 9.83304 13.8368 8.71388 13.0117 7.88872C12.1865 7.06356 11.0673 6.59999 9.90039 6.59999C8.73344 6.59999 7.61428 7.06356 6.78912 7.88872C5.96396 8.71388 5.50039 9.83304 5.50039 11C5.50039 12.1669 5.96396 13.2861 6.78912 14.1113C7.61428 14.9364 8.73344 15.4 9.90039 15.4ZM13.2004 20.35C13.2004 18.832 14.4324 17.6 15.9504 17.6H28.0504C29.5684 17.6 30.8004 18.832 30.8004 20.35V30.8C30.8004 33.1339 29.8733 35.3722 28.2229 37.0225C26.5726 38.6729 24.3343 39.6 22.0004 39.6C19.6665 39.6 17.4282 38.6729 15.7779 37.0225C14.1275 35.3722 13.2004 33.1339 13.2004 30.8V20.35ZM11.0004 20.35C11.0004 19.3314 11.3084 18.3876 11.8342 17.6H7.15039C5.63239 17.6 4.40039 18.832 4.40039 20.35V28.6C4.40029 29.5419 4.60178 30.4728 4.99131 31.3304C5.38085 32.1879 5.94942 32.9521 6.65881 33.5717C7.3682 34.1913 8.20199 34.6518 9.10414 34.9224C10.0063 35.193 10.9559 35.2674 11.8892 35.1406C11.3006 33.7693 10.9981 32.2923 11.0004 30.8V20.35ZM33.0004 30.8C33.0004 32.34 32.6836 33.8096 32.1116 35.1406C33.0449 35.2674 33.9945 35.193 34.8966 34.9224C35.7988 34.6518 36.6326 34.1913 37.342 33.5717C38.0514 32.9521 38.6199 32.1879 39.0095 31.3304C39.399 30.4728 39.6005 29.5419 39.6004 28.6V20.35C39.6004 18.832 38.3684 17.6 36.8504 17.6H32.1666C32.6946 18.3876 33.0004 19.3314 33.0004 20.35V30.8Z"
@@ -44,51 +65,21 @@
                             <p></p>
                         </li>
                     </ul>
-                    <div class="choose-btn">
-                        <a href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="39" height="45" viewBox="0 0 39 45"
-                                fill="none">
-                                <path
-                                    d="M16.7143 45H22.2857V11.25H27.8571V5.625H22.2857V0H16.7143V5.625H11.1429V11.25H16.7143V45ZM5.57143 16.875V11.25H11.1429V16.875H5.57143ZM5.57143 16.875V22.5H0V16.875H5.57143ZM33.4286 16.875V11.25H27.8571V16.875H33.4286ZM33.4286 16.875V22.5H39V16.875H33.4286Z"
-                                    fill="#C0AE67" />
-                            </svg>
-                        </a>
-                    </div>
                 </div>
                 <div class="info-right">
-                    <div class="right-title">農業暨自然資源學院</div>
-                    <div class="right-content">
-                        農藝學系 <br>
-                        園藝學系 <br>
-                        森林學系 <br>
-                        應用經濟學系 <br>
-                        植物病理學系 <br>
-                        昆蟲學系 <br>
-                        動物科學系 <br>
-                        土壤環境科學系 <br>
-                        水土保持學系 <br>
-                        食品暨應用生物科技學系 <br>
-                        生物產業機電工程學系 <br>
-                        生物產業管理研究所 <br>
-                        生物科技學研究所 <br>
-                        食品安全研究所 <br>
-                        生物產業管理進修學士學位學程 <br>
-                        生物科技學士學位學程 <br>
-                        景觀與遊憩學士學位、碩士學位學程 <br>
-                        國際農企業學士學程 <br>
-                        國際農學碩士學程 <br>
-                        農業企業經營管理碩士在職專班 <br>
-                        農業經濟與行銷碩士學位學程 <br>
-                        植物醫學暨安全農業碩士學位學程 <br>
-                        國際農學博士學位學程 <br>
-                        <hr>
-                        <h2>本院簡史</h2>
-                        國立中興大學農資學院成立於1948年，最初名為「國立中興大學農學院」。1999年更名為「農業暨自然資源學院」以反映更多元化的學科領域。
-                        <hr>
-                        <h2>教育目標</h2>
-                        學院的創立是為了提供農業和資源管理領域的教育和研究機會，以支持台灣的農業發展和自然資源管理。農學院的主要任務是培育農業專業人才，以應對農業產業的需求。在教學國際化方面，為求發展多元，因此強化課程整合與英語教學已成為當前努力目標
-                    </div>
+                    <div class="right-title"></div>
+                    <div class="right-content"></div>
                 </div>
+            </div>
+
+            <div class="choose-btn">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="39" height="45" viewBox="0 0 39 45" fill="none">
+                        <path
+                            d="M16.7143 45H22.2857V11.25H27.8571V5.625H22.2857V0H16.7143V5.625H11.1429V11.25H16.7143V45ZM5.57143 16.875V11.25H11.1429V16.875H5.57143ZM5.57143 16.875V22.5H0V16.875H5.57143ZM33.4286 16.875V11.25H27.8571V16.875H33.4286ZM33.4286 16.875V22.5H39V16.875H33.4286Z"
+                            fill="#C0AE67" />
+                    </svg>
+                </a>
             </div>
 
             <div class="jump-menu hidden">
@@ -105,179 +96,21 @@
             </div>
         </main>
     </div>
+    <div class="about-us"></div>
 
     <script>
-        const academy = [
-            {
-                name: '文學院',
-                img: '../img/btn-images.jpg',
-                info: ['人文大樓'],
-            },
-            {
-                name: '農業暨自然資源學院',
-                img: '../img/btn-images.jpg',
-                info: ['作物科學大樓', '作物科學大樓2樓', '森林館', '應經一館', '農環大樓',
-                    '動科系館', '水土保持館', '食品暨生物科技大樓', '生機大樓', '生管所', '食安大樓',
-                    '綜合教學大樓', '國農大樓', '舊理工大樓', '國農中心', '應用經濟學系一館']
-            },
-            {
-                name: '理學院',
-                img: '../img/btn-images.jpg',
-                info: ['化學館', '資訊科學大樓', '理學大樓', '資訊科學大樓']
-            },
-            {
-                name: '工學院',
-                img: '../img/btn-images.jpg',
-                info: ['土木環工大樓', '混擬土科技研究中心', '應用科技大樓', '機械系館'
-                    , '化材大樓', '應用科技大樓']
-            },
-            {
-                name: '生命科學院',
-                img: '../img/btn-images.jpg',
-                info: ['生命科學大樓', '防疫檢疫大樓']
-            },
-            {
-                name: '獸醫學院',
-                img: '../img/btn-images.jpg',
-                info: ['獸醫系館', '動物疾病診斷中心']
-            },
-            {
-                name: '管理學院',
-                img: '../img/btn-images.jpg',
-                info: ['社管大樓', '綜合教學大樓']
-            },
-            {
-                name: '法政學院',
-                img: '../img/btn-images.jpg',
-                info: ['社管大樓']
-            },
-            {
-                name: '電機資訊學院',
-                img: '../img/btn-images.jpg',
-                info: ['電機大樓', '理學大樓']
-            },
-            {
-                name: '醫學院',
-                img: '../img/btn-images.jpg',
-                info: ['國農中心', '生命科學大樓', '防疫檢疫大樓']
-            },
-            {
-                name: '創新產業暨國際學院',
-                img: '../img/btn-images.jpg',
-                info: ['綜合教學大樓', '國農中心']
-            },
-            {
-                name: '行政',
-                img: '../img/btn-images.jpg',
-                info: ['']
-            },
-            {
-                name: '圖書',
-                img: '../img/btn-images.jpg',
-                info: ['']
-            },
-            {
-                name: '體育',
-                img: '../img/btn-images.jpg',
-                info: ['']
-            },
-            {
-                name: '餐廳',
-                img: '../img/btn-images.jpg',
-                info: ['']
-            },
-
-        ]
-
-        const openMenu = document.querySelector('.choose-btn');
-        const closeMenu = document.querySelector('.close-menu');
-        const menu = document.querySelector('.jump-menu');
-
-        openMenu.addEventListener('click', (toggle) => {
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
-                openMenu.classList.add('hidden');
-            } else {
-                menu.classList.add('hidden');
-            }
-        });
-
-        closeMenu.addEventListener('click', (close) => {
-            if (menu.classList.contains('hidden')) {
-                return;
-            } else {
-                menu.classList.add('hidden');
-                openMenu.classList.remove('hidden');
-            }
-        });
-
-        const menuBox = document.querySelector('.menu-btn-box');
-        const building = document.querySelector('.building-list p');
-
-        academy.forEach(e => {
-            // console.log(e);
-            menuBox.innerHTML += `
-                <div class="menu-btn">${e.name}</div>
-            `
-
-            const menuBtn = document.querySelectorAll('.menu-btn');
-
-            menuBtn.forEach((btn) => {
-                // console.log(btn);
-                btn.addEventListener('click', () => {
-                    const literatureInfo = academy.find(item => item.name === '文學院');
-                    const naturalResourcesInfo = academy.find(item => item.name === '農業暨自然資源學院');
-                    const facultyofScienceInfo = academy.find(item => item.name === '理學院');
-                    const EngineeringInfo = academy.find(item => item.name === '工學院');
-                    const lifeSciencesInfo = academy.find(item => item.name === '生命科學院');
-                    const veterinaryMedicineInfo = academy.find(item => item.name === '獸醫學院');
-                    const managementInfo = academy.find(item => item.name === '管理學院');
-                    const lawAndPoliticsInfo = academy.find(item => item.name === '法政學院');
-                    const electricalEngineeringInfo = academy.find(item => item.name === '電機資訊學院');
-                    const medicalInfo = academy.find(item => item.name === '醫學院');
-                    const industryInfo = academy.find(item => item.name === '創新產業暨國際學院');
-                    const administrativeInfo = academy.find(item => item.name === '行政');
-                    const booksInfo = academy.find(item => item.name === '圖書');
-                    const physicalEducationInfo = academy.find(item => item.name === '體育');
-                    const restaurantInfo = academy.find(item => item.name === '餐廳');
-
-                    console.log(btn.textContent, literatureInfo.name);
-                    if (btn.textContent == literatureInfo.name) {
-                        building.innerHTML = literatureInfo.info.join('<br>')
-                    } else if (btn.textContent == naturalResourcesInfo.name) {
-                        building.innerHTML = naturalResourcesInfo.info.join('<br>')
-                    } else if (btn.textContent == facultyofScienceInfo.name) {
-                        building.innerHTML = facultyofScienceInfo.info.join('<br>')
-                    } else if (btn.textContent == EngineeringInfo.name) {
-                        building.innerHTML = EngineeringInfo.info.join('<br>')
-                    } else if (btn.textContent == lifeSciencesInfo.name) {
-                        building.innerHTML = lifeSciencesInfo.info.join('<br>')
-                    } else if (btn.textContent == veterinaryMedicineInfo.name) {
-                        building.innerHTML = veterinaryMedicineInfo.info.join('<br>')
-                    } else if (btn.textContent == managementInfo.name) {
-                        building.innerHTML = managementInfo.info.join('<br>')
-                    } else if (btn.textContent == lawAndPoliticsInfo.name) {
-                        building.innerHTML = lawAndPoliticsInfo.info.join('<br>')
-                    } else if (btn.textContent == electricalEngineeringInfo.name) {
-                        building.innerHTML = electricalEngineeringInfo.info.join('<br>')
-                    } else if (btn.textContent == medicalInfo.name) {
-                        building.innerHTML = medicalInfo.info.join('<br>')
-                    } else if (btn.textContent == industryInfo.name) {
-                        building.innerHTML = industryInfo.info.join('<br>')
-                    } else if (btn.textContent == administrativeInfo.name) {
-                        building.innerHTML = administrativeInfo.info.join('<br>')
-                    } else if (btn.textContent == booksInfo.name) {
-                        building.innerHTML = booksInfo.info.join('<br>')
-                    } else if (btn.textContent == physicalEducationInfo.name) {
-                        building.innerHTML = physicalEducationInfo.info.join('<br>')
-                    } else if (btn.textContent == restaurantInfo.name) {
-                        building.innerHTML = restaurantInfo.info.join('<br>')
-                    }
-                });
-            })
-
-        });
-
+        //loading
+        const loading = document.onreadystatechange = function () {
+            if (document.readyState === "complete") {
+                setTimeout(function(){
+                    document.querySelector("#loader").style.opacity = "0";
+                    setTimeout(function(){
+                        document.querySelector("#loader").style.display = "none";
+                    }, 2000);
+                }, 4200);
+                
+            } else {}
+        };  
     </script>
 
     <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
@@ -295,6 +128,9 @@
         import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
         import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import { academy } from "../js/main.js";
+
+
         import * as THREE from 'three';
         // 指定ID為idiot的東西定義為idiot
         const idiot = document.getElementById('bg')
@@ -307,10 +143,13 @@
             precision: 'highp',
         });
 
-        
 
-        const light = new THREE.AmbientLight(0x404040, 100);
-        scene.add(light);
+        // 聚光燈顏色跟強度 參數一是顏色 參數二是強度
+        const spotLight = new THREE.SpotLight(0x404040, 100000);
+        scene.add(spotLight);
+
+        // 聚光燈位置，如果模型不會亮調整中間的數值就可以
+        spotLight.position.set(0, 20, 0);
         // 如果丟掉某個東西上大小要記得改
         renderer.setSize(window.innerWidth, window.innerHeight);
         // 把東西丟到idiot這個ID上
@@ -327,6 +166,335 @@
             scene.add(all)
             console.log(root);
         })
+
+        const groupMember = [
+            {
+                name: '黃絜琳',
+                position: '組長/程式',
+            },
+            {
+                name: '蔡明哲',
+                position: '程式',
+            },
+            {
+                name: '陳映達',
+                position: '企劃',
+            },
+            {
+                name: '吳睿燊',
+                position: '設計',
+            },
+            {
+                name: '賴菱莉',
+                position: '設計',
+            },
+        ]
+        const aboutUs = document.querySelector('.about-us');
+        const aboutBtn = document.querySelector('.about-icon');
+
+        // 關於我們彈出視窗
+        aboutBtn.addEventListener('click', () => {
+            console.log(aboutBtn);
+            aboutUs.classList.add('active');
+            aboutUs.innerHTML += `
+            <div class="about-us-bg">
+                    <div class="about-us-content">
+                        <div class="about-us-content-nav">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="95" height="95" viewBox="0 0 95 95" fill="none">
+                                <path
+                                    d="M31.6667 75.2083C28.5172 75.2083 25.4968 73.9572 23.2698 71.7302C21.0428 69.5032 19.7917 66.4828 19.7917 63.3333V31.6667C19.7917 28.5172 21.0428 25.4968 23.2698 23.2698C25.4968 21.0428 28.5172 19.7917 31.6667 19.7917C32.7165 19.7917 33.7233 19.3746 34.4656 18.6323C35.208 17.89 35.625 16.8831 35.625 15.8333C35.625 14.7835 35.208 13.7767 34.4656 13.0344C33.7233 12.292 32.7165 11.875 31.6667 11.875C26.4176 11.875 21.3835 13.9602 17.6718 17.6718C13.9602 21.3835 11.875 26.4176 11.875 31.6667V63.3333C11.875 68.5824 13.9602 73.6165 17.6718 77.3282C21.3835 81.0398 26.4176 83.125 31.6667 83.125C32.7165 83.125 33.7233 82.708 34.4656 81.9656C35.208 81.2233 35.625 80.2165 35.625 79.1667C35.625 78.1169 35.208 77.11 34.4656 76.3677C33.7233 75.6254 32.7165 75.2083 31.6667 75.2083ZM62.1854 62.1854C62.5564 61.8174 62.8509 61.3796 63.0519 60.8973C63.2528 60.4149 63.3563 59.8975 63.3563 59.375C63.3563 58.8525 63.2528 58.3351 63.0519 57.8527C62.8509 57.3704 62.5564 56.9326 62.1854 56.5646L53.0812 47.5L62.1854 38.4354C62.9308 37.69 63.3495 36.6791 63.3495 35.625C63.3495 34.5709 62.9308 33.56 62.1854 32.8146C61.44 32.0692 60.4291 31.6505 59.375 31.6505C58.3209 31.6505 57.31 32.0692 56.5646 32.8146L47.5 41.9188L38.4354 32.8146C37.69 32.0692 36.6791 31.6505 35.625 31.6505C34.5709 31.6505 33.56 32.0692 32.8146 32.8146C32.0692 33.56 31.6505 34.5709 31.6505 35.625C31.6505 36.6791 32.0692 37.69 32.8146 38.4354L41.9188 47.5L32.8146 56.5646C32.4436 56.9326 32.1491 57.3704 31.9481 57.8527C31.7472 58.3351 31.6437 58.8525 31.6437 59.375C31.6437 59.8975 31.7472 60.4149 31.9481 60.8973C32.1491 61.3796 32.4436 61.8174 32.8146 62.1854C33.1826 62.5564 33.6204 62.8509 34.1027 63.0519C34.5851 63.2528 35.1025 63.3563 35.625 63.3563C36.1475 63.3563 36.6649 63.2528 37.1473 63.0519C37.6296 62.8509 38.0674 62.5564 38.4354 62.1854L47.5 53.0812L56.5646 62.1854C56.9326 62.5564 57.3704 62.8509 57.8527 63.0519C58.3351 63.2528 58.8525 63.3563 59.375 63.3563C59.8975 63.3563 60.4149 63.2528 60.8973 63.0519C61.3796 62.8509 61.8174 62.5564 62.1854 62.1854ZM63.3333 11.875C62.2835 11.875 61.2767 12.292 60.5344 13.0344C59.792 13.7767 59.375 14.7835 59.375 15.8333C59.375 16.8831 59.792 17.89 60.5344 18.6323C61.2767 19.3746 62.2835 19.7917 63.3333 19.7917C66.4828 19.7917 69.5032 21.0428 71.7302 23.2698C73.9572 25.4968 75.2083 28.5172 75.2083 31.6667V63.3333C75.2083 66.4828 73.9572 69.5032 71.7302 71.7302C69.5032 73.9572 66.4828 75.2083 63.3333 75.2083C62.2835 75.2083 61.2767 75.6254 60.5344 76.3677C59.792 77.11 59.375 78.1169 59.375 79.1667C59.375 80.2165 59.792 81.2233 60.5344 81.9656C61.2767 82.708 62.2835 83.125 63.3333 83.125C68.5824 83.125 73.6165 81.0398 77.3282 77.3282C81.0398 73.6165 83.125 68.5824 83.125 63.3333V31.6667C83.125 26.4176 81.0398 21.3835 77.3282 17.6718C73.6165 13.9602 68.5824 11.875 63.3333 11.875Z"
+                                    fill="#C0AE67" />
+                            </svg>
+                        </div>
+                        <div class="about-us-content-group"></div>
+                    </div>
+                </div>
+            `
+
+            const group = document.querySelector('.about-us-content-group');
+            const aboutUsClose = document.querySelector('.about-us-content-nav svg');
+
+            groupMember.forEach((member) => {
+                group.innerHTML += `
+                <div class="group">
+                    <div class="group-img"></div>
+                    <div class="group-position">${member.position}</div>
+                    <div class="group-member">${member.name}</div>
+                </div>
+                `;
+            });
+
+            aboutUsClose.addEventListener('click', () => {
+                aboutUs.classList.remove('active');
+                aboutUs.innerHTML = "";
+            });
+        });
+
+        // 開關上彈式按鈕選單
+        const openMenu = document.querySelector('.choose-btn');
+        const closeMenu = document.querySelector('.close-menu');
+        const menu = document.querySelector('.jump-menu');
+
+        // 開啟上談式視窗
+        openMenu.addEventListener('click', (toggle) => {
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                openMenu.classList.add('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        });
+
+        // 關閉上彈式視窗
+        closeMenu.addEventListener('click', (close) => {
+            if (menu.classList.contains('hidden')) {
+                return;
+            } else {
+                menu.classList.add('hidden');
+                openMenu.classList.remove('hidden');
+            }
+        });
+
+
+        const menuBox = document.querySelector('.menu-btn-box');
+        // const building = document.querySelector('.building-list p');
+        const content = document.querySelector('.info');
+        // const title = document.querySelector('.right-title');
+
+
+        // 簡化過後的js
+        academy.forEach((e) => {
+            // console.log(e);
+            menuBox.innerHTML += `
+                <div class="menu-btn">${e.name}</div>
+            `
+
+            // e.addEventListener('click', (btn) => {
+            //     console.log(btn);
+            // })
+            // const menuBtn = document.querySelectorAll('.menu-btn');
+
+            // menuBtn.forEach((btn, index) => {
+            //     // console.log(btn);
+            //     btn.addEventListener('click', () => {
+            //         const literatureInfo = academy.find(item => item.name === '文學院');
+            //         const naturalResourcesInfo = academy.find(item => item.name === '農業暨自然資源學院');
+            //         const facultyofScienceInfo = academy.find(item => item.name === '理學院');
+            //         const EngineeringInfo = academy.find(item => item.name === '工學院');
+            //         const lifeSciencesInfo = academy.find(item => item.name === '生命科學院');
+            //         const veterinaryMedicineInfo = academy.find(item => item.name === '獸醫學院');
+            //         const managementInfo = academy.find(item => item.name === '管理學院');
+            //         const lawAndPoliticsInfo = academy.find(item => item.name === '法政學院');
+            //         const electricalEngineeringInfo = academy.find(item => item.name === '電機資訊學院');
+            //         const medicalInfo = academy.find(item => item.name === '醫學院');
+            //         const industryInfo = academy.find(item => item.name === '創新產業暨國際學院');
+            //         const administrativeInfo = academy.find(item => item.name === '行政');
+            //         const booksInfo = academy.find(item => item.name === '圖書');
+            //         const physicalEducationInfo = academy.find(item => item.name === '體育');
+            //         const restaurantInfo = academy.find(item => item.name === '餐廳');
+
+            // if (btn.textContent == literatureInfo.name) {
+            //     building.innerHTML = literatureInfo.info.join('<br>')
+            //     content.innerHTML = literatureInfo.college.join('<br>');
+            //     title.innerHTML = literatureInfo.name;
+            //     // document.getElementsByClassNames
+            // } else if (btn.textContent == naturalResourcesInfo.name) {
+            //     building.innerHTML = naturalResourcesInfo.info.join('<br>')
+            //     content.innerHTML = naturalResourcesInfo.college.join('<br>');
+            //     title.innerHTML = naturalResourcesInfo.name;
+            // } else if (btn.textContent == facultyofScienceInfo.name) {
+            //     building.innerHTML = facultyofScienceInfo.info.join('<br>')
+            //     content.innerHTML = facultyofScienceInfo.college.join('<br>');
+            //     title.innerHTML = facultyofScienceInfo.name;
+            // } else if (btn.textContent == EngineeringInfo.name) {
+            //     building.innerHTML = EngineeringInfo.info.join('<br>')
+            //     content.innerHTML = EngineeringInfo.college.join('<br>');
+            //     title.innerHTML = EngineeringInfo.name;
+            // } else if (btn.textContent == lifeSciencesInfo.name) {
+            //     building.innerHTML = lifeSciencesInfo.info.join('<br>')
+            //     content.innerHTML = lifeSciencesInfo.college.join('<br>');
+            //     title.innerHTML = lifeSciencesInfo.name;
+            // } else if (btn.textContent == veterinaryMedicineInfo.name) {
+            //     building.innerHTML = veterinaryMedicineInfo.info.join('<br>')
+            //     content.innerHTML = veterinaryMedicineInfo.college.join('<br>');
+            //     title.innerHTML = veterinaryMedicineInfo.name;
+            // } else if (btn.textContent == managementInfo.name) {
+            //     building.innerHTML = managementInfo.info.join('<br>');
+            //     content.innerHTML = managementInfo.college.join('<br>');
+            //     title.innerHTML = managementInfo.name;
+            // } else if (btn.textContent == lawAndPoliticsInfo.name) {
+            //     building.innerHTML = lawAndPoliticsInfo.info.join('<br>')
+            //     content.innerHTML = lawAndPoliticsInfo.college.join('<br>');
+            //     title.innerHTML = lawAndPoliticsInfo.name;
+            // } else if (btn.textContent == electricalEngineeringInfo.name) {
+            //     building.innerHTML = electricalEngineeringInfo.info.join('<br>')
+            //     content.innerHTML = electricalEngineeringInfo.college.join('<br>');
+            //     title.innerHTML = electricalEngineeringInfo.name;
+            // } else if (btn.textContent == medicalInfo.name) {
+            //     building.innerHTML = medicalInfo.info.join('<br>')
+            //     content.innerHTML = medicalInfo.college.join('<br>');
+            //     title.innerHTML = medicalInfo.name;
+            // } else if (btn.textContent == industryInfo.name) {
+            //     building.innerHTML = industryInfo.info.join('<br>')
+            //     content.innerHTML = industryInfo.college.join('<br>');
+            //     title.innerHTML = industryInfo.name;
+            // } else if (btn.textContent == administrativeInfo.name) {
+            //     building.innerHTML = administrativeInfo.info.join('<br>')
+            //     content.innerHTML = administrativeInfo.college.join('<br>');
+            //     title.innerHTML = administrativeInfo.name;
+            // } else if (btn.textContent == booksInfo.name) {
+            //     building.innerHTML = booksInfo.info.join('<br>')
+            //     content.innerHTML = booksInfo.college.join('<br>');
+            //     title.innerHTML = booksInfo.name;
+            // } else if (btn.textContent == physicalEducationInfo.name) {
+            //     building.innerHTML = physicalEducationInfo.info.join('<br>')
+            //     content.innerHTML = physicalEducationInfo.college.join('<br>');
+            //     title.innerHTML = physicalEducationInfo.name;
+            // } else if (btn.textContent == restaurantInfo.name) {
+            //     building.innerHTML = restaurantInfo.info.join('<br>')
+            //     content.innerHTML = restaurantInfo.college.join('<br>');
+            //     title.innerHTML = restaurantInfo.name;
+            // }
+            //     });
+            // })
+        });
+
+        const menuBtn = document.querySelectorAll('.menu-btn');
+
+        menuBtn.forEach((menu, index) => {
+            // console.log(menu, index);
+
+            const info = academy[index];
+            menu.addEventListener('click', () => {
+                content.innerHTML = '';
+                scene.remove(all);
+
+                content.innerHTML = `
+                <div class="info-left">
+                    <ul class="building">
+                        <li class="building-list">
+                            <p>${info.info.join('<br>')}</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="info-right">
+                    <div class="right-title">${info.name}</div>
+                    <div class="right-content">${info.college.join('<br>')}</div>
+                </div>
+                `
+
+                loader.load(`${info.model}`, function (object) {
+                    // ALL是整個模組 root是模組裡各個"模型"的陣列
+                    all = object.scene
+                    const root = object.scenes[0].children
+                    scene.add(all)
+                    console.log(all);
+                    console.log(root);
+                })
+            })
+
+
+            var data = localStorage.getItem('data');
+
+            if (data == info.name) {
+                content.innerHTML = `
+                <div class="info-left">
+                    <ul class="building">
+                        <li class="building-list">
+                            <p>${info.info.join('<br>')}</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="info-right">
+                    <div class="right-title">${info.name}</div>
+                    <div class="right-content">${info.college.join('<br>')}</div>
+                </div>
+                `
+            }
+        })
+
+        // 未簡化的js
+        // const literatureInfo = academy.find(item => item.name === '文學院');
+        // const naturalResourcesInfo = academy.find(item => item.name === '農業暨自然資源學院');
+        // const facultyofScienceInfo = academy.find(item => item.name === '理學院');
+        // const EngineeringInfo = academy.find(item => item.name === '工學院');
+        // const lifeSciencesInfo = academy.find(item => item.name === '生命科學院');
+        // const veterinaryMedicineInfo = academy.find(item => item.name === '獸醫學院');
+        // const managementInfo = academy.find(item => item.name === '管理學院');
+        // const lawAndPoliticsInfo = academy.find(item => item.name === '法政學院');
+        // const electricalEngineeringInfo = academy.find(item => item.name === '電機資訊學院');
+        // const medicalInfo = academy.find(item => item.name === '醫學院');
+        // const industryInfo = academy.find(item => item.name === '創新產業暨國際學院');
+        // const administrativeInfo = academy.find(item => item.name === '行政');
+        // const booksInfo = academy.find(item => item.name === '圖書');
+        // const physicalEducationInfo = academy.find(item => item.name === '體育');
+        // const restaurantInfo = academy.find(item => item.name === '餐廳');
+
+
+        // if (data == literatureInfo.name) {
+        //     building.innerHTML = literatureInfo.info.join('<br>')
+        //     content.innerHTML = literatureInfo.college.join('<br>');
+        //     title.innerHTML = literatureInfo.name;
+        //     // document.getElementsByClassNames
+        // } else if (data == naturalResourcesInfo.name) {
+        //     building.innerHTML = naturalResourcesInfo.info.join('<br>')
+        //     content.innerHTML = naturalResourcesInfo.college.join('<br>');
+        //     title.innerHTML = naturalResourcesInfo.name;
+        // } else if (data == facultyofScienceInfo.name) {
+        //     building.innerHTML = facultyofScienceInfo.info.join('<br>')
+        //     content.innerHTML = facultyofScienceInfo.college.join('<br>');
+        //     title.innerHTML = facultyofScienceInfo.name;
+        // } else if (data == EngineeringInfo.name) {
+        //     building.innerHTML = EngineeringInfo.info.join('<br>')
+        //     content.innerHTML = EngineeringInfo.college.join('<br>');
+        //     title.innerHTML = EngineeringInfo.name;
+        // } else if (data == lifeSciencesInfo.name) {
+        //     building.innerHTML = lifeSciencesInfo.info.join('<br>')
+        //     content.innerHTML = lifeSciencesInfo.college.join('<br>');
+        //     title.innerHTML = lifeSciencesInfo.name;
+        // } else if (data == veterinaryMedicineInfo.name) {
+        //     building.innerHTML = veterinaryMedicineInfo.info.join('<br>')
+        //     content.innerHTML = veterinaryMedicineInfo.college.join('<br>');
+        //     title.innerHTML = veterinaryMedicineInfo.name;
+        // } else if (data == managementInfo.name) {
+        //     building.innerHTML = managementInfo.info.join('<br>');
+        //     content.innerHTML = managementInfo.college.join('<br>');
+        //     title.innerHTML = managementInfo.name;
+        // } else if (data == lawAndPoliticsInfo.name) {
+        //     building.innerHTML = lawAndPoliticsInfo.info.join('<br>')
+        //     content.innerHTML = lawAndPoliticsInfo.college.join('<br>');
+        //     title.innerHTML = lawAndPoliticsInfo.name;
+        // } else if (data == electricalEngineeringInfo.name) {
+        //     building.innerHTML = electricalEngineeringInfo.info.join('<br>')
+        //     content.innerHTML = electricalEngineeringInfo.college.join('<br>');
+        //     title.innerHTML = electricalEngineeringInfo.name;
+        // } else if (data == medicalInfo.name) {
+        //     building.innerHTML = medicalInfo.info.join('<br>')
+        //     content.innerHTML = medicalInfo.college.join('<br>');
+        //     title.innerHTML = medicalInfo.name;
+        // } else if (data == industryInfo.name) {
+        //     building.innerHTML = industryInfo.info.join('<br>')
+        //     content.innerHTML = industryInfo.college.join('<br>');
+        //     title.innerHTML = industryInfo.name;
+        // } else if (data == administrativeInfo.name) {
+        //     building.innerHTML = administrativeInfo.info.join('<br>')
+        //     content.innerHTML = administrativeInfo.college.join('<br>');
+        //     title.innerHTML = administrativeInfo.name;
+        // } else if (data == booksInfo.name) {
+        //     building.innerHTML = booksInfo.info.join('<br>')
+        //     content.innerHTML = booksInfo.college.join('<br>');
+        //     title.innerHTML = booksInfo.name;
+        // } else if (data == physicalEducationInfo.name) {
+        //     building.innerHTML = physicalEducationInfo.info.join('<br>')
+        //     content.innerHTML = physicalEducationInfo.college.join('<br>');
+        //     title.innerHTML = physicalEducationInfo.name;
+        // } else if (data == restaurantInfo.name) {
+        //     building.innerHTML = restaurantInfo.info.join('<br>')
+        //     content.innerHTML = restaurantInfo.college.join('<br>');
+        //     title.innerHTML = restaurantInfo.name;
+        // }
+
+
 
         function animate() {
             requestAnimationFrame(animate);

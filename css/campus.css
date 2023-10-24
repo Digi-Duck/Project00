@@ -21,6 +21,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 0 5%;
 }
 
 .nav {
@@ -29,7 +30,6 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding-left: 95px;
     z-index: 5;
 }
 
@@ -57,10 +57,15 @@ main canvas {
     left: 0;
 }
 
+#bg {
+    width: 100%;
+    height: 100vh;
+}
+
 .btn-list {
     position: absolute;
     top: 50%;
-    right: 5%;
+    right: 0;
     transform: translateY(-50%);
     width: 320px;
     height: 769px;
@@ -103,7 +108,6 @@ main canvas {
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
-    gap: 23px;
     align-items: center;
     padding: 10px 10%;
     margin: 0;
@@ -126,15 +130,28 @@ main canvas {
     letter-spacing: 3px;
     border-bottom: solid 3px #293855;
     color: #293855;
+    margin-top: 20px;
 }
 
-.option:hover{
+.option:hover {
     color: #C0AE67;
     border-bottom: solid 3px #C0AE67;
     background-color: #293855;
 }
 
-.card{
+.option-1, .option-2{
+    display: none;
+}
+
+.option-1.active {
+    display: block;
+}
+
+.option-2.active{
+    display: block;
+}
+
+.card {
     position: absolute;
     width: 700px;
     height: 280px;
@@ -191,15 +208,94 @@ main canvas {
     border-radius: 3px;
 }
 
-.card-more a{
+.card-more a {
     text-decoration: none;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.card-more span{
+.card-more span {
     font-size: 20px;
     line-height: 65px;
+    color: #293855;
+}
+
+.about-us.active {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 99;
+}
+
+.about-us-bg {
+    width: 100%;
+    height: 100%;
+    background-color: linear-gradient(180deg, #293855 0%, #000 100%);
+}
+
+.about-us-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+}
+
+.about-us-content-nav {
+    width: 100%;
+    height: 100px;
+    background-color: #293855;
+    box-shadow: 0px 8px 7px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 5px 5px 0 0;
+}
+
+.about-us-content-nav svg {
+    cursor: pointer;
+}
+
+.about-us-content-group {
+    width: 100%;
+    height: calc(100% - 100px);
+    background-color: #e2e1dd;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 5%;
+}
+
+.group {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+
+.group-img {
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
+    background-color: #293855;
+}
+
+.group-position {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #293855;
+}
+
+.group-member {
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
     color: #293855;
 }
