@@ -8,10 +8,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/loading-style.css">
     <title>中興大學地圖導覽</title>
 </head>
 
 <body>
+    <!-- loading -->
+    <div id="loader">
+        <div class="scene">
+            <div class="cube-wrapper">
+                <div class="cube">
+                    <div class="cube-faces">
+                        <div class="cube-face shadow"></div>
+                        <div class="cube-face bottom"></div>
+                        <div class="cube-face top"></div>
+                        <div class="cube-face left"></div>
+                        <div class="cube-face right"></div>
+                        <div class="cube-face back"></div>
+                        <div class="cube-face front"></div>
+                    </div>
+                </div>
+            </div>
+            <span class="loader"></span>
+        </div>
+    </div>
+    <!-- 本頁內容 -->
     <div class="container">
         <nav class="nav">
             <!-- 回首頁按鈕 -->
@@ -48,10 +69,25 @@
         </main>
     </div>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+
+    <script>
+        //loading
+        const loading = document.onreadystatechange = function () {
+            if (document.readyState === "complete") {
+                setTimeout(function(){
+                    document.querySelector("#loader").style.opacity = "0";
+                    setTimeout(function(){
+                        document.querySelector("#loader").style.display = "none";
+                    }, 2000);
+                }, 4200);
+                
+            } else {}
+        }; 
+        console.log(loading)
+    </script>
 </body>
 
 </html>
