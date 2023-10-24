@@ -4,13 +4,19 @@
   }
   
   body {
-    background-color: #F8F6EF;
+    margin: 0;
+  }
+  #loader{
+    width: 1920px;
     height: 100vh;
     display: grid;
     place-items: center;
-    position: relative;
+    position: fixed;
+    background-color: #F8F6EF;
+    z-index: 1;
+    opacity: 1;
+    transition: 2s;
   }
-  
   .scene {
     position: relative;
     z-index: 2;

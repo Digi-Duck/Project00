@@ -8,10 +8,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/loading-style.css">
     <title>Document</title>
 </head>
 
 <body>
+    <!-- loading -->
+    <div id="loader">
+        <div class="scene">
+            <div class="cube-wrapper">
+                <div class="cube">
+                    <div class="cube-faces">
+                        <div class="cube-face shadow"></div>
+                        <div class="cube-face bottom"></div>
+                        <div class="cube-face top"></div>
+                        <div class="cube-face left"></div>
+                        <div class="cube-face right"></div>
+                        <div class="cube-face back"></div>
+                        <div class="cube-face front"></div>
+                    </div>
+                </div>
+            </div>
+            <span class="loader"></span>
+        </div>
+    </div>
+    <!-- 本頁內容 -->
     <div class="container">
         <nav class="nav">
             <!-- 導覽列按鈕 -->
@@ -49,6 +70,22 @@
     </div>
     <div class="about-us"></div>
 
+    <script>
+        //loading
+        const loading = document.onreadystatechange = function () {
+            if (document.readyState === "complete") {
+                setTimeout(function(){
+                    document.querySelector("#loader").style.opacity = "0";
+                    setTimeout(function(){
+                        document.querySelector("#loader").style.display = "none";
+                    }, 2000);
+                }, 4200);
+                
+            } else {}
+        };  
+    </script>
+
+    <!-- three.Js -->
     <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
