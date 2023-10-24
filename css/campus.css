@@ -57,6 +57,11 @@ main canvas {
     left: 0;
 }
 
+#bg {
+    width: 100%;
+    height: 100vh;
+}
+
 .btn-list {
     position: absolute;
     top: 50%;
@@ -103,7 +108,6 @@ main canvas {
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
-    gap: 23px;
     align-items: center;
     padding: 10px 10%;
     margin: 0;
@@ -126,12 +130,25 @@ main canvas {
     letter-spacing: 3px;
     border-bottom: solid 3px #293855;
     color: #293855;
+    margin-top: 20px;
 }
 
 .option:hover {
     color: #C0AE67;
     border-bottom: solid 3px #C0AE67;
     background-color: #293855;
+}
+
+.option-1, .option-2{
+    display: none;
+}
+
+.option-1.active {
+    display: block;
+}
+
+.option-2.active{
+    display: block;
 }
 
 .card {

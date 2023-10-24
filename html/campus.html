@@ -36,19 +36,25 @@
         </nav>
 
         <main>
+            <!-- 興大校區模型 -->
             <div id="bg"></div>
+            <!-- 生成小卡 -->
             <div class="card"></div>
+            <!-- 右邊切換學院科系和公共資源的欄位 -->
             <div class="btn-list">
                 <div class="switch">
                     <a href="#" class="switch-btn btn-1 active">學院科系</a>
                     <a href="#" class="switch-btn btn-2">公共資源</a>
                 </div>
+                <!-- 下方各系所選項按鈕 -->
                 <ul class="list-option"></ul>
             </div>
         </main>
     </div>
+    <!-- 關於我們彈跳視窗 -->
     <div class="about-us"></div>
 
+    <!-- three.js程式碼 -->
     <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -66,220 +72,20 @@
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
         import { GUI } from "three/addons/libs/lil-gui.module.min.js";
         import * as THREE from 'three';
-        // 指定ID為idiot的東西定義為idiot
-        const idiot = document.getElementById('bg')
-        const scene = new THREE.Scene();
-        // scene.background = new THREE.Color('skyblue');
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.set(-40, 10, -40);
-        const renderer = new THREE.WebGLRenderer({
-            alpha: true, // canvas是否包含alpha (透明度) 默认为 false
-            antialias: true,
-            precision: 'highp',
-        });
-        const light = new THREE.AmbientLight(0x404040); // soft white light
-        scene.add(light);
-        const spotLight = new THREE.SpotLight(0x404040, 100000);
-        spotLight.position.set(0, 50, 0);
-        scene.add(spotLight);
-        // 如果丟掉某個東西上大小要記得改
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        // 把東西丟到idiot這個ID上
-        idiot.appendChild(renderer.domElement);
-
-        // GLTF載入器
-        const loader = new GLTFLoader()
-
-        loader.load('../model/0-campus-Vol3.glb', function (object) {
-            // ALL是整個模組 root是模組裡各個"模型"的陣列
-            const all = object.scene
-            const root = object.scenes[0].children
-            scene.add(all)
-            console.log(root);
-
-            const extensionsUsed = object.parser.json.extensionsUsed;
-            const extensions = object.parser.json.extensions;
-
-            if (extensionsUsed.includes('KHR_lights_punctual')) {
-                // 扩展已使用，你可以访问 extensions 对象来获取扩展的数据
-                const lightsPunctualData = extensions.KHR_lights_punctual;
-                lightsPunctualData.lights[0].intensity = 10;
-                lightsPunctualData.lights[1].intensity = 10;
-                lightsPunctualData.lights[2].intensity = 10;
-                lightsPunctualData.lights[3].intensity = 10;
-                lightsPunctualData.lights[4].intensity = 10;
-                console.log('KHR_lights_punctual 数据:', lightsPunctualData.lights[0].intensity);
-
-            } else {
-                console.log('未使用 KHR_lights_punctual 扩展');
-            }
-        })
+        import { academy } from "../js/main.js"
 
 
-
-
-        function animate() {
-            requestAnimationFrame(animate);
-            renderer.render(scene, camera);
-        }
-
-        // 下面是RAYCASTER
-        const raycaster = new THREE.Raycaster();
-        const pointer = new THREE.Vector2();
-
-        // onclick這個function是滑鼠點到指定事件會觸發指定事件
-        function onclick(event) {
-
-            // 将鼠标位置归一化为设备坐标。x 和 y 方向的取值范围是 (-1 to +1)
-            // 1920和955這個數值是three.js視窗大小(應該)
-            // 如果把three.js丟到東西上 OFFEST參數可能不大依樣
-            pointer.x = (event.offsetX / 1920) * 2 - 1;
-            pointer.y = - (event.offsetY / 955) * 2 + 1;
-            raycaster.setFromCamera(pointer, camera);
-            // 获取raycaster直线和所有模型相交的数组集合
-            var intersects = raycaster.intersectObjects(scene.children);
-
-            // 點擊到的物件陣列裡是否有CUBE1110
-            if (intersects.some(function (obj) {
-                return obj.object.name == "cube148";
-            })) {
-                // 會到指定位置
-                // location.href = "/html/academy.html";
-                console.log(123);
-            }
-            // console.log(event);
-        };
-
-        // function render() {
-
-        //     // update the picking ray with the camera and pointer position
-        //     raycaster.setFromCamera(pointer, camera);
-
-        //     // calculate objects intersecting the picking ray
-        //     const intersects = raycaster.intersectObjects(scene.children);
-
-        //     for (let i = 0; i < intersects.length; i++) {
-
-        //         intersects[i].object.material.color.set(0xff0000);
-
-        //     }
-
-        //     renderer.render(scene, camera);
-
-        // }
-
-        // window.addEventListener('pointermove', render);
-
-        window.addEventListener('click', onclick);
-
-        // 新增控制器
-        const controls = new OrbitControls(camera, renderer.domElement);
-
-        // controls.maxDistance = 10;
-        // controls.minDistance = 5;
-
-        const gui = new GUI()
-
-        const cameraFolder = gui.addFolder('Camera')
-        cameraFolder.add(camera.position, 'z', 0, 10)
-        cameraFolder.open()
-
-        animate();
-    </script>
-
-
-    <script>
         const switchBtn = document.querySelectorAll('.switch-btn');
+        // 學院科系按鈕
         const btn1 = document.querySelector('.btn-1');
+        // 公共資源按鈕
         const btn2 = document.querySelector('.btn-2');
+        // 學院科系跟公共資源的選項按鈕
         const list = document.querySelector('.list-option');
+        // 生成小卡的區塊
         const card = document.querySelector('.card');
 
-        const academy = [
-            {
-                name: '文學院',
-                img: '../img/btn-images.jpg',
-                info: ['人文大樓'],
-            },
-            {
-                name: '農業暨自然資源學院',
-                img: '../img/btn-images.jpg',
-                info: ['作物科學大樓', '作物科學大樓2樓', '森林館', '應經一館', '農環大樓',
-                    '動科系館', '水土保持館', '食品暨生物科技大樓', '生機大樓', '生管所', '食安大樓',
-                    '綜合教學大樓', '國農大樓', '舊理工大樓', '國農中心', '應用經濟學系一館']
-            },
-            {
-                name: '理學院',
-                img: '../img/btn-images.jpg',
-                info: ['化學館', '資訊科學大樓', '理學大樓', '資訊科學大樓']
-            },
-            {
-                name: '工學院',
-                img: '../img/btn-images.jpg',
-                info: ['土木環工大樓', '混擬土科技研究中心', '應用科技大樓', '機械系館'
-                    , '化材大樓', '應用科技大樓']
-            },
-            {
-                name: '生命科學院',
-                img: '../img/btn-images.jpg',
-                info: ['生命科學大樓', '防疫檢疫大樓']
-            },
-            {
-                name: '獸醫學院',
-                img: '../img/btn-images.jpg',
-                info: ['獸醫系館', '動物疾病診斷中心']
-            },
-            {
-                name: '管理學院',
-                img: '../img/btn-images.jpg',
-                info: ['社管大樓', '綜合教學大樓']
-            },
-            {
-                name: '法政學院',
-                img: '../img/btn-images.jpg',
-                info: ['社管大樓']
-            },
-            {
-                name: '電機資訊學院',
-                img: '../img/btn-images.jpg',
-                info: ['電機大樓', '理學大樓']
-            },
-            {
-                name: '醫學院',
-                img: '../img/btn-images.jpg',
-                info: ['國農中心', '生命科學大樓', '防疫檢疫大樓']
-            },
-            {
-                name: '創新產業暨國際學院',
-                img: '../img/btn-images.jpg',
-                info: ['綜合教學大樓', '國農中心']
-            },
-
-        ];
-
-        const resource = [
-            {
-                name: '行政',
-                img: '../img/btn-images.jpg',
-                info: ['綜合教學大樓', '國農中心']
-            },
-            {
-                name: '圖書',
-                img: '../img/btn-images.jpg',
-                info: ['綜合教學大樓', '國農中心']
-            },
-            {
-                name: '體育',
-                img: '../img/btn-images.jpg',
-                info: ['綜合教學大樓', '國農中心']
-            },
-            {
-                name: '餐廳',
-                img: '../img/btn-images.jpg',
-                info: ['綜合教學大樓', '國農中心']
-            },
-        ];
-
+        // 關於我們陣列資料
         const groupMember = [
             {
                 name: '黃絜琳',
@@ -302,9 +108,9 @@
                 position: '設計',
             },
         ]
+        // 關於我們彈跳視窗區塊
         const aboutUs = document.querySelector('.about-us');
         const aboutBtn = document.querySelector('.about-icon');
-
 
         aboutBtn.addEventListener('click', () => {
             console.log(aboutBtn);
@@ -343,46 +149,82 @@
             });
         });
 
-        academy.forEach(e => {
-            list.innerHTML += `
-                <a href="#"><li class="option">${e.name}</li></a>
-            `
-        });
+        // 學院科系迴圈生成選項按鈕
 
+        for (var i = 0; i < 11; i++) {
+            var currentData = academy[i];
+            // console.log(currentData);
+            list.innerHTML += `
+            <a href="#"><li class="option option-1 active">${currentData.name}</li></a>
+            `
+        }
+
+        // 公共資源迴圈生成選項按鈕
+        for (var i = 11; i < academy.length; i++) {
+            var currentData = academy[i];
+            // console.log(currentData);
+            list.innerHTML += `
+            <a href="#"><li class="option option-2">${currentData.name}</li></a>
+            `
+        }
+
+        // 學院科系與公共資源按鈕按下時，切換css移除或新增active
         switchBtn.forEach((e, index) => {
             e.addEventListener('click', (btn) => {
+                // 按鈕按下時，移除所有active的css
                 switchBtn.forEach(r => {
                     r.classList.remove('active');
-                    list.innerHTML = '';
                 });
+                // 如果值為0學院科系按鈕新增active的css
+                // 又如果值為1公共資源按鈕新增active的css
                 if (index === 0) {
                     e.classList.add('active');
-                    academy.forEach(e => {
-                        list.innerHTML += `
-                            <a href="#"><li class="option">${e.name}</li></a>
-                        `
-
-
-                    });
                 } else if (index === 1) {
                     e.classList.add('active');
-                    resource.forEach(e => {
-                        list.innerHTML += `
-                            <a href="#"><li class="option">${e.name}</li></a>
-                        `
-                    });
                 }
 
             });
         });
 
+        // 宣告所有被生成出來的選項按鈕
         const options = document.querySelectorAll('.option');
+        // 宣告'學院科系'選項按鈕
+        const academyOption = document.querySelectorAll('.option-1');
+        // 宣告'公共資源'選項按鈕
+        const resourceOption = document.querySelectorAll('.option-2');
+
+        // 當'學院科系'按鈕被按下時，移除'公共資源'所有選項的active
+        // 並且新增所有'學院科系'選項的active
+        btn1.addEventListener('click', () => {
+            resourceOption.forEach((r) => {
+                r.classList.remove('active');
+            })
+            academyOption.forEach((a) => {
+                a.classList.add('active');
+            })
+        });
+
+        // 當'公共資源'按鈕被按下時，移除'學院科系'所有選項的active
+        // 並且新增所有'公共資源'選項的active
+        btn2.addEventListener('click', () => {
+            academyOption.forEach((a) => {
+                a.classList.remove('active');
+            })
+            resourceOption.forEach((r) => {
+                r.classList.add('active');
+            })
+        });
 
 
+        // 所有選項按鈕進入迴圈生成小卡資訊
         options.forEach((option, index) => {
+            // 當任何一個選項按鈕被按下，清除所有卡面資料，生成新的卡面資料
             option.addEventListener('click', () => {
                 card.innerHTML = '';
 
+                // 因為資料順序不會改變，所以可以宣告陣列的index去判斷
+                // 且因為是另外聲明出來的資料在option的點擊事件裡都能使用info的變數
+                const info = academy[index];
                 card.innerHTML += `
                 <div class="card-nav">
                     <a href="#" class="close">
@@ -394,10 +236,10 @@
                     </a>
                 </div>
                 <div class="card-content">
-                    <div class="card-title"></div>
-                    <div class="card-txt"></div>
+                    <div class="card-title">${info.name}</div>
+                    <div class="card-txt">${info.info.join('|')}</div>
                     <div class="card-more">
-                        <a href="../html/academy.html">
+                        <button id="${info.link}">
                             <span>更多資訊</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="41" height="51" viewBox="0 0 41 51"
                                 fill="none">
@@ -405,87 +247,160 @@
                                     d="M7.45459 18.5455H33.5455V23.1818H31.6819V25.5H29.8182V27.8182H27.9546V30.1364H26.091V32.4546H24.2273V34.7727H22.3637V37.0909H18.6364V34.7727H16.7728V32.4546H14.9091V30.1364H13.0455V27.8182H11.1819V25.5H9.31823V23.1818H7.45459V18.5455ZM14.9091 23.1818V25.5H16.7728V27.8182H18.6364V30.1364H22.3637V27.8182H24.2273V25.5H26.091V23.1818H14.9091Z"
                                     fill="#C0AE67" />
                             </svg>
-                        </a>
+                        </button>  
                     </div>
                 </div>
                 `
 
-                const title = document.querySelector('.card-title');
-                const txt = document.querySelector('.card-txt');
-
-                const literatureInfo = academy.find(item => item.name === '文學院');
-                const naturalResourcesInfo = academy.find(item => item.name === '農業暨自然資源學院');
-                const facultyofScienceInfo = academy.find(item => item.name === '理學院');
-                const EngineeringInfo = academy.find(item => item.name === '工學院');
-                const lifeSciencesInfo = academy.find(item => item.name === '生命科學院');
-                const veterinaryMedicineInfo = academy.find(item => item.name === '獸醫學院');
-                const managementInfo = academy.find(item => item.name === '管理學院');
-                const lawAndPoliticsInfo = academy.find(item => item.name === '法政學院');
-                const electricalEngineeringInfo = academy.find(item => item.name === '電機資訊學院');
-                const medicalInfo = academy.find(item => item.name === '醫學院');
-                const industryInfo = academy.find(item => item.name === '創新產業暨國際學院');
-                const administrativeInfo = resource.find(item => item.name === '行政');
-                const booksInfo = resource.find(item => item.name === '圖書');
-                const physicalEducationInfo = resource.find(item => item.name === '體育');
-                const restaurantInfo = resource.find(item => item.name === '餐廳');
-
-
-                if (option.textContent === literatureInfo.name) {
-                    title.innerHTML = `${literatureInfo.name}`;
-                    txt.innerHTML = `${literatureInfo.info.join('|')}`;
-                } else if (option.textContent === naturalResourcesInfo.name) {
-                    title.innerHTML = `${naturalResourcesInfo.name}`;
-                    txt.innerHTML = `${naturalResourcesInfo.info.join('|')}`;
-                } else if (option.textContent === facultyofScienceInfo.name) {
-                    title.innerHTML = `${facultyofScienceInfo.name}`;
-                    txt.innerHTML = `${facultyofScienceInfo.info.join('|')}`;
-                } else if (option.textContent === EngineeringInfo.name) {
-                    title.innerHTML = `${EngineeringInfo.name}`;
-                    txt.innerHTML = `${EngineeringInfo.info.join('|')}`;
-                } else if (option.textContent === lifeSciencesInfo.name) {
-                    title.innerHTML = `${lifeSciencesInfo.name}`;
-                    txt.innerHTML = `${lifeSciencesInfo.info.join('|')}`;
-                } else if (option.textContent === veterinaryMedicineInfo.name) {
-                    title.innerHTML = `${veterinaryMedicineInfo.name}`;
-                    txt.innerHTML = `${veterinaryMedicineInfo.info.join('|')}`;
-                } else if (option.textContent === managementInfo.name) {
-                    title.innerHTML = `${managementInfo.name}`;
-                    txt.innerHTML = `${managementInfo.info.join('|')}`;
-                } else if (option.textContent === lawAndPoliticsInfo.name) {
-                    title.innerHTML = `${lawAndPoliticsInfo.name}`;
-                    txt.innerHTML = `${lawAndPoliticsInfo.info.join('|')}`;
-                } else if (option.textContent === electricalEngineeringInfo.name) {
-                    title.innerHTML = `${electricalEngineeringInfo.name}`;
-                    txt.innerHTML = `${electricalEngineeringInfo.info.join('|')}`;
-                } else if (option.textContent === medicalInfo.name) {
-                    title.innerHTML = `${medicalInfo.name}`;
-                    txt.innerHTML = `${medicalInfo.info.join('|')}`;
-                } else if (option.textContent === industryInfo.name) {
-                    title.innerHTML = `${industryInfo.name}`;
-                    txt.innerHTML = `${industryInfo.info.join('|')}`;
-                } else if (option.textContent === administrativeInfo.name) {
-                    title.innerHTML = `${administrativeInfo.name}`;
-                    txt.innerHTML = `${administrativeInfo.info.join('|')}`;
-                } else if (option.textContent === booksInfo.name) {
-                    title.innerHTML = `${booksInfo.name}`;
-                    txt.innerHTML = `${booksInfo.info.join('|')}`;
-                } else if (option.textContent === physicalEducationInfo.name) {
-                    title.innerHTML = `${physicalEducationInfo.name}`;
-                    txt.innerHTML = `${physicalEducationInfo.info.join('|')}`;
-                } else if (option.textContent === restaurantInfo.name) {
-                    title.innerHTML = `${restaurantInfo.name}`;
-                    txt.innerHTML = `${restaurantInfo.info.join('|')}`;
-                }
-
-                const closeBtn = document.querySelector('.close');
-                closeBtn.addEventListener('click', (close) => {
-                    card.innerHTML = '';
+                document.getElementById(`link-${index + 1}`).addEventListener('click', function () {
+                    console.log(123);
+                    localStorage.setItem('data', `${info.name}`);
+                    location.href = 'academy.html';
                 });
             });
         });
 
 
+        // 指定ID為idiot的東西定義為idiot
+        const idiot = document.getElementById('bg')
+        const scene = new THREE.Scene();
+        // scene.background = new THREE.Color('skyblue');
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(-15, 5, -15);
+        const renderer = new THREE.WebGLRenderer({
+            alpha: true, // canvas是否包含alpha (透明度) 默认为 false
+            antialias: true,
+            precision: 'highp',
+            antialias: true,
+        });
+        const light = new THREE.AmbientLight(0x404040); // soft white light
+        scene.add(light);
+        const spotLight = new THREE.SpotLight(0x404040, 100000);
+        spotLight.position.set(0, 50, 0);
+        scene.add(spotLight);
+        // 根據一開始設置的畫布大小決定渲染器大小
+        renderer.setSize(idiot.clientWidth, idiot.clientHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.outputEncoding = THREE.sRGBEncoding;
+        // 把東西丟到idiot這個ID上
+        idiot.appendChild(renderer.domElement);
 
+        const group = new THREE.Group();
+
+        // GLTF載入器
+        const loader = new GLTFLoader()
+
+        let model1;
+        let model2;
+
+        loader.load('../model/0.glb', function (object) {
+            // ALL是整個模組 root是模組裡各個"模型"的陣列
+            model1 = object.scene;
+            const root = object.scenes[0].children;
+            group.add(model1);
+            console.log(root);
+
+            // const extensionsUsed = object.parser.json.extensionsUsed;
+            // const extensions = object.parser.json.extensions;
+
+            // if (extensionsUsed.includes('KHR_lights_punctual')) {
+            //     // 扩展已使用，你可以访问 extensions 对象来获取扩展的数据
+            //     const lightsPunctualData = extensions.KHR_lights_punctual;
+            //     lightsPunctualData.lights[0].intensity = 10;
+            //     lightsPunctualData.lights[1].intensity = 10;
+            //     lightsPunctualData.lights[2].intensity = 10;
+            //     lightsPunctualData.lights[3].intensity = 10;
+            //     lightsPunctualData.lights[4].intensity = 10;
+            //     console.log('KHR_lights_punctual 数据:', lightsPunctualData.lights[0].intensity);
+
+            // } else {
+            //     console.log('未使用 KHR_lights_punctual 扩展');
+            // }
+        })
+
+        loader.load('../model/5.glb', function (model) {
+            model2 = model.scene;
+            model2.position.set(15, 0, -15);
+            group.add(model2);
+        })
+
+        scene.add(group);
+
+        // 宣告zoom-in的效果
+        const zoomInTimeline = (x, y, z, zoomOutFactor = 0) => {
+            let tl = gsap
+                .timeline({ defaults: { duration: 1.5, ease: "expo.out" } })
+                .to(controls.target, { x, y, z })
+                .to(camera.position, { x, y, z: z + zoomOutFactor }, 0)
+                .to(group.rotation, { x: 0, y: 0 }, 0);
+        };
+
+        console.log(options[0]);
+
+        options[0].addEventListener("click", () => {
+            zoomInTimeline(-15, 5, -15);
+        });
+
+        options[1].addEventListener("click", () => {
+            zoomInTimeline((model2.position.x - 5), (model2.position.y + 2), (model2.position.z - 5));
+            console.log(model2);
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+
+        // 下面是RAYCASTER
+        const raycaster = new THREE.Raycaster();
+        const pointer = new THREE.Vector2();
+
+        // onclick這個function是滑鼠點到指定事件會觸發指定事件
+        function onclick(event) {
+
+            // 将鼠标位置归一化为设备坐标。x 和 y 方向的取值范围是 (-1 to +1)
+            // 1920和955這個數值是three.js視窗大小(應該)
+            // 如果把three.js丟到東西上 OFFEST參數可能不大依樣
+            pointer.x = (event.offsetX / 1920) * 2 - 1;
+            pointer.y = - (event.offsetY / 955) * 2 + 1;
+            raycaster.setFromCamera(pointer, camera);
+            // 获取raycaster直线和所有模型相交的数组集合
+            var intersects = raycaster.intersectObjects(scene.children);
+
+            // 點擊到的物件陣列裡是否有CUBE1110
+            if (intersects.some(function (obj) {
+                return obj.object.name == "cube148";
+            })) {
+                // 會到指定位置
+                // location.href = "/html/academy.html";
+                console.log(123);
+            }
+            // console.log(event);
+        };
+
+        window.addEventListener('click', onclick);
+
+        // 新增控制器
+        const controls = new OrbitControls(camera, renderer.domElement);
+
+        controls.enableRotate = false;
+
+        const onWindowResize = () => {
+            camera.aspect = idiot.clientWidth / idiot.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(idiot.clientWidth, idiot.clientHeight);
+        };
+
+        window.addEventListener("resize", onWindowResize, false);
+
+        const gui = new GUI()
+
+        const cameraFolder = gui.addFolder('Camera')
+        cameraFolder.add(camera.position, 'z', 0, 10)
+        cameraFolder.open()
+
+        animate();
     </script>
 
 </body>
