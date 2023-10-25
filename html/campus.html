@@ -309,8 +309,12 @@
         });
         // const light = new THREE.AmbientLight(0x404040); // soft white light
         // scene.add(light);
-        const spotLight = new THREE.SpotLight(0x404040, 100000);
+        const spotLight = new THREE.SpotLight(0x404040, 400000);
         spotLight.position.set(0, 50, 0);
+        scene.add(spotLight);
+        //新增場景點光源
+        const spotLightF1 = new THREE.SpotLight(0x404040, 2000);
+        spotLight.position.set(35, 50, 55);
         scene.add(spotLight);
         // 根據一開始設置的畫布大小決定渲染器大小
         renderer.setSize(idiot.clientWidth, idiot.clientHeight);
@@ -351,11 +355,18 @@
         })
 
         // 宣告zoom-in的效果
-        const zoomInTimeline = (x, y, z, zoomOutFactor = 0) => {
+        //x,y,z是學院的位址
+        //a,b,c是camera.lookAt的位址
+        const zoomInTimeline = (x, y, z , a = 0, b = 0, c = 0, zoomOutFactor = 0) => {
             let tl = gsap
                 .timeline({ defaults: { duration: 1.5, ease: "expo.out" } })
                 .to(controls.target, { x, y, z })
-                .to(camera.position, { x, y, z: z + zoomOutFactor }, 0)
+                .to(camera.position, { x, y, z: z + zoomOutFactor,
+                    onUpdate: function () {
+                        camera.lookAt(a, b, c);
+                    } 
+                }, 0)
+
             // .to(group.rotation, { x: 0, y: 0 }, 0);
         };
 
@@ -363,104 +374,107 @@
 
         // 文學院
         options[0].addEventListener("click", () => {
-            zoomInTimeline(35, 8, 55);
+            zoomInTimeline(35, 8, 55, 27, 2, 44);
             spotLight.position.set(35, 40, 55);
+            // setTimeout(() => {
+            //     camera.lookAt(27, 2, 44);
+            // },5000)
         });
 
         // 農業暨自然資源學院
         options[1].addEventListener("click", () => {
-            zoomInTimeline(-4, 10, 23);
+            zoomInTimeline(-4, 10, 23 ,-7 , 5 , 14);
             spotLight.position.set(-4, 40, 23);
 
         });
 
         // 理學院
         options[2].addEventListener("click", () => {
-            zoomInTimeline(-18, 8, 15);
+            zoomInTimeline(-18, 8, 15 , -23, 4 ,10);
             spotLight.position.set(-18, 40, 15);
 
         });
 
         // 工學院
         options[3].addEventListener("click", () => {
-            zoomInTimeline(-34, 8, 18);
+            zoomInTimeline(-34, 8, 18 , -41, 2, 10);
             spotLight.position.set(-34, 40, 18);
 
         });
 
         // 生命科學院
         options[4].addEventListener("click", () => {
-            zoomInTimeline(5, 8, 35);
+            zoomInTimeline(-0, 8, 32, -7, 4 , 23);
             spotLight.position.set(5, 40, 35);
 
         });
 
         // 獸醫學院
         options[5].addEventListener("click", () => {
-            zoomInTimeline(-34, 8, -16);
-            spotLight.position.set(-34, 40, -16);
+            zoomInTimeline(-34, 8, -16,-41, 2, -22)
+            spotLight.position.set(-34, 40, -22);
 
         });
 
         // 管理學院
         options[6].addEventListener("click", () => {
-            zoomInTimeline(35, 8, 32);
+            zoomInTimeline(35, 8, 32, 25, 4, 22);
             spotLight.position.set(35, 40, 32);
 
         });
 
         // 法政學院
         options[7].addEventListener("click", () => {
-            zoomInTimeline(29, 8, 18);
+            zoomInTimeline(27, 8, 15, 22, 5, 11);
             spotLight.position.set(29, 40, 18);
 
         });
 
         // 電機資訊學院
         options[8].addEventListener("click", () => {
-            zoomInTimeline(-8, 8, 44);
+            zoomInTimeline(-9, 8, 44, -9, 2, 30);
             spotLight.position.set(-8, 40, 44);
 
         });
 
         // 醫學院
         options[9].addEventListener("click", () => {
-            zoomInTimeline(-33, 8, 45);
+            zoomInTimeline(-33, 8, 45, -39, 3, 36);
             spotLight.position.set(-33, 40, 45);
 
         });
 
         // 創新產業暨國際學院
         options[10].addEventListener("click", () => {
-            zoomInTimeline(35, 8, 32);
+            zoomInTimeline(35, 8, 32, 25, 4, 22);
             spotLight.position.set(35, 40, 32);
 
         });
 
         // 行政
         options[11].addEventListener("click", () => {
-            zoomInTimeline(17, 8, 38);
+            zoomInTimeline(17, 8, 38, 10, 3, 28);
             spotLight.position.set(17, 40, 38);
 
         });
 
         // 圖書
         options[12].addEventListener("click", () => {
-            zoomInTimeline(18, 8, 10);
+            zoomInTimeline(18, 8, 10, 10, 2, -0);
             spotLight.position.set(18, 40, 10);
 
         });
 
         // 體育
         options[13].addEventListener("click", () => {
-            zoomInTimeline(20, 8, -2);
+            zoomInTimeline(-18, 10, -19, 6, 4, -31);
             spotLight.position.set(20, 40, -2);
 
         });
 
         // 餐廳
         options[14].addEventListener("click", () => {
-            zoomInTimeline(-17, 10, 55);
+            zoomInTimeline(-17, 10, 55, -22, 4, 46);
             spotLight.position.set(-17, 40, 55);
 
         });
@@ -471,27 +485,27 @@
         }
 
         // 添加事件监听器
-        // window.addEventListener('click', onDocumentClick);
+        window.addEventListener('click', onDocumentClick);
 
-        // function onDocumentClick(event) {
-        //     // 获取鼠标点击位置的屏幕坐标
-        //     const mouse = new THREE.Vector2((event.clientX / window.innerWidth) * 2 - 1, -(event.clientY / window.innerHeight) * 2 + 1);
+        function onDocumentClick(event) {
+            // 获取鼠标点击位置的屏幕坐标
+            const mouse = new THREE.Vector2((event.clientX / window.innerWidth) * 2 - 1, -(event.clientY / window.innerHeight) * 2 + 1);
 
-        //     // 从相机位置发射一条射线
-        //     const raycaster = new THREE.Raycaster();
-        //     raycaster.setFromCamera(mouse, camera);
+            // 从相机位置发射一条射线
+            const raycaster = new THREE.Raycaster();
+            raycaster.setFromCamera(mouse, camera);
 
-        //     // 计算射线与模型的相交点
-        //     const intersects = raycaster.intersectObject(model1, true);
+            // 计算射线与模型的相交点
+            const intersects = raycaster.intersectObject(model1, true);
 
-        //     if (intersects.length > 0) {
-        //         // 获取第一个相交点的坐标
-        //         const intersectionPoint = intersects[0].point;
+            if (intersects.length > 0) {
+                // 获取第一个相交点的坐标
+                const intersectionPoint = intersects[0].point;
 
-        //         // 在这里，你可以根据相交点的坐标来计算建筑物的相对位置
-        //         console.log('相对位置:', intersectionPoint);
-        //     }
-        // }
+                // 在这里，你可以根据相交点的坐标来计算建筑物的相对位置
+                console.log('相对位置:', intersectionPoint);
+            }
+        }
 
         // 問老師
         // 新增控制器
