@@ -62,8 +62,7 @@
   .cube-face.shadow {
     transform: translateZ(-80px);
     animation: bouncing-shadow 2s infinite;
-    background-image: url(../img/Frame\ 168.jpg);
-    
+    background-image: url(../img/Frame\ 168.jpg);  
   }
   .cube-face.top {
     transform: translateZ(200px) ;
@@ -148,8 +147,7 @@
     display: inline-block;
     font-weight: bolder;
     letter-spacing: 10px;
-
-    font-weight: 400;
+    font-weight: 700;
     position: relative;
   }
   .loader:before{
@@ -184,4 +182,86 @@
     70% { content: 'Loading.'}
     80% { content: 'Loading..'}
     90% , 100% { content: 'Loading...'}
+  }
+  @media(max-width: 932px){
+    #loader{
+      width: 100%;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+      background-color: #F8F6EF;
+      position: fixed;
+      z-index: 1;
+      opacity: 1;
+      transition: 2s;
+    }
+    .scene {
+      position: relative;
+      z-index: 2;
+      height: 110px;
+      width: 110px;
+      display: grid;
+      place-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 95%;
+    }
+    .cube-faces {
+      transform-style: preserve-3d;
+      height: 80px;
+      width: 80px;
+      position: relative;
+      transform-origin: 0 0;
+      transform: translateX(0) translateY(0) translateZ(-40px);
+    }
+    .cube-face.top {
+      transform: translateZ(80px) ;
+      background-image: url(../img/Frame\ 166.jpg);
+      transition: .35s ease-in-out;
+    }
+    .cube-face.back {
+      transform-origin: 0 50%;
+      transform: rotateY(-90deg) translateZ(-80px);
+      background-image: url(../img/Frame\ 164.jpg);
+      
+      
+    }
+    .cube-face.right {
+      transform-origin: 50% 0;
+      transform: rotateX(-90deg) translateY(-80px);
+      background-image: url(../img/Frame\ 165.jpg);
+    }
+    .cube-face.left {
+      transform-origin: 50% 0;
+      transform: rotateX(-90deg) translateY(-80px) translateZ(80px);
+      background-image: url(../img/Frame\ 168.jpg);
+    }
+
+    @keyframes bouncing-shadow {
+      0% {
+        transform: translateZ(-80px) scale(1.3);
+        animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);
+        opacity: 0.05;
+      }
+      45% {
+        transform: translateZ(0);
+        animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateZ(-80px) scale(1.3);
+        animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);
+        opacity: 0.05;
+      }
+    }
+    .loader{
+      font-size: 20px;
+      color: #293855;
+      display: inline-block;
+      font-weight: bolder;
+      letter-spacing: 5px;
+      font-weight: 700;
+      position: relative;
+    }
   }
