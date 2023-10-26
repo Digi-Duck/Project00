@@ -418,8 +418,8 @@
 
         // 管理學院
         options[6].addEventListener("click", () => {
-            zoomInTimeline(35, 8, 32, 25, 4, 22);
-            spotLight.position.set(35, 40, 32);
+            zoomInTimeline(19, 10, 29, 28, 3, 20);
+            spotLight.position.set(23, 40, 27);
 
         });
 
@@ -446,8 +446,8 @@
 
         // 創新產業暨國際學院
         options[10].addEventListener("click", () => {
-            zoomInTimeline(35, 8, 32, 25, 4, 22);
-            spotLight.position.set(35, 40, 32);
+            zoomInTimeline(19, 10, 29, 28, 3, 20);
+            spotLight.position.set(23, 40, 27);
 
         });
 
@@ -510,6 +510,11 @@
         // 問老師
         // 新增控制器
         const controls = new OrbitControls(camera, renderer.domElement);
+
+        controls.minPolarAngle =  0; // 最小极角（垂直旋转）
+        controls.maxPolarAngle =  1
+        controls.minDistance = 20;
+        controls.maxDistance = 80;
 
         // controls.enableRotate = false;
         // // 固定模型在45度角
