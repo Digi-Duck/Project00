@@ -188,7 +188,7 @@
             <a href="#"><li class="option option-2">${currentData.name}</li></a>
             `
         }
-
+        // 目錄按鈕迴圈
         // 學院科系與公共資源按鈕按下時，切換css移除或新增active
         switchBtn.forEach((e, index) => {
             e.addEventListener('click', (btn) => {
@@ -285,13 +285,18 @@
                     localStorage.setItem('data', `${info.name}`);
                     location.href = 'academy.html';
                 });
-
+                // 關閉小卡
                 const closeCard = document.querySelector('.close');
 
                 closeCard.addEventListener('click', () => {
                     card.innerHTML = '';
-                    zoomInTimeline(40, 10, 50);
+                    zoomInTimeline(40, 10, 50,);
                     spotLight.position.set(35, 50, 55);
+                    // controls.reset();
+                    console.log(switchBtn);
+                    options.forEach(r => {
+                    r.classList.remove('light');
+                });
                 });
             });
         });
@@ -363,14 +368,20 @@
         // 宣告zoom-in的效果
         //x,y,z是學院的位址
         //a,b,c是camera.lookAt的位址
+        const myClock = new THREE.Clock();
+        const updateDelta = myClock.getDelta ()
         const zoomInTimeline = (x, y, z , a = 0, b = 0, c = 0, zoomOutFactor = 0) => {
             let tl = gsap
                 .timeline({ defaults: { duration: 1.5, ease: "expo.out" } })
-                .to(controls.target, { x, y, z })
+                .to(controls.target, { x:0, y:0, z:0 })
                 .to(camera.position, { x, y, z: z + zoomOutFactor,
                     onUpdate: function () {
                         camera.lookAt(a, b, c);
-                    } 
+                    },
+                    // onComplete: function () {
+                    //     camera.updateProjectionMatrix()
+                    //     controls.update(updateDelta)
+                    // }
                 }, 0)
 
             // .to(group.rotation, { x: 0, y: 0 }, 0);
@@ -516,6 +527,7 @@
         // 問老師
         // 新增控制器
         const controls = new OrbitControls(camera, renderer.domElement);
+        
 
         //限制視角
         controls.minPolarAngle =  0.8; // 最小极角（垂直旋转）
@@ -531,6 +543,8 @@
         var maxPan = new THREE.Vector3( 2, 2, 2 );
 
         controls.target.clamp( minPan, maxPan );
+        // controls.saveState();
+
         // controls.enableRotate = false;
         // // 固定模型在45度角
         // controls.target.set(0, 0, 0); // 将控制器的目标点设置在原点
