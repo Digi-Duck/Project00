@@ -290,7 +290,7 @@
 
                 closeCard.addEventListener('click', () => {
                     card.innerHTML = '';
-                    zoomInTimeline(40, 10, 50 );
+                    zoomInTimeline(40, 10, 50);
                     spotLight.position.set(35, 50, 55);
                 });
             });
@@ -547,11 +547,11 @@
         // controls.minDistance = 0;
         // controls.maxDistance = 40;
 
-        // controls.mouseButtons = {
-        //     LEFT: THREE.MOUSE.PAN,
-        //     MIDDLE: THREE.MOUSE.DOLLY,
-        //     RIGHT: THREE.MOUSE.ROTATE
-        // }
+        controls.mouseButtons = {
+            LEFT: THREE.MOUSE.PAN,
+            MIDDLE: THREE.MOUSE.DOLLY,
+            RIGHT: THREE.MOUSE.ROTATE
+        }
         // 到這裡
         
         // const onWindowResize = () => {
