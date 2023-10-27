@@ -160,13 +160,13 @@
         const loader = new GLTFLoader()
         var all;
 
-        loader.load('../model/1.glb', function (object) {
-            // ALL是整個模組 root是模組裡各個"模型"的陣列
-            all = object.scene
-            const root = object.scenes[0].children
-            scene.add(all)
-            console.log(root);
-        })
+        // loader.load('./model/1.glb', function (object) {
+        //     // ALL是整個模組 root是模組裡各個"模型"的陣列
+        //     all = object.scene
+        //     const root = object.scenes[0].children
+        //     scene.add(all)
+        //     console.log(root);
+        // })
 
         // const groupMember = [
         //     {
@@ -359,7 +359,7 @@
             //     });
             // })
         });
-
+        var data = localStorage.getItem('data');
         const menuBtn = document.querySelectorAll('.menu-btn');
 
         menuBtn.forEach((menu, index) => {
@@ -375,7 +375,7 @@
                 menuBtn[index].classList.add('light');
 
                 content.innerHTML = '';
-                scene.remove(all);
+                // scene.remove(all);
 
                 content.innerHTML = `
                 <div class="info-left">
@@ -391,20 +391,29 @@
                 </div>
                 `
 
-                loader.load(`${info.model}`, function (object) {
-                    // ALL是整個模組 root是模組裡各個"模型"的陣列
-                    all = object.scene
-                    const root = object.scenes[0].children
-                    scene.add(all)
-                    console.log(all);
-                    console.log(root);
-                })
+                // loader.load(`${info.model}`, function (object) {
+                //     // ALL是整個模組 root是模組裡各個"模型"的陣列
+                //     all = object.scene
+                //     const root = object.scenes[0].children
+                //     scene.add(all)
+                //     console.log('all');
+                // })
+                loadingModel(info.model);
             })
 
+            
 
-            var data = localStorage.getItem('data');
 
             if (data == info.name) {
+                // scene.remove(all);
+                // loader.load(`${info.model}`, function (object) {
+                //     // ALL是整個模組 root是模組裡各個"模型"的陣列
+                //     all = object.scene
+                //     const root = object.scenes[0].children
+                //     scene.add(all)
+                //     console.log('all');
+                // })
+                loadingModel(info.model);
                 content.innerHTML = `
                 <div class="info-left">
                     <ul class="building">
@@ -421,6 +430,18 @@
             }
         })
 
+
+        function loadingModel(modelPath) {
+
+            scene.remove(all);
+            loader.load(modelPath, function (object) {
+                // ALL是整個模組 root是模組裡各個"模型"的陣列
+                all = object.scene
+                const root = object.scenes[0].children
+                scene.add(all)
+            })
+            
+        }
         // 未簡化的js
         // const literatureInfo = academy.find(item => item.name === '文學院');
         // const naturalResourcesInfo = academy.find(item => item.name === '農業暨自然資源學院');

@@ -526,11 +526,11 @@
         
         controls.screenSpacePanning =false
         controls.update()
-        //鏡頭平移
-        window.addEventListener("drag",()=>{
-            console.log('drag');
 
-        });
+        var minPan = new THREE.Vector3( - 2, - 2, - 2 );
+        var maxPan = new THREE.Vector3( 2, 2, 2 );
+
+        controls.target.clamp( minPan, maxPan );
         // controls.enableRotate = false;
         // // 固定模型在45度角
         // controls.target.set(0, 0, 0); // 将控制器的目标点设置在原点
