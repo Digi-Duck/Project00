@@ -61,6 +61,15 @@
             <div id="bg"></div>
             <!-- 生成小卡 -->
             <div class="card"></div>
+            <div class="choose-btn">
+                <a href="#" class="close-menu-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 73 60" fill="none">
+                        <path
+                            d="M13.2734 13.5454H59.728V20.1818H56.4098V23.5H53.0916V26.8182H49.7734V30.1363H46.4553V33.4545H43.1371V36.7727H39.8189V40.0909H33.1825V36.7727H29.8643V33.4545H26.5462V30.1363H23.228V26.8182H19.9098V23.5H16.5916V20.1818H13.2734V13.5454ZM26.5462 20.1818V23.5H29.8643V26.8182H33.1825V30.1363H39.8189V26.8182H43.1371V23.5H46.4553V20.1818H26.5462Z"
+                            fill="#C0AE67" />
+                    </svg>
+                </a>
+            </div>
             <!-- 右邊切換學院科系和公共資源的欄位 -->
             <div class="btn-list">
                 <div class="switch">
@@ -90,7 +99,7 @@
         import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
         import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-        import { GUI } from "three/addons/libs/lil-gui.module.min.js";
+        // import { GUI } from "three/addons/libs/lil-gui.module.min.js";
         import * as THREE from 'three';
         import { academy } from "./js/main.js";
         import { groupMember } from "./js/member.js";
@@ -169,7 +178,20 @@
                 aboutUs.innerHTML = "";
             });
         });
+        // //漢堡條
+        // const openMenu = document.querySelector('.choose-btn');
+        // // const closeMenu = document.querySelector('.close-menu');
+        // const menu = document.querySelector('.list-option');
 
+        // // 開啟上談式視窗
+        // openMenu.addEventListener('click', (toggle) => {
+        //     if (menu.classList.contains('hidden')) {
+        //         menu.classList.remove('hidden');
+        //         openMenu.classList.add('hidden');
+        //     } else {
+        //         menu.classList.add('hidden');
+        //     }
+        // });
         // 學院科系迴圈生成選項按鈕
 
         for (var i = 0; i < 11; i++) {
@@ -293,8 +315,8 @@
                     spotLight.position.set(35, 50, 55);
                     // controls.reset();
                     options.forEach(r => {
-                    r.classList.remove('light');
-                });
+                        r.classList.remove('light');
+                    });
                 });
             });
         });
@@ -344,15 +366,15 @@
             const root = object.scenes[0].children;
             scene.add(model1);
             // console.log(root);
-            console.log(object);
-            const gui = new GUI();
-            console.log(model1.position);
-            const modelFolder = gui.addFolder('Map');
-            modelFolder.add(model1.position, 'x', -2, 66);
-            modelFolder.add(model1.position, 'y', -2, 12);
-            modelFolder.add(model1.position, 'z', -2, 60);
-            
-            
+            // console.log(object);
+            // const gui = new GUI();
+            // console.log(model1.position);
+            // const modelFolder = gui.addFolder('Map');
+            // modelFolder.add(model1.position, 'x', -2, 66);
+            // modelFolder.add(model1.position, 'y', -2, 12);
+            // modelFolder.add(model1.position, 'z', -2, 60);
+
+
 
 
             // const extensionsUsed = object.parser.json.extensionsUsed;
@@ -376,11 +398,12 @@
         // 宣告zoom-in的效果
         //x,y,z是學院的位址
         //a,b,c是camera.lookAt的位址
-        const zoomInTimeline = (x, y, z , a = 0, b = 0, c = 0, zoomOutFactor = 0) => {
+        const zoomInTimeline = (x, y, z, a = 0, b = 0, c = 0, zoomOutFactor = 0) => {
             let tl = gsap
                 .timeline({ defaults: { duration: 1.5, ease: "expo.out" } })
-                .to(controls.target, { x:0, y:0, z:0 })
-                .to(camera.position, { x, y, z: z + zoomOutFactor,
+                .to(controls.target, { x: 0, y: 0, z: 0 })
+                .to(camera.position, {
+                    x, y, z: z + zoomOutFactor,
                     onUpdate: function () {
                         camera.lookAt(a, b, c);
                     },
@@ -406,35 +429,35 @@
 
         // 農業暨自然資源學院
         options[1].addEventListener("click", () => {
-            zoomInTimeline(-4, 10, 23 ,-7 , 5 , 14);
+            zoomInTimeline(-4, 10, 23, -7, 5, 14);
             spotLight.position.set(-4, 40, 23);
 
         });
 
         // 理學院
         options[2].addEventListener("click", () => {
-            zoomInTimeline(-18, 8, 15 , -23, 4 ,10);
+            zoomInTimeline(-18, 8, 15, -23, 4, 10);
             spotLight.position.set(-18, 40, 15);
 
         });
 
         // 工學院
         options[3].addEventListener("click", () => {
-            zoomInTimeline(-34, 8, 18 , -41, 2, 10);
+            zoomInTimeline(-34, 8, 18, -41, 2, 10);
             spotLight.position.set(-34, 40, 18);
 
         });
 
         // 生命科學院
         options[4].addEventListener("click", () => {
-            zoomInTimeline(-0, 8, 32, -7, 4 , 23);
+            zoomInTimeline(-0, 8, 32, -7, 4, 23);
             spotLight.position.set(5, 40, 35);
 
         });
 
         // 獸醫學院
         options[5].addEventListener("click", () => {
-            zoomInTimeline(-34, 8, -16,-41, 2, -22)
+            zoomInTimeline(-34, 8, -16, -41, 2, -22)
             spotLight.position.set(-34, 40, -22);
 
         });
@@ -533,29 +556,29 @@
         // 問老師
         // 新增控制器
         const controls = new OrbitControls(camera, renderer.domElement);
-        
+
 
         //限制視角
-        controls.minPolarAngle =  0.8; // 最小极角（垂直旋转）
-        controls.maxPolarAngle =  1.45
+        controls.minPolarAngle = 0.8; // 最小极角（垂直旋转）
+        controls.maxPolarAngle = 1.45
         //限制鏡頭距離
         controls.minDistance = 50;
         controls.maxDistance = 80;
-        
-        controls.screenSpacePanning =false
-        
-        var minPan = new THREE.Vector3( -66, - 2, - 60 );
-        var maxPan = new THREE.Vector3( 0, 2, 0 );
+
+        controls.screenSpacePanning = false
+
+        var minPan = new THREE.Vector3(-66, - 2, - 60);
+        var maxPan = new THREE.Vector3(0, 2, 0);
         var _v = new THREE.Vector3();
-    
-        controls.addEventListener("change", function() {
-        console.log(_v);
-        _v.copy(controls.target);
-        controls.target.clamp(minPan, maxPan);
-        _v.sub(controls.target);
-        camera.position.sub(_v);
+
+        controls.addEventListener("change", function () {
+            console.log(_v);
+            _v.copy(controls.target);
+            controls.target.clamp(minPan, maxPan);
+            _v.sub(controls.target);
+            camera.position.sub(_v);
         });
-        
+
         // controls.target.clamp( minPan, maxPan );
         controls.update()
         // controls.saveState();
@@ -563,7 +586,7 @@
         // controls.enableRotate = false;
         // // 固定模型在45度角
         // controls.target.set(0, 0, 0); // 将控制器的目标点设置在原点
-        
+
 
         // // 限制控制器只能左右旋转
         // controls.minPolarAngle = Math.PI / 2; // 最小极角（垂直旋转）为45度
@@ -582,7 +605,7 @@
             RIGHT: THREE.MOUSE.ROTATE
         }
         // 到這裡
-        
+
         // const onWindowResize = () => {
         //     camera.aspect = idiot.clientWidth / idiot.clientHeight;
         //     camera.updateProjectionMatrix();

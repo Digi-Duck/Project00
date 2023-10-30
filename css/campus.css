@@ -312,3 +312,94 @@ main canvas {
     font-weight: 600;
     color: #293855;
 }
+@media(max-width: 1600px){
+    .list-option {
+        width: 100%;
+        height: calc(90% - 83px);
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 10px 10%;
+        margin: 0;
+        background-color: #F8F6EF;
+        backdrop-filter: blur(5px);
+        border-radius: 0 0 5px 5px;
+    }
+    .option {
+        width: 100%;
+        list-style: none;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 3px;
+        letter-spacing: 3px;
+        border-bottom: solid 3px #293855;
+        color: #293855;
+        margin-top: 20px;
+    }
+}
+@media (max-width: 1250px) {
+    .btn-list {
+        position: absolute;
+        top: 60%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 320px;
+        height: 650px;
+        border-radius: 0px 0px 4px 4px;
+        border-radius: 5px;
+    }
+    .switch {
+        width: 100%;
+        height: 53px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 5px 5px 0 0;
+        background-color: rgba(248, 246, 239, 0.50);
+    }
+    
+    .switch-btn {
+        width: 100%;
+        height: 100%;
+        flex: 1;
+        text-align: center;
+        text-decoration: none;
+        color: #F8F6EF;
+        font-size: 18px;
+        line-height: 53px;
+        letter-spacing: 3px;
+        text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.30);
+    }
+    .list-option {
+        width: 100%;
+        height: calc(70% - 53px);
+        display: flex;
+        flex-wrap: wrap;
+        flex-flow: column;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        padding: 10px 10%;
+        margin: 0;
+        background-color: #F8F6EF;
+        backdrop-filter: blur(5px);
+        border-radius: 0 0 5px 5px;
+    }
+    .list-option a {
+        width: 60%;
+        text-align: center;
+        text-decoration: none;
+    }
+    .option {
+        width: 60%;
+        list-style: none;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 3px;
+        letter-spacing: 3px;
+        border-bottom: solid 3px #293855;
+        color: #293855;
+        margin-top: 20px;
+    }
+}
