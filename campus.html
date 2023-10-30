@@ -90,7 +90,7 @@
         import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
         import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-        // import { GUI } from "three/addons/libs/lil-gui.module.min.js";
+        import { GUI } from "three/addons/libs/lil-gui.module.min.js";
         import * as THREE from 'three';
         import { academy } from "./js/main.js";
         import { groupMember } from "./js/member.js";
@@ -134,7 +134,7 @@
         const aboutBtn = document.querySelector('.about-icon');
 
         aboutBtn.addEventListener('click', () => {
-            console.log(aboutBtn);
+            // console.log(aboutBtn);
             aboutUs.classList.add('active');
             aboutUs.innerHTML += `
             <div class="about-us-bg">
@@ -281,7 +281,6 @@
                 `
 
                 document.getElementById(`link-${index + 1}`).addEventListener('click', function () {
-                    console.log(123);
                     localStorage.setItem('data', `${info.name}`);
                     location.href = 'academy.html';
                 });
@@ -293,7 +292,6 @@
                     zoomInTimeline(40, 10, 50,);
                     spotLight.position.set(35, 50, 55);
                     // controls.reset();
-                    console.log(switchBtn);
                     options.forEach(r => {
                     r.classList.remove('light');
                 });
@@ -345,7 +343,17 @@
             model1 = object.scene;
             const root = object.scenes[0].children;
             scene.add(model1);
-            console.log(root);
+            // console.log(root);
+            console.log(object);
+            const gui = new GUI();
+            console.log(model1.position);
+            const modelFolder = gui.addFolder('Map');
+            modelFolder.add(model1.position, 'x', -2, 66);
+            modelFolder.add(model1.position, 'y', -2, 12);
+            modelFolder.add(model1.position, 'z', -2, 60);
+            
+            
+
 
             // const extensionsUsed = object.parser.json.extensionsUsed;
             // const extensions = object.parser.json.extensions;
@@ -368,8 +376,6 @@
         // 宣告zoom-in的效果
         //x,y,z是學院的位址
         //a,b,c是camera.lookAt的位址
-        const myClock = new THREE.Clock();
-        const updateDelta = myClock.getDelta ()
         const zoomInTimeline = (x, y, z , a = 0, b = 0, c = 0, zoomOutFactor = 0) => {
             let tl = gsap
                 .timeline({ defaults: { duration: 1.5, ease: "expo.out" } })
@@ -387,7 +393,7 @@
             // .to(group.rotation, { x: 0, y: 0 }, 0);
         };
 
-        console.log(options[0]);
+        // console.log(options[0]);
 
         // 文學院
         options[0].addEventListener("click", () => {
@@ -533,16 +539,25 @@
         controls.minPolarAngle =  0.8; // 最小极角（垂直旋转）
         controls.maxPolarAngle =  1.45
         //限制鏡頭距離
-        controls.minDistance = 40;
-        controls.maxDistance = 60;
+        controls.minDistance = 50;
+        controls.maxDistance = 80;
         
         controls.screenSpacePanning =false
+        
+        var minPan = new THREE.Vector3( -66, - 2, - 60 );
+        var maxPan = new THREE.Vector3( 0, 2, 0 );
+        var _v = new THREE.Vector3();
+    
+        controls.addEventListener("change", function() {
+        console.log(_v);
+        _v.copy(controls.target);
+        controls.target.clamp(minPan, maxPan);
+        _v.sub(controls.target);
+        camera.position.sub(_v);
+        });
+        
+        // controls.target.clamp( minPan, maxPan );
         controls.update()
-
-        var minPan = new THREE.Vector3( - 2, - 2, - 2 );
-        var maxPan = new THREE.Vector3( 2, 2, 2 );
-
-        controls.target.clamp( minPan, maxPan );
         // controls.saveState();
 
         // controls.enableRotate = false;
@@ -592,7 +607,6 @@
 
             } else { }
         };
-        console.log(loading)
     </script>
 
 </body>
