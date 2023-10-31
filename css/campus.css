@@ -21,7 +21,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 0 5%;
+    /* padding: 0 5%; */
 }
 .nav{
     width: 100%;
@@ -30,6 +30,7 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 5;
+    padding: 0 5%;
 }
 
 .itemBox {
@@ -45,7 +46,7 @@ body {
 
 main {
     width: 100%;
-    /* height: calc(100% - 100px); */
+    height: calc(100% - 100px);
     position: relative;
 }
 
@@ -64,7 +65,7 @@ main canvas {
 .btn-list {
     position: absolute;
     top: 50%;
-    right: 0;
+    right: 5%;
     transform: translateY(-50%);
     width: 320px;
     height: 769px;
@@ -202,7 +203,7 @@ main canvas {
 
 .card-more {
     width: 160px;
-    height: 50x;
+    height: 50px;
     background-color: #F8F6EF;
     display: flex;
     justify-content: space-around;
@@ -224,92 +225,6 @@ main canvas {
 .card-more span {
     font-size: 20px;
     line-height: 65px;
-    color: #293855;
-}
-
-.about-us.active {
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    z-index: 99;
-}
-
-.about-us-bg {
-    width: 100%;
-    height: 100%;
-    background-color: linear-gradient(180deg, #293855 0%, #000 100%);
-}
-
-.about-us-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    height: 90%;
-}
-
-.about-us-content-nav {
-    width: 100%;
-    height: 100px;
-    background-color: #293855;
-    box-shadow: 0px 8px 7px 0px rgba(0, 0, 0, 0.25);
-    display: flex;
-    justify-content: flex-end;
-    border-radius: 5px 5px 0 0;
-}
-
-.about-us-content-nav svg {
-    cursor: pointer;
-}
-
-.about-us-content-group {
-    width: 100%;
-    height: calc(100% - 100px);
-    background-color: #e2e1dd;
-    border-radius: 0 0 5px 5px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 5%;
-}
-
-.group {
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-
-}
-
-.group-img {
-    width: 225px;
-    height: 225px;
-    border-radius: 50%;
-    background-color: #293855;
-}
-
-.group-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.group-position {
-    width: 100%;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 600;
-    color: #293855;
-}
-
-.group-member {
-    width: 100%;
-    text-align: center;
-    font-size: 28px;
-    font-weight: 600;
     color: #293855;
 }
 
@@ -339,19 +254,78 @@ main canvas {
         color: #293855;
         margin-top: 20px;
     }
-}
-
-@media (max-width: 1250px) {
-    .btn-list {
+    .card {
         position: absolute;
-        top: 60%;
-        right: 0;
-        transform: translateY(-50%);
-        width: 320px;
-        height: 650px;
-        border-radius: 0px 0px 4px 4px;
+        width: 50%;
+        height: 280px;
         border-radius: 5px;
+        bottom: 10%;
     }
+    
+    .card-nav {
+        width: 100%;
+        height: 60px;
+        background-color: #293855;
+        border-radius: 5px 5px 0 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 10px;
+    }
+    
+    .card-content {
+        width: 100%;
+        height: calc(100% - 60px);
+        border: solid 5px #293855;
+        border-radius: 0 0 5px 5px;
+        background-color: rgba(248, 246, 239, 0.80);
+        padding: 2%;
+    }
+    
+    .card-title {
+        width: 50%;
+        font-size: 28px;
+        text-align: center;
+        border-bottom: solid 5px #C0AE67;
+        color: #293855;
+    }
+    
+    .card-txt {
+        width: 100%;
+        margin-top: 20px;
+        font-size: 16px;
+        color: #293855;
+    }
+    
+    .card-more {
+        width: 160px;
+        height: 50px;
+        background-color: #F8F6EF;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.35);
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        border-radius: 3px;
+    }
+    
+    .card-more a {
+        text-decoration: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .card-more span {
+        font-size: 20px;
+        line-height: 65px;
+        color: #293855;
+    }
+}
+    
+@media (max-width: 932px) {
 
     .switch {
         width: 100%;
@@ -378,7 +352,7 @@ main canvas {
 
     .list-option {
         width: 100%;
-        height: calc(65% - 53px);
+        height: calc(74% - 53px);
         display: flex;
         flex-wrap: wrap;
         flex-flow: column;
@@ -386,6 +360,7 @@ main canvas {
         align-content: flex-start;
         flex-wrap: wrap;
         padding: 10px 10%;
+        gap: 10px;
         margin: 0;
         background-color: #F8F6EF;
         backdrop-filter: blur(5px);
@@ -397,7 +372,6 @@ main canvas {
         text-align: center;
         text-decoration: none;
     }
-
     .option {
         width: 80%;
         list-style: none;
@@ -409,13 +383,11 @@ main canvas {
         color: #293855;
         margin-top: 20px;
     }
-}
 
-@media (max-width: 932px) {
     .btn-list {
         position: absolute;
-        top: 60%;
-        right: 0;
+        top: 37%;
+        right: 5%;
         transform: translateY(-50%);
         width: 320px;
         height: 650px;
@@ -426,6 +398,264 @@ main canvas {
 
     .openMenu {
         display: block;
+    }
+    .card {
+        position: absolute;
+        width: 100%;
+        height: 33vh;
+        border-radius: 5px;
+        bottom: 10%;
+    }
+    
+    .card-nav {
+        width: 100%;
+        height: 60px;
+        background-color: #293855;
+        border-radius: 5px 5px 0 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 10px;
+    }
+    
+    .card-content {
+        width: 100%;
+        height: calc(100% - 60px);
+        border: solid 5px #293855;
+        border-radius: 0 0 5px 5px;
+        background-color: rgba(248, 246, 239, 0.80);
+        padding: 2%;
+    }
+    
+    .card-title {
+        width: 100%;
+        font-size: 28px;
+        text-align: center;
+        border-bottom: solid 5px #C0AE67;
+        color: #293855;
+    }
+    
+    .card-txt {
+        width: 100%;
+        margin-top: 20px;
+        font-size: 16px;
+        color: #293855;
+    }
+    
+    .card-more {
+        width: 160px;
+        height: 50px;
+        background-color: #F8F6EF;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.35);
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        border-radius: 3px;
+    }
+    
+    .card-more a {
+        text-decoration: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .card-more span {
+        font-size: 20px;
+        line-height: 65px;
+        color: #293855;
+    }
+
+    .ham-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 5px;
+        background-color: #C0AE67;
+        display: block;
+        position: relative;
+    }
+
+    .ham-btn .line {
+        width: 60%;
+        height: 3px;
+        background-color: #293855;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: 0.5s;
+    }
+
+    .ham-btn .line-1 {
+        top: 25%;
+    }
+
+    .ham-btn .line-2 {
+        top: 50%;
+    }
+
+    .ham-btn .line-3 {
+        top: 75%;
+    }
+
+    #ham-menu-swith:checked+.ham-btn .line-1 {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    #ham-menu-swith:checked+.ham-btn .line-2 {
+        display: none;
+    }
+
+    #ham-menu-swith:checked+.ham-btn .line-3 {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+}
+@media (max-width: 375px) {
+
+    .switch {
+        width: 100%;
+        height: 53px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 5px 5px 0 0;
+        background-color: rgba(248, 246, 239, 0.50);
+    }
+
+    .switch-btn {
+        width: 100%;
+        height: 100%;
+        flex: 1;
+        text-align: center;
+        text-decoration: none;
+        color: #F8F6EF;
+        font-size: 18px;
+        line-height: 53px;
+        letter-spacing: 3px;
+        text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.30);
+    }
+
+    .list-option {
+        width: 100%;
+        height: calc(74% - 53px);
+        display: flex;
+        flex-wrap: wrap;
+        flex-flow: column;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        padding: 10px 10%;
+        gap: 10px;
+        margin: 0;
+        background-color: #F8F6EF;
+        backdrop-filter: blur(5px);
+        border-radius: 0 0 5px 5px;
+    }
+
+    .list-option a {
+        width: 55%;
+        text-align: center;
+        text-decoration: none;
+    }
+    .option {
+        width: 80%;
+        list-style: none;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 3px;
+        letter-spacing: 3px;
+        border-bottom: solid 3px #293855;
+        color: #293855;
+        margin-top: 20px;
+    }
+
+    .btn-list {
+        position: absolute;
+        top: 37%;
+        right: 5%;
+        transform: translateY(-50%);
+        width: 320px;
+        height: 650px;
+        border-radius: 0px 0px 4px 4px;
+        border-radius: 5px;
+        display: none;
+    }
+
+    .openMenu {
+        display: block;
+    }
+    .card {
+        position: absolute;
+        width: 100%;
+        height: 50vh;
+        border-radius: 5px;
+        bottom: 10%;
+    }
+    
+    .card-nav {
+        width: 100%;
+        height: 60px;
+        background-color: #293855;
+        border-radius: 5px 5px 0 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 10px;
+    }
+    
+    .card-content {
+        width: 100%;
+        height: calc(100% - 60px);
+        border: solid 5px #293855;
+        border-radius: 0 0 5px 5px;
+        background-color: rgba(248, 246, 239, 0.80);
+        padding: 2%;
+    }
+    
+    .card-title {
+        width: 100%;
+        font-size: 28px;
+        text-align: center;
+        border-bottom: solid 5px #C0AE67;
+        color: #293855;
+    }
+    
+    .card-txt {
+        width: 100%;
+        margin-top: 20px;
+        font-size: 16px;
+        color: #293855;
+    }
+    
+    .card-more {
+        width: 160px;
+        height: 50px;
+        background-color: #F8F6EF;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.35);
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        border-radius: 3px;
+    }
+    
+    .card-more a {
+        text-decoration: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .card-more span {
+        font-size: 20px;
+        line-height: 65px;
+        color: #293855;
     }
 
     .ham-btn {
