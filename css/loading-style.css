@@ -15,7 +15,7 @@
     place-items: center;
     background-color: #F8F6EF;
     position: fixed;
-    z-index: 1;
+    z-index: 6;
     opacity: 1;
     transition: 2s;
   }
@@ -192,7 +192,7 @@
       place-items: center;
       background-color: #F8F6EF;
       position: fixed;
-      z-index: 1;
+      z-index: 6;
       opacity: 1;
       transition: 2s;
     }

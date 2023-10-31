@@ -45,8 +45,8 @@ body {
 
 .big-box {
     width: 100%;
-    /* height: calc(100% - 100px); */
-    height: 850px;
+    height: calc(100% - 100px);
+    /* height: auto; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -97,91 +97,6 @@ body {
     letter-spacing: 3px;
 }
 
-.about-us.active {
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    z-index: 99;
-}
-
-.about-us-bg {
-    width: 100%;
-    height: 100%;
-    background-color: linear-gradient(180deg, #293855 0%, #000 100%);
-}
-
-.about-us-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    height: 90%;
-}
-
-.about-us-content-nav {
-    width: 100%;
-    height: 100px;
-    background-color: #293855;
-    box-shadow: 0px 8px 7px 0px rgba(0, 0, 0, 0.25);
-    display: flex;
-    justify-content: flex-end;
-    border-radius: 5px 5px 0 0;
-}
-
-.about-us-content-nav svg {
-    cursor: pointer;
-}
-
-.about-us-content-group {
-    width: 100%;
-    height: calc(100% - 100px);
-    background-color: #e2e1dd;
-    border-radius: 0 0 5px 5px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 5%;
-}
-
-.group {
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-
-}
-
-.group-img {
-    width: 225px;
-    height: 225px;
-    border-radius: 50%;
-    background-color: #293855;
-}
-
-.group-img  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.group-position {
-    width: 100%;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 600;
-    color: #293855;
-}
-
-.group-member {
-    width: 100%;
-    text-align: center;
-    font-size: 28px;
-    font-weight: 600;
-    color: #293855;
-}
 @media (max-width: 1754px) {
     .container {
         width: 100%;
@@ -194,7 +109,7 @@ body {
     }
     .nav {
         width: 100%;
-        height: 60px;
+        height: 80px;
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -213,7 +128,7 @@ body {
     }
     .big-box {
         width: 90%;
-        height: 800px;
+        height: calc(90% - 80px);
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -267,7 +182,7 @@ body {
     }
     .nav {
         width: 100%;
-        height: 60px;
+        height: 80px;
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -285,22 +200,22 @@ body {
         height: 22px;
     }
     .big-box {
-        width: 85%;
-        height: 600px;
+        width: 100%;
+        height: calc(100% - 80px);
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        gap: 45px 20px;
+        gap:0px; 
     }
     .link {
         text-decoration: none;
-        font-size: 12px;
+        font-size: 16px;
         color: #293855;
         font-family: 'DotGothic16', sans-serif;
     }
     .box {
-        width: 170px;
-        height: 159px;
+        width: 200px;
+        height: 189px;
         border-radius: 4px;
         border: 3px solid #F8F6EF;
         background: #F8F6EF;
@@ -339,7 +254,7 @@ body {
     }
     .nav {
         width: 100%;
-        height: 60px;
+        height: 80px;
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -357,22 +272,22 @@ body {
         height: 22px;
     }
     .big-box {
-        width: 80%;
-        height: 450px;
+        width: 100%;
+        height: calc(100% - 80px);
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        gap: 20px 20px;
+        gap: 0px;
     }
     .link {
         text-decoration: none;
-        font-size: 10px;
+        font-size: 14px;
         color: #293855;
         font-family: 'DotGothic16', sans-serif;
     }
     .box {
-        width: 130px;
-        height: 119px;
+        width: 170px;
+        height: 159px;
         border-radius: 4px;
         border: 3px solid #F8F6EF;
         background: #F8F6EF;
@@ -400,87 +315,7 @@ body {
     }
 }
 
-@media(max-width:1046px) {
-    .container {
-        width: 100%;
-        /* max-width: 1920px; */
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 0 5%;
-    }
-    .nav {
-        width: 100%;
-        height: 60px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        z-index: 5;
-    }
-    
-    .itemBox {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-    }
-    
-    .icon {
-        cursor: pointer;
-        height: 22px;
-    }
-    .icon svg{
-        width: 30px;
-        height: 30px;
-    }
-    .about-icon svg{
-        width: 30px;
-        height: 30px;
-    }
-    .big-box {
-        width: 80%;
-        height: 400px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 10px 10px;
-    }
-    .link {
-        text-decoration: none;
-        font-size: 10px;
-        color: #293855;
-        font-family: 'DotGothic16', sans-serif;
-    }
-    .box {
-        width: 100px;
-        height: 89px;
-        border-radius: 4px;
-        border: 3px solid #F8F6EF;
-        background: #F8F6EF;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        /* object-fit: cover; */
-        z-index: 2;
-    }
-    .box img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        -webkit-filter:brightness(.5);
-    }
-    .txt {
-        width: 100%;
-        height: 50px;
-        background-color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        letter-spacing: 3px;
-    }
-}
-@media (max-width: 815px) {
+@media (max-width: 980px) {
     .container {
         width: 100%;
         /* max-width: 1920px; */
@@ -518,22 +353,22 @@ body {
         height: 30px;
     }
     .big-box {
-        width: 80%;
-        height: 300px;
+        width: 100%;
+        height: calc(100% - 60px);
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        gap: 45px 20px;
+        gap: 0px;
     }
     .link {
         text-decoration: none;
-        font-size: 7px;
+        font-size: 12px;
         color: #293855;
         font-family: 'DotGothic16', sans-serif;
     }
     .box {
-        width: 80px;
-        height: 69px;
+        width: 150px;
+        height: 139px;
         border-radius: 4px;
         border: 3px solid #F8F6EF;
         background: #F8F6EF;
