@@ -23,12 +23,11 @@ body {
     justify-content: center;
     padding: 0 5%;
 }
-
-.nav {
+.nav{
     width: 100%;
     height: 100px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     z-index: 5;
 }
@@ -139,7 +138,8 @@ main canvas {
     background-color: #293855;
 }
 
-.option-1, .option-2{
+.option-1,
+.option-2 {
     display: none;
 }
 
@@ -147,7 +147,7 @@ main canvas {
     display: block;
 }
 
-.option-2.active{
+.option-2.active {
     display: block;
 }
 
@@ -290,7 +290,7 @@ main canvas {
     background-color: #293855;
 }
 
-.group-img  img {
+.group-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -312,7 +312,8 @@ main canvas {
     font-weight: 600;
     color: #293855;
 }
-@media(max-width: 1600px){
+
+@media(max-width: 1600px) {
     .list-option {
         width: 100%;
         height: calc(90% - 83px);
@@ -326,6 +327,7 @@ main canvas {
         backdrop-filter: blur(5px);
         border-radius: 0 0 5px 5px;
     }
+
     .option {
         width: 100%;
         list-style: none;
@@ -338,6 +340,7 @@ main canvas {
         margin-top: 20px;
     }
 }
+
 @media (max-width: 1250px) {
     .btn-list {
         position: absolute;
@@ -349,6 +352,7 @@ main canvas {
         border-radius: 0px 0px 4px 4px;
         border-radius: 5px;
     }
+
     .switch {
         width: 100%;
         height: 53px;
@@ -358,7 +362,7 @@ main canvas {
         border-radius: 5px 5px 0 0;
         background-color: rgba(248, 246, 239, 0.50);
     }
-    
+
     .switch-btn {
         width: 100%;
         height: 100%;
@@ -371,6 +375,7 @@ main canvas {
         letter-spacing: 3px;
         text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.30);
     }
+
     .list-option {
         width: 100%;
         height: calc(65% - 53px);
@@ -386,11 +391,13 @@ main canvas {
         backdrop-filter: blur(5px);
         border-radius: 0 0 5px 5px;
     }
+
     .list-option a {
         width: 55%;
         text-align: center;
         text-decoration: none;
     }
+
     .option {
         width: 80%;
         list-style: none;
@@ -403,6 +410,7 @@ main canvas {
         margin-top: 20px;
     }
 }
+
 @media (max-width: 932px) {
     .btn-list {
         position: absolute;
@@ -415,57 +423,53 @@ main canvas {
         border-radius: 5px;
         display: none;
     }
-    .switch {
-        width: 100%;
-        height: 53px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        border-radius: 5px 5px 0 0;
-        background-color: rgba(248, 246, 239, 0.50);
+
+    .openMenu {
+        display: block;
     }
-    
-    .switch-btn {
-        width: 100%;
-        height: 100%;
-        flex: 1;
-        text-align: center;
-        text-decoration: none;
-        color: #F8F6EF;
-        font-size: 18px;
-        line-height: 53px;
-        letter-spacing: 3px;
-        text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.30);
+
+    .ham-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 5px;
+        background-color: #C0AE67;
+        display: block;
+        position: relative;
     }
-    .list-option {
-        width: 100%;
-        height: calc(70% - 53px);
-        display: flex;
-        flex-wrap: wrap;
-        flex-flow: column;
-        flex-direction: column;
-        align-content: flex-start;
-        flex-wrap: wrap;
-        padding: 10px 10%;
-        margin: 0;
-        background-color: #F8F6EF;
-        backdrop-filter: blur(5px);
-        border-radius: 0 0 5px 5px;
-    }
-    .list-option a {
+
+    .ham-btn .line {
         width: 60%;
-        text-align: center;
-        text-decoration: none;
+        height: 3px;
+        background-color: #293855;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: 0.5s;
     }
-    .option {
-        width: 60%;
-        list-style: none;
-        font-size: 15px;
-        font-weight: 600;
-        padding: 3px;
-        letter-spacing: 3px;
-        border-bottom: solid 3px #293855;
-        color: #293855;
-        margin-top: 20px;
+
+    .ham-btn .line-1 {
+        top: 25%;
+    }
+
+    .ham-btn .line-2 {
+        top: 50%;
+    }
+
+    .ham-btn .line-3 {
+        top: 75%;
+    }
+
+    #ham-menu-swith:checked+.ham-btn .line-1 {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    #ham-menu-swith:checked+.ham-btn .line-2 {
+        display: none;
+    }
+
+    #ham-menu-swith:checked+.ham-btn .line-3 {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
     }
 }
