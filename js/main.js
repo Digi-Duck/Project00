@@ -7,7 +7,7 @@ const academy = Object.freeze([
             , '歷史學系', '數位人文與文創產業進修學士學位學程', '圖書資訊學研究所', '台灣文學與跨國文化研究所', '台灣與跨文化研究國際博士學位學程'],
         more: '1969年創設文學院。課程設計兼顧理論及實作。',
         teach: '為培養學生人文素養與數位科技的創新精神及溝通能力。',
-        model:'./model/01.glb',
+        model:'./model/01test.glb',
         link: 'link-1',
         image:'./img/01.png',
     },
