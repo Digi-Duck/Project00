@@ -360,7 +360,6 @@ main canvas {
         align-content: flex-start;
         flex-wrap: wrap;
         padding: 10px 10%;
-        gap: 10px;
         margin: 0;
         background-color: #F8F6EF;
         backdrop-filter: blur(5px);

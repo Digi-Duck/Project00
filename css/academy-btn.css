@@ -368,8 +368,8 @@ body {
     }
     .box {
         width: 150px;
-        height: 139px;
-        border-radius: 4px;
+        height: 70px;
+        border-radius: 0;
         border: 3px solid #F8F6EF;
         background: #F8F6EF;
         display: flex;
@@ -381,8 +381,9 @@ body {
     }
     .box img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: 70%;
+        background-size: cover ;
+        background-position: center bottom ;
         -webkit-filter:brightness(.5);
     }
     .txt {
