@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    font-family: 'DotGothic16', sans-serif;
 }
 
 body {
@@ -11,6 +10,8 @@ body {
     display: flex;
     justify-content: center;
     background: linear-gradient(180deg, #293855 0%, #000 100%);
+    font-family: 'DotGothic16', sans-serif;
+
 }
 
 .container {
