@@ -10,6 +10,7 @@ body {
     background: linear-gradient(180deg, #293855 0%, #000 100%);
     display: flex;
     justify-content: center;
+    font-family: 'DotGothic16', sans-serif;
 }
 
 .container {

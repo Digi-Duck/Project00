@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    font-family: 'DotGothic16', sans-serif;
 }
 
 body {
@@ -12,6 +11,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'DotGothic16', sans-serif;
 }
 
 /* width */
