@@ -29,6 +29,15 @@ body {
     background: #555;
 }
 
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .container {
     width: 100%;
     max-width: 1920px;
@@ -68,9 +77,9 @@ body {
 }
 
 #bg {
-    
     position: fixed;
     z-index: -1;
+    animation: slideIn 2s ease-in-out 4.9s;
 }
 
 .info {
@@ -82,12 +91,14 @@ body {
 }
 
 .info-left {
-    width: 70%;
+    /* width: 70%; */
     height: 50vh;
     display: flex;
+    overflow: hidden;
     justify-content: flex-start;
     flex-wrap: wrap;
 }
+
 
 .building {
     width: 100%;
@@ -95,7 +106,6 @@ body {
     justify-content: flex-start;
     padding: 0;
     margin: 0;
-
 }
 
 .building-list {
@@ -103,8 +113,12 @@ body {
 }
 
 .building-list p {
+    width: 100%;
     font-size: 32px;
-    color: #f8f6ef;
+    color: #f8f6ef;    
+    animation: slideIn 2s ease-in-out 4.7s;
+    overflow: hidden;
+
 }
 
 .choose-btn {
@@ -133,6 +147,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    animation: slideIn 2s ease-in-out 4.7s;
 }
 
 .right-title {
