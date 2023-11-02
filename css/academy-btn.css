@@ -119,7 +119,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #000000bb;
+    background: rgba(19, 18, 18, 0.452);
     -webkit-transform: scaleY(0);
     transform: scaleY(0);
     -webkit-transform-origin: 50% 0;

@@ -273,6 +273,7 @@ body {
     text-align: center;
     line-height: 40px;
     border-bottom: solid 3px #293855;
+    cursor: pointer;
 }
 
 .menu-btn:hover {
