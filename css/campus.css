@@ -24,7 +24,8 @@ body {
     justify-content: center;
     /* padding: 0 5%; */
 }
-.nav{
+
+.nav {
     width: 100%;
     height: 100px;
     display: flex;
@@ -40,9 +41,22 @@ body {
     gap: 20px;
 }
 
-.icon {
+.icon,
+.about-icon {
     cursor: pointer;
     height: 44px;
+}
+
+.icon:hover,
+.about-icon:hover {
+    background-color: #C0AE67;
+    border-radius: 2px;
+    transition: .2s linear;
+}
+
+.icon:hover path,
+.about-icon:hover path {
+    fill: #293855;
 }
 
 main {
@@ -175,7 +189,7 @@ main canvas {
     border-radius: 5px 5px 0 0;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-end;
     padding-right: 10px;
 }
 
@@ -215,6 +229,11 @@ main canvas {
     bottom: 0px;
     right: 5px;
     border-radius: 3px;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
 }
 
 .card-more a {
@@ -228,6 +247,40 @@ main canvas {
     font-size: 20px;
     line-height: 65px;
     color: #293855;
+}
+
+/* Icon Sink */
+/* .hvr-icon-sink {
+    display: inline-block;
+    vertical-align: middle;
+
+} */
+
+.card-more .card-more svg {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.card-more:hover .card-more svg,
+.card-more:focus .card-more svg,
+.card-more:active .card-more svg {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+}
+
+.close {
+    cursor: pointer;
+}
+
+.close:hover {
+    transform: scale(1.1);
+    transition: .2s linear;
 }
 
 @media(max-width: 1600px) {
@@ -256,6 +309,7 @@ main canvas {
         color: #293855;
         margin-top: 20px;
     }
+
     .card {
         position: absolute;
         width: 50%;
@@ -263,7 +317,7 @@ main canvas {
         border-radius: 5px;
         bottom: 10%;
     }
-    
+
     .card-nav {
         width: 100%;
         height: 60px;
@@ -274,7 +328,7 @@ main canvas {
         align-items: center;
         padding-right: 10px;
     }
-    
+
     .card-content {
         width: 100%;
         height: calc(100% - 60px);
@@ -283,7 +337,7 @@ main canvas {
         background-color: rgba(248, 246, 239, 0.80);
         padding: 2%;
     }
-    
+
     .card-title {
         width: 50%;
         font-size: 28px;
@@ -291,14 +345,14 @@ main canvas {
         border-bottom: solid 5px #C0AE67;
         color: #293855;
     }
-    
+
     .card-txt {
         width: 100%;
         margin-top: 20px;
         font-size: 16px;
         color: #293855;
     }
-    
+
     .card-more {
         width: 160px;
         height: 50px;
@@ -312,21 +366,21 @@ main canvas {
         right: 5px;
         border-radius: 3px;
     }
-    
+
     .card-more a {
         text-decoration: none;
         display: flex;
         justify-content: space-around;
         align-items: center;
     }
-    
+
     .card-more span {
         font-size: 20px;
         line-height: 65px;
         color: #293855;
     }
 }
-    
+
 @media (max-width: 932px) {
 
     .switch {
@@ -373,6 +427,7 @@ main canvas {
         text-align: center;
         text-decoration: none;
     }
+
     .option {
         width: 80%;
         list-style: none;
@@ -401,6 +456,7 @@ main canvas {
     .openMenu {
         display: block;
     }
+
     .card {
         position: absolute;
         width: 40%;
@@ -408,7 +464,7 @@ main canvas {
         border-radius: 5px;
         bottom: 5%;
     }
-    
+
     .card-nav {
         width: 100%;
         height: 60px;
@@ -419,7 +475,7 @@ main canvas {
         align-items: center;
         padding-right: 10px;
     }
-    
+
     .card-content {
         width: 100%;
         height: calc(100% - 60px);
@@ -428,7 +484,7 @@ main canvas {
         background-color: rgba(248, 246, 239, 0.80);
         padding: 2%;
     }
-    
+
     .card-title {
         width: 100%;
         font-size: 28px;
@@ -436,14 +492,14 @@ main canvas {
         border-bottom: solid 5px #C0AE67;
         color: #293855;
     }
-    
+
     .card-txt {
         width: 100%;
         margin-top: 20px;
         font-size: 16px;
         color: #293855;
     }
-    
+
     .card-more {
         width: 130px;
         height: 40px;
@@ -457,14 +513,14 @@ main canvas {
         right: 5px;
         border-radius: 3px;
     }
-    
+
     .card-more a {
         text-decoration: none;
         display: flex;
         justify-content: space-around;
         align-items: center;
     }
-    
+
     .card-more span {
         font-size: 18px;
         line-height: 65px;
@@ -563,6 +619,7 @@ main canvas {
         text-align: center;
         text-decoration: none;
     }
+
     .option {
         width: 80%;
         list-style: none;
@@ -590,6 +647,7 @@ main canvas {
     .openMenu {
         display: block;
     }
+
     .card {
         position: absolute;
         width: 40%;
@@ -597,7 +655,7 @@ main canvas {
         border-radius: 5px;
         bottom: 0%;
     }
-    
+
     .card-nav {
         width: 100%;
         height: 60px;
@@ -608,7 +666,7 @@ main canvas {
         align-items: center;
         padding-right: 10px;
     }
-    
+
     .card-content {
         width: 100%;
         height: calc(100% - 60px);
@@ -617,7 +675,7 @@ main canvas {
         background-color: rgba(248, 246, 239, 0.80);
         padding: 2%;
     }
-    
+
     .card-title {
         width: 100%;
         font-size: 20px;
@@ -625,14 +683,14 @@ main canvas {
         border-bottom: solid 5px #C0AE67;
         color: #293855;
     }
-    
+
     .card-txt {
         width: 100%;
         margin-top: 20px;
         font-size: 14px;
         color: #293855;
     }
-    
+
     .card-more {
         width: 130px;
         height: 40px;
@@ -646,14 +704,14 @@ main canvas {
         right: 5px;
         border-radius: 3px;
     }
-    
+
     .card-more a {
         text-decoration: none;
         display: flex;
         justify-content: space-around;
         align-items: center;
     }
-    
+
     .card-more span {
         font-size: 16px;
         line-height: 65px;
@@ -708,6 +766,7 @@ main canvas {
         text-align: center;
         text-decoration: none;
     }
+
     .option {
         width: 80%;
         list-style: none;
@@ -735,6 +794,7 @@ main canvas {
     .openMenu {
         display: block;
     }
+
     .card {
         position: absolute;
         width: 100%;
@@ -743,7 +803,7 @@ main canvas {
         bottom: 0%;
         margin: 0;
     }
-    
+
     .card-nav {
         width: 100%;
         height: 60px;
@@ -754,7 +814,7 @@ main canvas {
         align-items: center;
         padding-right: 10px;
     }
-    
+
     .card-content {
         width: 100%;
         height: calc(100% - 60px);
@@ -763,7 +823,7 @@ main canvas {
         background-color: rgba(248, 246, 239, 0.80);
         padding: 2%;
     }
-    
+
     .card-title {
         width: 100%;
         font-size: 24px;
@@ -771,14 +831,14 @@ main canvas {
         border-bottom: solid 5px #C0AE67;
         color: #293855;
     }
-    
+
     .card-txt {
         width: 100%;
         margin-top: 20px;
         font-size: 14px;
         color: #293855;
     }
-    
+
     .card-more {
         width: 140px;
         height: 40px;
@@ -792,14 +852,14 @@ main canvas {
         right: 5px;
         border-radius: 3px;
     }
-    
+
     .card-more a {
         text-decoration: none;
         display: flex;
         justify-content: space-around;
         align-items: center;
     }
-    
+
     .card-more span {
         font-size: 16px;
         line-height: 65px;
