@@ -103,14 +103,14 @@
         //loading
         const loading = document.onreadystatechange = function () {
             if (document.readyState === "complete") {
-                setTimeout(function(){
+                setTimeout(function () {
                     document.querySelector("#loader").style.opacity = "0";
-                    setTimeout(function(){
+                    setTimeout(function () {
                         document.querySelector("#loader").style.display = "none";
                     }, 2000);
                 }, 4200);
-                
-            } else {}
+
+            } else { }
         };  
     </script>
 
@@ -387,7 +387,7 @@
                     </ul>
                 </div>
                 <div class="info-right">
-                    <div class="right-title">${info.name}</div>
+                    <div class="right-title ">${info.name}</div>
                     <div class="right-content">${info.college.join('<br>')}
                         <p>${info.more.join('<br>')}</p>
                         <p>${info.teach.join('<br>')}</p>
@@ -406,7 +406,7 @@
                 loadingModel(info.model);
             })
 
-            
+
 
 
             if (data == info.name) {
@@ -445,7 +445,7 @@
                 const root = object.scenes[0].children
                 scene.add(all)
             })
-            
+
         }
         // 未簡化的js
         // const literatureInfo = academy.find(item => item.name === '文學院');
@@ -542,7 +542,7 @@
 
 
 
-        
+
         // 下面是RAYCASTER
         const raycaster = new THREE.Raycaster();
         const pointer = new THREE.Vector2();
