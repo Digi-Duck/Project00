@@ -43,6 +43,24 @@ body {
     height: 44px;
 }
 
+.icon,
+.about-icon {
+    cursor: pointer;
+    height: 44px;
+}
+
+.icon:hover,
+.about-icon:hover {
+    background-color: #C0AE67;
+    border-radius: 2px;
+    transition: .2s linear;
+}
+
+.icon:hover path,
+.about-icon:hover path {
+    fill: #293855;
+}
+
 .big-box {
     width: 100%;
     height: 90%;
@@ -169,11 +187,11 @@ body {
         justify-content: space-between;
         gap: 20px;
     }
-
+/* 
     .icon {
         cursor: pointer;
         height: 44px;
-    }
+    } */
 
     .big-box {
         width: 100%;
@@ -209,7 +227,7 @@ body {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        -webkit-filter: brightness(.5);
+        /* -webkit-filter: brightness(.5); */
     }
 
     .txt {
@@ -249,10 +267,10 @@ body {
         gap: 20px;
     }
 
-    .icon {
+    /* .icon {
         cursor: pointer;
         height: 44px;
-    }
+    } */
 
     .big-box {
         width: 100%;
@@ -288,7 +306,7 @@ body {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        -webkit-filter: brightness(.5);
+        /* -webkit-filter: brightness(.5); */
     }
 
     .txt {
@@ -329,17 +347,12 @@ body {
         gap: 20px;
     }
 
-    .icon {
+    .icon, .about-icon {
         cursor: pointer;
-        height: 22px;
-    }
-
-    .icon svg {
-        width: 30px;
         height: 30px;
     }
 
-    .about-icon svg {
+    .icon svg, .about-icon svg {
         width: 30px;
         height: 30px;
     }
@@ -380,7 +393,7 @@ body {
         object-fit: cover;
         object-position: center;
         /* background-position: center ; */
-        -webkit-filter: brightness(.5);
+        /* -webkit-filter: brightness(.5); */
     }
 
     .txt {
@@ -421,17 +434,12 @@ body {
         gap: 20px;
     }
 
-    .icon {
+    .icon, .about-icon {
         cursor: pointer;
-        height: 22px;
-    }
-
-    .icon svg {
-        width: 30px;
         height: 30px;
     }
 
-    .about-icon svg {
+    .icon svg, .about-icon svg {
         width: 30px;
         height: 30px;
     }
@@ -471,7 +479,7 @@ body {
         object-fit: cover;
         object-position: center;
         /* background-position: center ; */
-        -webkit-filter: brightness(.5);
+        /* -webkit-filter: brightness(.5); */
     }
 
     .txt {
@@ -513,9 +521,9 @@ body {
         gap: 20px;
     }
 
-    .icon {
+    .icon, .about-icon {
         cursor: pointer;
-        height: 22px;
+        height: 30px;
     }
 
     .icon svg {
@@ -563,7 +571,7 @@ body {
         object-fit: cover;
         object-position: center;
         /* background-position: center ; */
-        -webkit-filter: brightness(.5);
+        /* -webkit-filter: brightness(.5); */
     }
 
     .txt {

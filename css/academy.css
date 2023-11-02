@@ -64,9 +64,22 @@ body {
     gap: 20px;
 }
 
-.icon {
+.icon,
+.about-icon {
     cursor: pointer;
     height: 44px;
+}
+
+.icon:hover,
+.about-icon:hover {
+    background-color: #C0AE67;
+    border-radius: 2px;
+    transition: .2s linear;
+}
+
+.icon:hover path,
+.about-icon:hover path {
+    fill: #293855;
 }
 
 .big-box {
@@ -79,7 +92,7 @@ body {
 #bg {
     position: fixed;
     z-index: -1;
-    animation: slideIn 2s ease-in-out 4.9s;
+    animation: slideIn 2s ease-in-out;
 }
 
 .info {
@@ -116,7 +129,7 @@ body {
     width: 100%;
     font-size: 26px;
     color: #f8f6ef;    
-    animation: slideIn 2s ease-in-out 4.7s;
+    animation: slideIn 2s ease-in-out;
     overflow: hidden;
 
 }
@@ -140,6 +153,30 @@ body {
     transition: 1s linear;
 }
 
+.hvr-icon-float {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+  }
+  .hvr-icon-float .hvr-icon {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  .hvr-icon-float:hover .hvr-icon, .hvr-icon-float:focus .hvr-icon, .hvr-icon-float:active .hvr-icon {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+
 .info-right {
     width: 400px;
     height: 662px;
@@ -147,7 +184,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    animation: slideIn 2s ease-in-out 4.7s;
+    animation: slideIn 2s ease-in-out;
 }
 
 .right-title {
@@ -195,6 +232,30 @@ body {
     box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.25);
     /* padding-left: 20px; */
 }
+
+.close-menu-btn {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+  }
+  .close-menu-btn .hvr-icon {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  .close-menu-btn:hover .hvr-icon, .close-menu-btn:focus .hvr-icon, .close-menu-btn:active .hvr-icon {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+  }
 
 .menu-btn-box {
     width: 100%;
@@ -298,7 +359,7 @@ body {
         align-items: center;
     }
 
-    .nav a.icon {
+    .icon, .about-icon {
         width: 30px;
         height: 30px;
     }

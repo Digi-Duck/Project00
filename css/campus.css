@@ -14,6 +14,15 @@ body {
 
 }
 
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .container {
     width: 100%;
     max-width: 1920px;
@@ -86,6 +95,7 @@ main canvas {
     height: 769px;
     border-radius: 0px 0px 4px 4px;
     border-radius: 5px;
+    animation: slideIn 1s linear 4.5s;
 }
 
 .switch {
@@ -200,6 +210,7 @@ main canvas {
     border-radius: 0 0 5px 5px;
     background-color: rgba(248, 246, 239, 0.80);
     padding: 2%;
+    animation: slideIn .5s linear;
 }
 
 .card-title {
@@ -208,6 +219,7 @@ main canvas {
     text-align: center;
     border-bottom: solid 5px #C0AE67;
     color: #293855;
+    animation: slideIn .5s linear;
 }
 
 .card-txt {
@@ -229,6 +241,14 @@ main canvas {
     bottom: 0px;
     right: 5px;
     border-radius: 3px;
+
+}
+
+.hvr-icon-sink {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -236,14 +256,7 @@ main canvas {
     transition-duration: 0.3s;
 }
 
-.card-more a {
-    text-decoration: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.card-more span {
+.hvr-icon-sink span {
     font-size: 20px;
     line-height: 65px;
     color: #293855;
@@ -256,7 +269,7 @@ main canvas {
 
 } */
 
-.card-more .card-more svg {
+.hvr-icon {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     -webkit-transition-duration: 0.3s;
@@ -267,9 +280,9 @@ main canvas {
     transition-timing-function: ease-out;
 }
 
-.card-more:hover .card-more svg,
-.card-more:focus .card-more svg,
-.card-more:active .card-more svg {
+.hvr-icon-sink:hover .hvr-icon,
+.hvr-icon-sink:focus .hvr-icon,
+.hvr-icon-sink:active .hvr-icon {
     -webkit-transform: translateY(4px);
     transform: translateY(4px);
 }
