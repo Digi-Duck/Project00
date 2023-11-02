@@ -71,20 +71,67 @@ body {
     justify-content: space-between;
     align-items: center;
     /* object-fit: cover; */
-    z-index: 2;
+    cursor: pointer;
 }
 
 
-.box img {
+.img-box {
     width: 100%;
     height: calc(100% - 50px);
-    object-fit: cover;
-    -webkit-filter:brightness(.5);
+    overflow: hidden;
+    /* position: absolute; */
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    cursor: pointer;
 }
 
-.box:hover img{
-    -webkit-filter:brightness(1);
+/* Sweep To Bottom */
 
+.img-box:before {
+    content: "";
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000000bb;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.box:hover .img-box,
+.box:focus .img-box,
+.box:active .img-box {
+    color: white;    
+}
+
+.box:hover .img-box:before,
+.box:focus .img-box:before,
+.box:active .img-box:before {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
 }
 
 .txt {
@@ -107,6 +154,7 @@ body {
         justify-content: center;
         padding: 0 5%;
     }
+
     .nav {
         width: 100%;
         height: 100px;
@@ -115,17 +163,18 @@ body {
         align-items: center;
         z-index: 5;
     }
-    
+
     .itemBox {
         display: flex;
         justify-content: space-between;
         gap: 20px;
     }
-    
+
     .icon {
         cursor: pointer;
         height: 44px;
     }
+
     .big-box {
         width: 100%;
         height: 80%;
@@ -134,12 +183,14 @@ body {
         justify-content: space-between;
         gap: 40px 30px;
     }
+
     .link {
         text-decoration: none;
         font-size: 18px;
         color: #293855;
         font-family: 'DotGothic16', sans-serif;
     }
+
     .box {
         width: 200px;
         height: 189px;
@@ -153,12 +204,14 @@ body {
         /* object-fit: cover; */
         z-index: 2;
     }
-    .box img {
+
+    .img-box {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        -webkit-filter:brightness(.5);
+        -webkit-filter: brightness(.5);
     }
+
     .txt {
         width: 100%;
         height: 50px;
@@ -180,6 +233,7 @@ body {
         justify-content: center;
         padding: 0 5%;
     }
+
     .nav {
         width: 100%;
         height: 100px;
@@ -188,17 +242,18 @@ body {
         align-items: center;
         z-index: 5;
     }
-    
+
     .itemBox {
         display: flex;
         justify-content: space-between;
         gap: 20px;
     }
-    
+
     .icon {
         cursor: pointer;
         height: 44px;
     }
+
     .big-box {
         width: 100%;
         height: 80%;
@@ -207,12 +262,14 @@ body {
         justify-content: space-between;
         gap: 0 30px;
     }
+
     .link {
         text-decoration: none;
         font-size: 14px;
         color: #293855;
         font-family: 'DotGothic16', sans-serif;
     }
+
     .box {
         width: 170px;
         height: 159px;
@@ -226,12 +283,14 @@ body {
         /* object-fit: cover; */
         z-index: 2;
     }
-    .box img {
+
+    .img-box {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        -webkit-filter:brightness(.5);
+        -webkit-filter: brightness(.5);
     }
+
     .txt {
         width: 100%;
         height: 50px;
@@ -254,6 +313,7 @@ body {
         justify-content: center;
         padding: 0;
     }
+
     .nav {
         width: 100%;
         height: 50px;
@@ -262,25 +322,28 @@ body {
         align-items: center;
         z-index: 5;
     }
-    
+
     .itemBox {
         display: flex;
         justify-content: space-between;
         gap: 20px;
     }
-    
+
     .icon {
         cursor: pointer;
         height: 22px;
     }
-    .icon svg{
+
+    .icon svg {
         width: 30px;
         height: 30px;
     }
-    .about-icon svg{
+
+    .about-icon svg {
         width: 30px;
         height: 30px;
     }
+
     .big-box {
         width: 100%;
         height: 80%;
@@ -289,12 +352,14 @@ body {
         justify-content: space-between;
         gap: 0;
     }
+
     .link {
         text-decoration: none;
         font-size: 12px;
         color: #293855;
         font-family: 'DotGothic16', sans-serif;
     }
+
     .box {
         width: 150px;
         height: 70px;
@@ -308,17 +373,19 @@ body {
         /* object-fit: cover; */
         z-index: 2;
     }
-    .box img {
+
+    .img-box {
         width: 100%;
-        height: 70%;
+        /* height: 70%; */
         object-fit: cover;
         object-position: center;
         /* background-position: center ; */
-        -webkit-filter:brightness(.5);
+        -webkit-filter: brightness(.5);
     }
+
     .txt {
         width: 100%;
-        height: 50px;
+        height: 20px;
         background-color: #fff;
         display: flex;
         justify-content: center;
@@ -326,6 +393,7 @@ body {
         letter-spacing: 3px;
     }
 }
+
 @media (max-width: 667px) {
     .container {
         width: 95%;
@@ -337,6 +405,7 @@ body {
         justify-content: center;
         padding: 0;
     }
+
     .nav {
         width: 100%;
         height: 50px;
@@ -345,25 +414,28 @@ body {
         align-items: center;
         z-index: 5;
     }
-    
+
     .itemBox {
         display: flex;
         justify-content: space-between;
         gap: 20px;
     }
-    
+
     .icon {
         cursor: pointer;
         height: 22px;
     }
-    .icon svg{
+
+    .icon svg {
         width: 30px;
         height: 30px;
     }
-    .about-icon svg{
+
+    .about-icon svg {
         width: 30px;
         height: 30px;
     }
+
     .big-box {
         width: 100%;
         height: 80%;
@@ -372,12 +444,14 @@ body {
         justify-content: space-between;
         gap: 0;
     }
+
     .link {
         text-decoration: none;
         font-size: 12px;
         color: #293855;
         font-family: 'DotGothic16', sans-serif;
     }
+
     .box {
         width: 120px;
         height: 73px;
@@ -390,14 +464,16 @@ body {
         align-items: center;
         z-index: 2;
     }
-    .box img {
+
+    .img-box {
         width: 100%;
         height: 50%;
         object-fit: cover;
         object-position: center;
         /* background-position: center ; */
-        -webkit-filter:brightness(.5);
+        -webkit-filter: brightness(.5);
     }
+
     .txt {
         width: 100%;
         height: 30px;
@@ -409,6 +485,7 @@ body {
         padding: 0 10px;
     }
 }
+
 @media (max-width: 375px) {
     .container {
         width: 95%;
@@ -420,6 +497,7 @@ body {
         justify-content: center;
         padding: 0;
     }
+
     .nav {
         width: 100%;
         height: 50px;
@@ -428,25 +506,28 @@ body {
         align-items: center;
         z-index: 5;
     }
-    
+
     .itemBox {
         display: flex;
         justify-content: space-between;
         gap: 20px;
     }
-    
+
     .icon {
         cursor: pointer;
         height: 22px;
     }
-    .icon svg{
+
+    .icon svg {
         width: 30px;
         height: 30px;
     }
-    .about-icon svg{
+
+    .about-icon svg {
         width: 30px;
         height: 30px;
     }
+
     .big-box {
         width: 100%;
         height: 80%;
@@ -455,12 +536,14 @@ body {
         justify-content: space-between;
         gap: 0;
     }
+
     .link {
         text-decoration: none;
         font-size: 12px;
         color: #293855;
         font-family: 'DotGothic16', sans-serif;
     }
+
     .box {
         width: 150px;
         height: 60px;
@@ -473,17 +556,19 @@ body {
         align-items: center;
         z-index: 2;
     }
-    .box img {
+
+    .img-box {
         width: 100%;
         height: 60%;
         object-fit: cover;
         object-position: center;
         /* background-position: center ; */
-        -webkit-filter:brightness(.5);
+        -webkit-filter: brightness(.5);
     }
+
     .txt {
         width: 100%;
-        height: 50px;
+        height: 20px;
         background-color: #fff;
         display: flex;
         justify-content: center;
