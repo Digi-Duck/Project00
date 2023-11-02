@@ -50,8 +50,24 @@ body {
     height: 577px;
     padding-top: 150px;
     cursor: pointer;
-    ;
     /* background-color: #fff; */
+}
+
+.the-map:hover .img-background-left img {
+    filter: blur(3px);
+}
+
+.the-map:hover .img-background-right img {
+    filter: blur(3px);
+}
+
+.the-map:hover .txt {
+    background: #F8F6EF;
+}
+
+.the-map:hover .text-name::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 .img-background-left,
@@ -62,17 +78,19 @@ body {
     border-bottom: 2px solid #C0AE67;
     border-left: 3px solid #C0AE67;
     background: linear-gradient(180deg, #293855 0%, rgba(111, 121, 141, 0.67) 100%);
-
 }
 
 .img-background-left img {
     position: absolute;
     top: 195px;
+    /* -webkit-filter:; */
+    filter: blur(0px);
 }
 
 .img-background-right img {
     position: absolute;
     top: 200px;
+    filter: blur(0px);
 }
 
 .txt {
@@ -85,19 +103,94 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* -webkit-filter:brightness(.6); */
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+}
+
+/* Ripple Out */
+@-webkit-keyframes hvr-ripple-out {
+    100% {
+        top: -12px;
+        right: -12px;
+        bottom: -12px;
+        left: -12px;
+        opacity: 0;
+    }
+}
+
+@keyframes hvr-ripple-out {
+    100% {
+        top: -12px;
+        right: -12px;
+        bottom: -12px;
+        left: -12px;
+        opacity: 0;
+    }
+}
+
+.txt:before {
+    content: '';
+    position: absolute;
+    border: #C0AE67 solid 1px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+.txt:hover:before,
+.txt:focus:before,
+.txt:active:before {
+    -webkit-animation-name: hvr-ripple-out;
+    animation-name: hvr-ripple-out;
+}
+
+
+@keyframes nameZoomIn {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .text-name {
     font-size: 36px;
     font-family: 'DotGothic16', sans-serif;
     color: #293855;
-    border-bottom: dashed 3px #C0AE67;
+    /* border-bottom: dashed 3px #C0AE67; */
+    position: absolute;
 }
 
-.img-background-left img:hover,
+.text-name::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    border-bottom: dashed 3px #C0AE67;
+    /* background-color: #C0AE67; */
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+/* .img-background-left img:hover,
 .img-background-right img:hover {
     transform: scale(.98);
-}
+} */
 
 a {
     text-decoration: none;

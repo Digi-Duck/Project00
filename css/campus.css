@@ -395,6 +395,7 @@ main canvas {
         border-radius: 0px 0px 4px 4px;
         border-radius: 5px;
         display: none;
+        z-index: 7;
     }
 
     .openMenu {
