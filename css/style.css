@@ -16,7 +16,7 @@ body {
 .container {
     width: 100%;
     max-width: 1920px;
-    height: 960px;
+    height: 100vh;
     position: relative;
 }
 
@@ -25,11 +25,11 @@ body {
     height: 100px;
     display: flex;
     justify-content: flex-start;
-    padding: 40px;
+    padding: 0px;
 }
 
 .nav img {
-    height: 64px;
+    height: 100px;
 }
 
 .mid {
@@ -103,6 +103,16 @@ a {
     text-decoration: none;
 }
 
+.card {
+    position: absolute;
+    width: 70%;
+    height: 280px;
+    border-radius: 5px;
+    top: 10%;
+    z-index: 4;
+    display: none;
+}
+
 @media(max-width: 1450px) {
     body {
         margin: 0;
@@ -133,7 +143,7 @@ a {
     }
 
     .nav img {
-        height: 44px;
+        height: 80px;
     }
 
     .mid {
@@ -200,6 +210,7 @@ a {
 }
 
 @media(max-width: 932px) {
+
     body {
         margin: 0;
         padding: 0;
@@ -220,7 +231,9 @@ a {
         border-radius: 5px;
         top: 10%;
         z-index: 4;
+        display: block;
     }
+
     .card-active {
         display: none;
     }
@@ -276,7 +289,7 @@ a {
     }
 
     .nav img {
-        height: 32px;
+        height: 60px;
     }
 
     .mid {
@@ -320,6 +333,141 @@ a {
         width: 200px;
         position: absolute;
         top: 100px;
+    }
+
+    .txt {
+        width: 200px;
+        height: 95px;
+        flex-shrink: 0;
+        border-radius: 0px 0px 10px 10px;
+        border: 3px solid #C0AE67;
+        background: #F8F6EF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text-name {
+        font-size: 20px;
+        font-family: 'DotGothic16', sans-serif;
+        color: #293855;
+        border-bottom: dashed 3px #C0AE67;
+    }
+}
+
+@media (max-width:454px) {
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+        margin: 0 auto;
+        padding: 0;
+        background: linear-gradient(180deg, #293855 0%, #000 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .card-nav {
+        width: 100%;
+        height: 60px;
+        background-color: #293855;
+        border-radius: 5px 5px 0 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 10px;
+    }
+
+    .card-content {
+        width: 100%;
+        height: calc(100% - 60px);
+        border: solid 5px #293855;
+        border-radius: 0 0 5px 5px;
+        background-color: rgba(248, 246, 239);
+        padding: 2%;
+    }
+
+    .card-title {
+        width: 100%;
+        font-size: 32px;
+        text-align: center;
+        border-bottom: solid 5px #C0AE67;
+        color: #293855;
+    }
+
+    .card-txt {
+        width: 100%;
+        /* margin-top: 20px; */
+        font-size: 20px;
+        color: #293855;
+        margin: 2% 2%;
+    }
+
+    .container {
+        width: 100%;
+        /* max-width: 640px; */
+        height: 100vh;
+    }
+
+    .nav {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: flex-start;
+        padding: 0;
+    }
+
+    .nav img {
+        height: 60px;
+    }
+
+    .mid {
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
+    }
+
+    .main-menu {
+        width: 200px;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .the-map {
+        width: 200px;
+        height: 200px;
+        padding-top: 60px;
+        cursor: pointer;
+        ;
+    }
+
+    .img-background-left,
+    .img-background-right {
+        width: 200px;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        border-right: 3px solid #C0AE67;
+        border-bottom: 2px solid #C0AE67;
+        border-left: 3px solid #C0AE67;
+        background: linear-gradient(180deg, #293855 0%, rgba(111, 121, 141, 0.67) 100%);
+    }
+
+    .img-background-left img {
+        width: 200px;
+        position: absolute;
+        top: 15%;
+    }
+
+    .img-background-right img {
+        width: 200px;
+        position: absolute;
+        top: 52%;
     }
 
     .txt {
