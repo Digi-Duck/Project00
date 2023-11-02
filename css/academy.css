@@ -92,7 +92,7 @@ body {
 
 .info-left {
     /* width: 70%; */
-    height: 50vh;
+    height: 100vh;
     display: flex;
     overflow: hidden;
     justify-content: flex-start;
@@ -114,7 +114,7 @@ body {
 
 .building-list p {
     width: 100%;
-    font-size: 32px;
+    font-size: 26px;
     color: #f8f6ef;    
     animation: slideIn 2s ease-in-out 4.7s;
     overflow: hidden;
