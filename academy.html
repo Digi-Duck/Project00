@@ -165,36 +165,6 @@
         const loader = new GLTFLoader()
         var all;
 
-        // loader.load('./model/1.glb', function (object) {
-        //     // ALL是整個模組 root是模組裡各個"模型"的陣列
-        //     all = object.scene
-        //     const root = object.scenes[0].children
-        //     scene.add(all)
-        //     console.log(root);
-        // })
-
-        // const groupMember = [
-        //     {
-        //         name: '黃絜琳',
-        //         position: '組長/程式',
-        //     },
-        //     {
-        //         name: '蔡明哲',
-        //         position: '程式',
-        //     },
-        //     {
-        //         name: '陳映達',
-        //         position: '企劃',
-        //     },
-        //     {
-        //         name: '吳睿燊',
-        //         position: '設計',
-        //     },
-        //     {
-        //         name: '賴菱俐',
-        //         position: '設計',
-        //     },
-        // ]
         const aboutUs = document.querySelector('.about-us');
         const aboutBtn = document.querySelector('.about-icon');
 
@@ -275,95 +245,8 @@
                 <div class="menu-btn">${e.name}</div>
             `
 
-            // e.addEventListener('click', (btn) => {
-            //     console.log(btn);
-            // })
-            // const menuBtn = document.querySelectorAll('.menu-btn');
-
-            // menuBtn.forEach((btn, index) => {
-            //     // console.log(btn);
-            //     btn.addEventListener('click', () => {
-            //         const literatureInfo = academy.find(item => item.name === '文學院');
-            //         const naturalResourcesInfo = academy.find(item => item.name === '農業暨自然資源學院');
-            //         const facultyofScienceInfo = academy.find(item => item.name === '理學院');
-            //         const EngineeringInfo = academy.find(item => item.name === '工學院');
-            //         const lifeSciencesInfo = academy.find(item => item.name === '生命科學院');
-            //         const veterinaryMedicineInfo = academy.find(item => item.name === '獸醫學院');
-            //         const managementInfo = academy.find(item => item.name === '管理學院');
-            //         const lawAndPoliticsInfo = academy.find(item => item.name === '法政學院');
-            //         const electricalEngineeringInfo = academy.find(item => item.name === '電機資訊學院');
-            //         const medicalInfo = academy.find(item => item.name === '醫學院');
-            //         const industryInfo = academy.find(item => item.name === '創新產業暨國際學院');
-            //         const administrativeInfo = academy.find(item => item.name === '行政');
-            //         const booksInfo = academy.find(item => item.name === '圖書');
-            //         const physicalEducationInfo = academy.find(item => item.name === '體育');
-            //         const restaurantInfo = academy.find(item => item.name === '餐廳');
-
-            // if (btn.textContent == literatureInfo.name) {
-            //     building.innerHTML = literatureInfo.info.join('<br>')
-            //     content.innerHTML = literatureInfo.college.join('<br>');
-            //     title.innerHTML = literatureInfo.name;
-            //     // document.getElementsByClassNames
-            // } else if (btn.textContent == naturalResourcesInfo.name) {
-            //     building.innerHTML = naturalResourcesInfo.info.join('<br>')
-            //     content.innerHTML = naturalResourcesInfo.college.join('<br>');
-            //     title.innerHTML = naturalResourcesInfo.name;
-            // } else if (btn.textContent == facultyofScienceInfo.name) {
-            //     building.innerHTML = facultyofScienceInfo.info.join('<br>')
-            //     content.innerHTML = facultyofScienceInfo.college.join('<br>');
-            //     title.innerHTML = facultyofScienceInfo.name;
-            // } else if (btn.textContent == EngineeringInfo.name) {
-            //     building.innerHTML = EngineeringInfo.info.join('<br>')
-            //     content.innerHTML = EngineeringInfo.college.join('<br>');
-            //     title.innerHTML = EngineeringInfo.name;
-            // } else if (btn.textContent == lifeSciencesInfo.name) {
-            //     building.innerHTML = lifeSciencesInfo.info.join('<br>')
-            //     content.innerHTML = lifeSciencesInfo.college.join('<br>');
-            //     title.innerHTML = lifeSciencesInfo.name;
-            // } else if (btn.textContent == veterinaryMedicineInfo.name) {
-            //     building.innerHTML = veterinaryMedicineInfo.info.join('<br>')
-            //     content.innerHTML = veterinaryMedicineInfo.college.join('<br>');
-            //     title.innerHTML = veterinaryMedicineInfo.name;
-            // } else if (btn.textContent == managementInfo.name) {
-            //     building.innerHTML = managementInfo.info.join('<br>');
-            //     content.innerHTML = managementInfo.college.join('<br>');
-            //     title.innerHTML = managementInfo.name;
-            // } else if (btn.textContent == lawAndPoliticsInfo.name) {
-            //     building.innerHTML = lawAndPoliticsInfo.info.join('<br>')
-            //     content.innerHTML = lawAndPoliticsInfo.college.join('<br>');
-            //     title.innerHTML = lawAndPoliticsInfo.name;
-            // } else if (btn.textContent == electricalEngineeringInfo.name) {
-            //     building.innerHTML = electricalEngineeringInfo.info.join('<br>')
-            //     content.innerHTML = electricalEngineeringInfo.college.join('<br>');
-            //     title.innerHTML = electricalEngineeringInfo.name;
-            // } else if (btn.textContent == medicalInfo.name) {
-            //     building.innerHTML = medicalInfo.info.join('<br>')
-            //     content.innerHTML = medicalInfo.college.join('<br>');
-            //     title.innerHTML = medicalInfo.name;
-            // } else if (btn.textContent == industryInfo.name) {
-            //     building.innerHTML = industryInfo.info.join('<br>')
-            //     content.innerHTML = industryInfo.college.join('<br>');
-            //     title.innerHTML = industryInfo.name;
-            // } else if (btn.textContent == administrativeInfo.name) {
-            //     building.innerHTML = administrativeInfo.info.join('<br>')
-            //     content.innerHTML = administrativeInfo.college.join('<br>');
-            //     title.innerHTML = administrativeInfo.name;
-            // } else if (btn.textContent == booksInfo.name) {
-            //     building.innerHTML = booksInfo.info.join('<br>')
-            //     content.innerHTML = booksInfo.college.join('<br>');
-            //     title.innerHTML = booksInfo.name;
-            // } else if (btn.textContent == physicalEducationInfo.name) {
-            //     building.innerHTML = physicalEducationInfo.info.join('<br>')
-            //     content.innerHTML = physicalEducationInfo.college.join('<br>');
-            //     title.innerHTML = physicalEducationInfo.name;
-            // } else if (btn.textContent == restaurantInfo.name) {
-            //     building.innerHTML = restaurantInfo.info.join('<br>')
-            //     content.innerHTML = restaurantInfo.college.join('<br>');
-            //     title.innerHTML = restaurantInfo.name;
-            // }
-            //     });
-            // })
         });
+
         var data = localStorage.getItem('data');
         const menuBtn = document.querySelectorAll('.menu-btn');
         // let flag = false;
@@ -379,8 +262,6 @@
 
                 menuBtn[index].classList.add('light');
 
-                // content.innerHTML = '';
-                // scene.remove(all);
 
                 content.innerHTML = `
                 <div class="info-left">
@@ -399,15 +280,6 @@
                     
                 </div>
                 `
-                
-
-                // loader.load(`${info.model}`, function (object) {
-                //     // ALL是整個模組 root是模組裡各個"模型"的陣列
-                //     all = object.scene
-                //     const root = object.scenes[0].children
-                //     scene.add(all)
-                //     console.log('all');
-                // })
                 loadingModel(info.model);
             })
 
@@ -415,14 +287,6 @@
 
 
             if (data == info.name) {
-                // scene.remove(all);
-                // loader.load(`${info.model}`, function (object) {
-                //     // ALL是整個模組 root是模組裡各個"模型"的陣列
-                //     all = object.scene
-                //     const root = object.scenes[0].children
-                //     scene.add(all)
-                //     console.log('all');
-                // })
                 loadingModel(info.model);
                 content.innerHTML = `
                 <div class="info-left">
@@ -440,7 +304,7 @@
             }
         })
 
-
+        //模型載入
         function loadingModel(modelPath) {
             //模型的loading
             scene.remove(all);
@@ -461,87 +325,6 @@
             })
 
         }
-        // 未簡化的js
-        // const literatureInfo = academy.find(item => item.name === '文學院');
-        // const naturalResourcesInfo = academy.find(item => item.name === '農業暨自然資源學院');
-        // const facultyofScienceInfo = academy.find(item => item.name === '理學院');
-        // const EngineeringInfo = academy.find(item => item.name === '工學院');
-        // const lifeSciencesInfo = academy.find(item => item.name === '生命科學院');
-        // const veterinaryMedicineInfo = academy.find(item => item.name === '獸醫學院');
-        // const managementInfo = academy.find(item => item.name === '管理學院');
-        // const lawAndPoliticsInfo = academy.find(item => item.name === '法政學院');
-        // const electricalEngineeringInfo = academy.find(item => item.name === '電機資訊學院');
-        // const medicalInfo = academy.find(item => item.name === '醫學院');
-        // const industryInfo = academy.find(item => item.name === '創新產業暨國際學院');
-        // const administrativeInfo = academy.find(item => item.name === '行政');
-        // const booksInfo = academy.find(item => item.name === '圖書');
-        // const physicalEducationInfo = academy.find(item => item.name === '體育');
-        // const restaurantInfo = academy.find(item => item.name === '餐廳');
-
-
-        // if (data == literatureInfo.name) {
-        //     building.innerHTML = literatureInfo.info.join('<br>')
-        //     content.innerHTML = literatureInfo.college.join('<br>');
-        //     title.innerHTML = literatureInfo.name;
-        //     // document.getElementsByClassNames
-        // } else if (data == naturalResourcesInfo.name) {
-        //     building.innerHTML = naturalResourcesInfo.info.join('<br>')
-        //     content.innerHTML = naturalResourcesInfo.college.join('<br>');
-        //     title.innerHTML = naturalResourcesInfo.name;
-        // } else if (data == facultyofScienceInfo.name) {
-        //     building.innerHTML = facultyofScienceInfo.info.join('<br>')
-        //     content.innerHTML = facultyofScienceInfo.college.join('<br>');
-        //     title.innerHTML = facultyofScienceInfo.name;
-        // } else if (data == EngineeringInfo.name) {
-        //     building.innerHTML = EngineeringInfo.info.join('<br>')
-        //     content.innerHTML = EngineeringInfo.college.join('<br>');
-        //     title.innerHTML = EngineeringInfo.name;
-        // } else if (data == lifeSciencesInfo.name) {
-        //     building.innerHTML = lifeSciencesInfo.info.join('<br>')
-        //     content.innerHTML = lifeSciencesInfo.college.join('<br>');
-        //     title.innerHTML = lifeSciencesInfo.name;
-        // } else if (data == veterinaryMedicineInfo.name) {
-        //     building.innerHTML = veterinaryMedicineInfo.info.join('<br>')
-        //     content.innerHTML = veterinaryMedicineInfo.college.join('<br>');
-        //     title.innerHTML = veterinaryMedicineInfo.name;
-        // } else if (data == managementInfo.name) {
-        //     building.innerHTML = managementInfo.info.join('<br>');
-        //     content.innerHTML = managementInfo.college.join('<br>');
-        //     title.innerHTML = managementInfo.name;
-        // } else if (data == lawAndPoliticsInfo.name) {
-        //     building.innerHTML = lawAndPoliticsInfo.info.join('<br>')
-        //     content.innerHTML = lawAndPoliticsInfo.college.join('<br>');
-        //     title.innerHTML = lawAndPoliticsInfo.name;
-        // } else if (data == electricalEngineeringInfo.name) {
-        //     building.innerHTML = electricalEngineeringInfo.info.join('<br>')
-        //     content.innerHTML = electricalEngineeringInfo.college.join('<br>');
-        //     title.innerHTML = electricalEngineeringInfo.name;
-        // } else if (data == medicalInfo.name) {
-        //     building.innerHTML = medicalInfo.info.join('<br>')
-        //     content.innerHTML = medicalInfo.college.join('<br>');
-        //     title.innerHTML = medicalInfo.name;
-        // } else if (data == industryInfo.name) {
-        //     building.innerHTML = industryInfo.info.join('<br>')
-        //     content.innerHTML = industryInfo.college.join('<br>');
-        //     title.innerHTML = industryInfo.name;
-        // } else if (data == administrativeInfo.name) {
-        //     building.innerHTML = administrativeInfo.info.join('<br>')
-        //     content.innerHTML = administrativeInfo.college.join('<br>');
-        //     title.innerHTML = administrativeInfo.name;
-        // } else if (data == booksInfo.name) {
-        //     building.innerHTML = booksInfo.info.join('<br>')
-        //     content.innerHTML = booksInfo.college.join('<br>');
-        //     title.innerHTML = booksInfo.name;
-        // } else if (data == physicalEducationInfo.name) {
-        //     building.innerHTML = physicalEducationInfo.info.join('<br>')
-        //     content.innerHTML = physicalEducationInfo.college.join('<br>');
-        //     title.innerHTML = physicalEducationInfo.name;
-        // } else if (data == restaurantInfo.name) {
-        //     building.innerHTML = restaurantInfo.info.join('<br>')
-        //     content.innerHTML = restaurantInfo.college.join('<br>');
-        //     title.innerHTML = restaurantInfo.name;
-        // }
-
 
 
         function animate() {
@@ -554,35 +337,6 @@
             renderer.render(scene, camera);
         }
 
-
-
-
-        // 下面是RAYCASTER
-        // const raycaster = new THREE.Raycaster();
-        // const pointer = new THREE.Vector2();
-        // onclick這個function是滑鼠點到指定事件會觸發指定事件
-        // function onclick(event) {
-        //     console.log(123);
-
-        //     // 将鼠标位置归一化为设备坐标。x 和 y 方向的取值范围是 (-1 to +1)
-        //     // 1920和955這個數值是three.js視窗大小(應該)
-        //     // 如果把three.js丟到東西上 OFFEST參數可能不大依樣
-        //     pointer.x = (event.offsetX / 1920) * 2 - 1;
-        //     pointer.y = - (event.offsetY / 955) * 2 + 1;
-        //     raycaster.setFromCamera(pointer, camera);
-        //     // 获取raycaster直线和所有模型相交的数组集合
-        //     var intersects = raycaster.intersectObjects(scene.children);
-
-        //     // 點擊到的物件陣列裡是否有CUBE1110
-        //     if (intersects.some(function (obj) {
-        //         return obj.object.name == 'Cube110'
-        //     })) {
-        //         // 會到指定位置
-        //         location.href = "room.html#2";
-        //     }
-        //     console.log(event);
-        // };
-        // window.addEventListener('click', onclick);
 
         // 新增控制器
         const controls = new OrbitControls(camera, renderer.domElement);
