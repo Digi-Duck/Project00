@@ -104,8 +104,8 @@ body {
 }
 
 .info-left {
-    /* width: 70%; */
-    height: 100vh;
+    width: 70%;
+    height: calc(100vh - 100px);
     display: flex;
     overflow: hidden;
     justify-content: flex-start;
