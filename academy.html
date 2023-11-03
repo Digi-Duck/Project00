@@ -266,7 +266,7 @@
         // const building = document.querySelector('.building-list p');
         const content = document.querySelector('.info');
         // const title = document.querySelector('.right-title');
-
+        const modelLoading = document.querySelector('.model-loader');
 
         // 簡化過後的js
         academy.forEach((e) => {
@@ -399,6 +399,7 @@
                     
                 </div>
                 `
+                
 
                 // loader.load(`${info.model}`, function (object) {
                 //     // ALL是整個模組 root是模組裡各個"模型"的陣列
@@ -441,7 +442,12 @@
 
 
         function loadingModel(modelPath) {
-            // scene.remove(all);
+            //模型的loading
+            scene.remove(all);
+            if (document.readyState == "complete") {
+                modelLoading.classList.add('hidden');
+                };
+
             // flag = true;
             loader.load(modelPath, function (object) {
 
@@ -557,7 +563,7 @@
         // onclick這個function是滑鼠點到指定事件會觸發指定事件
         // function onclick(event) {
         //     console.log(123);
-            
+
         //     // 将鼠标位置归一化为设备坐标。x 和 y 方向的取值范围是 (-1 to +1)
         //     // 1920和955這個數值是three.js視窗大小(應該)
         //     // 如果把three.js丟到東西上 OFFEST參數可能不大依樣

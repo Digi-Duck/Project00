@@ -4,15 +4,15 @@
     border: 5px solid #F8F6EF;
     border-bottom-color: transparent;
     border-radius: 50%;
-    display: none;
+    display: block;
     box-sizing: border-box;
     animation: model-rotation 1s linear infinite;
     position: fixed;
     z-index: 1;
     
     }
-.model-loader-active{
-display: block;
+.hidden {
+display: none;
 }
     @keyframes model-rotation {
     0% {
