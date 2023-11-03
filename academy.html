@@ -7,12 +7,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="./css/loading-model.css"> -->
+    <link rel="stylesheet" href="./css/loading-model.css">
     <link rel="stylesheet" href="./css/loading-style.css">
     <link rel="stylesheet" href="./css/academy.css" />
     <link rel="stylesheet" href="./css/about-us.css">
     <title>中興大學地圖導覽</title>
-    <link rel = "icon" type = "image/png" href = "./img/NCHU_Badge.png">
+    <link rel="icon" type="image/png" href="./img/NCHU_Badge.png">
 </head>
 
 <body>
@@ -78,7 +78,8 @@
 
             <div class="choose-btn">
                 <a href="#" class="hvr-icon-float">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="39" height="45" viewBox="0 0 39 45" fill="none" class="hvr-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="39" height="45" viewBox="0 0 39 45" fill="none"
+                        class="hvr-icon">
                         <path
                             d="M16.7143 45H22.2857V11.25H27.8571V5.625H22.2857V0H16.7143V5.625H11.1429V11.25H16.7143V45ZM5.57143 16.875V11.25H11.1429V16.875H5.57143ZM5.57143 16.875V22.5H0V16.875H5.57143ZM33.4286 16.875V11.25H27.8571V16.875H33.4286ZM33.4286 16.875V22.5H39V16.875H33.4286Z"
                             fill="#C0AE67" />
@@ -89,7 +90,8 @@
             <div class="jump-menu hidden">
                 <div class="close-menu">
                     <a href="#" class="close-menu-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 73 60" fill="none" class="hvr-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 73 60" fill="none"
+                            class="hvr-icon">
                             <path
                                 d="M13.2734 13.5454H59.728V20.1818H56.4098V23.5H53.0916V26.8182H49.7734V30.1363H46.4553V33.4545H43.1371V36.7727H39.8189V40.0909H33.1825V36.7727H29.8643V33.4545H26.5462V30.1363H23.228V26.8182H19.9098V23.5H16.5916V20.1818H13.2734V13.5454ZM26.5462 20.1818V23.5H29.8643V26.8182H33.1825V30.1363H39.8189V26.8182H43.1371V23.5H46.4553V20.1818H26.5462Z"
                                 fill="#C0AE67" />
@@ -364,20 +366,21 @@
         });
         var data = localStorage.getItem('data');
         const menuBtn = document.querySelectorAll('.menu-btn');
-
+        // let flag = false;
         menuBtn.forEach((menu, index) => {
             // console.log(menu, index);
 
             const info = academy[index];
             menu.addEventListener('click', () => {
-
+                console.log(flag);
+                // if(flag) return;
                 menuBtn.forEach((e) => {
                     e.classList.remove('light');
                 })
 
                 menuBtn[index].classList.add('light');
 
-                content.innerHTML = '';
+                // content.innerHTML = '';
                 // scene.remove(all);
 
                 content.innerHTML = `
@@ -439,13 +442,17 @@
 
 
         function loadingModel(modelPath) {
-
-            scene.remove(all);
+            // scene.remove(all);
+            // flag = true;
             loader.load(modelPath, function (object) {
+
                 // ALL是整個模組 root是模組裡各個"模型"的陣列
+                scene.remove(all);
                 all = object.scene
                 const root = object.scenes[0].children
+
                 scene.add(all)
+                // flag = false;
             })
 
         }
@@ -546,31 +553,31 @@
 
 
         // 下面是RAYCASTER
-        const raycaster = new THREE.Raycaster();
-        const pointer = new THREE.Vector2();
-
+        // const raycaster = new THREE.Raycaster();
+        // const pointer = new THREE.Vector2();
         // onclick這個function是滑鼠點到指定事件會觸發指定事件
-        function onclick(event) {
+        // function onclick(event) {
+        //     console.log(123);
+            
+        //     // 将鼠标位置归一化为设备坐标。x 和 y 方向的取值范围是 (-1 to +1)
+        //     // 1920和955這個數值是three.js視窗大小(應該)
+        //     // 如果把three.js丟到東西上 OFFEST參數可能不大依樣
+        //     pointer.x = (event.offsetX / 1920) * 2 - 1;
+        //     pointer.y = - (event.offsetY / 955) * 2 + 1;
+        //     raycaster.setFromCamera(pointer, camera);
+        //     // 获取raycaster直线和所有模型相交的数组集合
+        //     var intersects = raycaster.intersectObjects(scene.children);
 
-            // 将鼠标位置归一化为设备坐标。x 和 y 方向的取值范围是 (-1 to +1)
-            // 1920和955這個數值是three.js視窗大小(應該)
-            // 如果把three.js丟到東西上 OFFEST參數可能不大依樣
-            pointer.x = (event.offsetX / 1920) * 2 - 1;
-            pointer.y = - (event.offsetY / 955) * 2 + 1;
-            raycaster.setFromCamera(pointer, camera);
-            // 获取raycaster直线和所有模型相交的数组集合
-            var intersects = raycaster.intersectObjects(scene.children);
-
-            // 點擊到的物件陣列裡是否有CUBE1110
-            if (intersects.some(function (obj) {
-                return obj.object.name == 'Cube110'
-            })) {
-                // 會到指定位置
-                location.href = "room.html#2";
-            }
-            console.log(event);
-        };
-        window.addEventListener('click', onclick);
+        //     // 點擊到的物件陣列裡是否有CUBE1110
+        //     if (intersects.some(function (obj) {
+        //         return obj.object.name == 'Cube110'
+        //     })) {
+        //         // 會到指定位置
+        //         location.href = "room.html#2";
+        //     }
+        //     console.log(event);
+        // };
+        // window.addEventListener('click', onclick);
 
         // 新增控制器
         const controls = new OrbitControls(camera, renderer.domElement);
