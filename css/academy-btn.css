@@ -35,7 +35,7 @@ body {
 .itemBox {
     display: flex;
     justify-content: space-between;
-    gap: 40px;
+    gap: 20px;
 }
 
 .icon {

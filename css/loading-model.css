@@ -1,0 +1,23 @@
+.model-loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #F8F6EF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    position: fixed;
+    z-index: 1;
+    }
+.model-loader-active{
+display: block;
+}
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
