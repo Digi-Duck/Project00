@@ -335,7 +335,7 @@
     }
 
     .group {
-        width: 33.333%;
+        width: 20%;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
@@ -344,8 +344,7 @@
     }
 
     .group-img {
-        width: 200px;
-        height: 200px;
+        width: 100%;
         border: 5px solid #fff;
         border-radius: 50%;
         /* background-color: #293855; */
