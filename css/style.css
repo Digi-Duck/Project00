@@ -233,16 +233,19 @@ a {
     }
 
     .mid {
+        width: 100%;
+        height: calc(100vh - 100px);
         display: flex;
         justify-content: center;
         margin-top: 5%;
     }
 
     .main-menu {
-        width: 60%;
-        /* height: 100vh; */
+        width: 70%;
+        height: 45%;
         display: flex;
         justify-content: space-between;
+        gap: 60px;
     }
 
     .the-map {
@@ -250,7 +253,6 @@ a {
         /* height: 350px; */
         padding-top: 120px;
         cursor: pointer;
-        ;
     }
 
     .img-background-left,
@@ -266,15 +268,12 @@ a {
     .img-background-left img {
         width: 350px;
         position: absolute;
-        margin-top: 7%;
-        top: 0;
     }
 
     .img-background-right img {
         width: 350px;
         position: absolute;
-        margin-top: 7%;
-        top: 0;
+
     }
 
     .txt {
@@ -319,10 +318,10 @@ a {
         border-radius: 5px;
         top: 10%;
         z-index: 4;
-        display: none;
+        display: block;
     }
 
-    /* .card-active {
+    .card-active {
         display: none;
     }
 
@@ -359,12 +358,11 @@ a {
         font-size: 20px;
         color: #293855;
         margin: 2% 2%;
-    } */
+    }
 
     .container {
         width: 100%;
-        /* max-width: 640px; */
-        height: 100vh;
+        height: 100vh
     }
 
     .nav {
@@ -372,7 +370,7 @@ a {
         height: 50px;
         display: flex;
         justify-content: flex-start;
-        padding: 20px;
+        padding: 0px;
     }
 
     .nav img {
@@ -380,51 +378,54 @@ a {
     }
 
     .mid {
+        width: 100%;
+        height: calc(100vh - 50px);
         display: flex;
         justify-content: center;
-        margin-top: 50px;
+        margin-top: 10%;
     }
 
     .main-menu {
-        width: 55%;
-        height: 45vh;
+        width: 60%;
+        height: 55%;
         display: flex;
         justify-content: space-between;
     }
 
     .the-map {
         width: 200px;
-        height: 60vh;
-        padding-top: 0px;
+        height: 60%;
+        padding-top: 0;
         cursor: pointer;
     }
 
     .img-background-left,
     .img-background-right {
         width: 200px;
-        height: 60px;
+        height: 60%;
         border-right: 3px solid #C0AE67;
         border-bottom: 2px solid #C0AE67;
         border-left: 3px solid #C0AE67;
-        position: relative;
         background: linear-gradient(180deg, #293855 0%, rgba(111, 121, 141, 0.67) 100%);
     }
 
     .img-background-left img {
         width: 200px;
         position: absolute;
+        margin-top: 9%;
         top: 0px;
     }
 
     .img-background-right img {
         width: 200px;
         position: absolute;
+        margin-top: 9%;
         top: 0px;
     }
 
     .txt {
         width: 200px;
-        height: 95px;
+        height: 70px;
         flex-shrink: 0;
         border-radius: 0px 0px 10px 10px;
         border: 3px solid #C0AE67;
@@ -707,7 +708,7 @@ a {
 
     .the-map {
         width: 200px;
-        height: 80%;
+        height: 100%;
         padding: 0px;
         cursor: pointer;
     }
@@ -715,7 +716,7 @@ a {
     .img-background-left,
     .img-background-right {
         width: 200px;
-        height: 80%;
+        height: 100%;
         margin: auto;
         position: relative;
         border-right: 3px solid #C0AE67;
@@ -728,14 +729,14 @@ a {
         width: 200px;
         position: absolute;
         margin-top: 0;
-        top:-70px;
+        top:-50px;
     }
 
     .img-background-right img {
         width: 200px;
         margin-top: 0;
         position: absolute;
-        top: -70px;
+        top: -50px;
     }
 
     .txt {
