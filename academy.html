@@ -298,19 +298,22 @@
                 </div>
                 <div class="info-right">
                     <div class="right-title">${info.name}</div>
-                    <div class="right-content">${info.college.join('<br>')}</div>
-                </div>
+                    <div class="right-content">${info.college.join('<br>')}
+                        <p>${info.more.join('<br>')}</p>
+                        <p>${info.teach.join('<br>')}</p>
+                        </div>
+                    </div>
                 `
             }
         })
+        
 
         //模型載入
         function loadingModel(modelPath) {
-            //模型的loading
+
+            modelLoading.classList.remove('hidden');
+            
             scene.remove(all);
-            if (document.readyState == "complete") {
-                modelLoading.classList.add('hidden');
-                };
 
             // flag = true;
             loader.load(modelPath, function (object) {
@@ -318,9 +321,10 @@
                 // ALL是整個模組 root是模組裡各個"模型"的陣列
                 scene.remove(all);
                 all = object.scene
-                const root = object.scenes[0].children
+                // const root = object.scenes[0].children
 
                 scene.add(all)
+                modelLoading.classList.add('hidden');
                 // flag = false;
             })
 
