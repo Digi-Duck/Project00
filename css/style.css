@@ -187,11 +187,6 @@ body {
     transition: transform 0.25s ease-out;
 }
 
-/* .img-background-left img:hover,
-.img-background-right img:hover {
-    transform: scale(.98);
-} */
-
 a {
     text-decoration: none;
 }
@@ -446,6 +441,195 @@ a {
         /* border-bottom: dashed 3px #C0AE67; */
     }
 }
+@media(max-width: 667px) {
+
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+        margin: 0 auto;
+        padding: 0;
+        background: linear-gradient(180deg, #293855 0%, #000 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        position: absolute;
+        width: 70%;
+        height: 220px;
+        border-radius: 5px;
+        top: 10%;
+        z-index: 4;
+        display: none;
+    }
+
+    .container {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .nav {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        justify-content: flex-start;
+        padding: 0px;
+    }
+
+    .nav img {
+        height: 50px;
+    }
+
+    .mid {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 8%;
+    }
+
+    .main-menu {
+        width: 60%;
+        height: 45vh;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .the-map {
+        width: 170px;
+        height: 65vh;
+        padding-top: 0px;
+        cursor: pointer;
+    }
+
+    .img-background-left,
+    .img-background-right {
+        width: 170px;
+        height: calc(50% - 10%);
+        border-right: 1px solid #C0AE67;
+        border-bottom: 1px solid #C0AE67;
+        border-left: 1px solid #C0AE67;
+        background: linear-gradient(180deg, #293855 0%, rgba(111, 121, 141, 0.67) 100%);
+    }
+
+    .img-background-left img {
+        width: 170px;
+        position: absolute;
+        margin-top: 7%;
+        top: 0px;
+    }
+
+    .img-background-right img {
+        width: 170px;
+        position: absolute;
+        top: 0px;
+        margin-top: 7%;
+        /* left: 1%; */
+    }
+}
+/* 此667px版為txt專屬 */
+@media (max-width: 667px){
+    .txt {
+        width: 170px;
+        height: 30%;
+        flex-shrink: 0;
+        border-radius: 0px 0px 10px 10px;
+        border: 1px solid #C0AE67;
+        background: #F8F6EF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        position: relative;
+    }
+    
+    /* Ripple Out */
+    @-webkit-keyframes hvr-ripple-out {
+        100% {
+            top: -12px;
+            right: -12px;
+            bottom: -12px;
+            left: -12px;
+            opacity: 0;
+        }
+    }
+    
+    @keyframes hvr-ripple-out {
+        100% {
+            top: -12px;
+            right: -12px;
+            bottom: -12px;
+            left: -12px;
+            opacity: 0;
+        }
+    }
+    
+    .txt:before {
+        content: '';
+        position: absolute;
+        border: #C0AE67 solid 1px;
+        border-radius: 0px 0px 10px 10px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+    }
+    
+    .txt:hover:before,
+    .txt:focus:before,
+    .txt:active:before {
+        -webkit-animation-name: hvr-ripple-out;
+        animation-name: hvr-ripple-out;
+    }
+    
+    
+    
+    @keyframes nameZoomIn {
+        0% {
+            transform: scale(0);
+        }
+    
+        50% {
+            transform: scale(1.2);
+        }
+    
+        100% {
+            transform: scale(1);
+        }
+    }
+    
+    .text-name {
+        font-size: 14px;
+        font-family: 'DotGothic16', sans-serif;
+        color: #293855;
+        /* border-bottom: dashed 3px #C0AE67; */
+        position: absolute;
+    }
+    
+    .text-name::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        border-bottom: dashed 3px #C0AE67;
+        /* background-color: #C0AE67; */
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+}
 
 @media (max-width:454px) {
     body {
@@ -500,7 +684,144 @@ a {
 
     .container {
         width: 100%;
-        /* max-width: 640px; */
+        height: 100vh;
+    }
+
+    .nav {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: flex-start;
+        padding: 0;
+    }
+
+    .nav img {
+        height: 60px;
+    }
+
+    .mid {
+        width: 100%;
+        height: calc(100vh - 50px);
+        display: flex;
+        justify-content: center;
+        margin-top: 10%;
+    }
+
+    .main-menu {
+        width: 200px;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        gap: 20%;
+        justify-content: space-evenly;
+    }
+
+    .the-map {
+        width: 200px;
+        height: 80%;
+        padding: 0px;
+        cursor: pointer;
+    }
+
+    .img-background-left,
+    .img-background-right {
+        width: 200px;
+        height: 80%;
+        margin: auto;
+        position: relative;
+        border-right: 3px solid #C0AE67;
+        border-bottom: 2px solid #C0AE67;
+        border-left: 3px solid #C0AE67;
+        background: linear-gradient(180deg, #293855 0%, rgba(111, 121, 141, 0.67) 100%);
+    }
+
+    .img-background-left img {
+        width: 200px;
+        position: absolute;
+        margin-top: 0;
+        top:-70px;
+    }
+
+    .img-background-right img {
+        width: 200px;
+        margin-top: 0;
+        position: absolute;
+        top: -70px;
+    }
+
+    .txt {
+        width: 200px;
+        height: 70px;
+        flex-shrink: 0;
+        border-radius: 0px 0px 10px 10px;
+        border: 3px solid #C0AE67;
+        background: #F8F6EF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text-name {
+        font-size: 14px;
+        font-family: 'DotGothic16', sans-serif;
+        color: #293855;
+        border-bottom: dashed 3px #C0AE67;
+    }
+}
+
+
+/* @media (max-width:390px) {
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+        margin: 0 auto;
+        padding: 0;
+        background: linear-gradient(180deg, #293855 0%, #000 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .card-nav {
+        width: 100%;
+        height: 60px;
+        background-color: #293855;
+        border-radius: 5px 5px 0 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 10px;
+    }
+
+    .card-content {
+        width: 100%;
+        height: calc(100% - 60px);
+        border: solid 5px #293855;
+        border-radius: 0 0 5px 5px;
+        background-color: rgba(248, 246, 239);
+        padding: 2%;
+    }
+
+    .card-title {
+        width: 100%;
+        font-size: 32px;
+        text-align: center;
+        border-bottom: solid 5px #C0AE67;
+        color: #293855;
+    }
+
+    .card-txt {
+        width: 100%;
+        font-size: 20px;
+        color: #293855;
+        margin: 2% 2%;
+    }
+
+    .container {
+        width: 100%;
         height: 100vh;
     }
 
@@ -535,13 +856,12 @@ a {
         height: 200px;
         padding-top: 60px;
         cursor: pointer;
-        ;
     }
 
     .img-background-left,
     .img-background-right {
         width: 200px;
-        height: 70px;
+        height: 95px;
         display: flex;
         justify-content: center;
         border-right: 3px solid #C0AE67;
@@ -553,7 +873,7 @@ a {
     .img-background-left img {
         width: 200px;
         position: absolute;
-        top: 15%;
+        top: 17%;
     }
 
     .img-background-right img {
@@ -564,7 +884,7 @@ a {
 
     .txt {
         width: 200px;
-        height: 95px;
+        height: 75px;
         flex-shrink: 0;
         border-radius: 0px 0px 10px 10px;
         border: 3px solid #C0AE67;
@@ -580,4 +900,4 @@ a {
         color: #293855;
         border-bottom: dashed 3px #C0AE67;
     }
-}
+} */
