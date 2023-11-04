@@ -98,7 +98,9 @@
                         </svg>
                     </a>
                 </div>
-                <div class="menu-btn-box"></div>
+                <div class="menu-btn-box">
+                    <span class="magic-box"></span>
+                </div>
             </div>
         </main>
     </div>
@@ -112,8 +114,8 @@
                     document.querySelector("#loader").style.opacity = "0";
                     setTimeout(function () {
                         document.querySelector("#loader").style.display = "none";
-                    }, 1000);
-                }, 1200);
+                    }, 2000);
+                }, 4200);
 
             } else { }
         };  
@@ -247,21 +249,30 @@
 
         });
 
+        // 這是隱形的方塊讓模型載完前不能按按鈕
+        const magicBox = document.querySelector('.magic-box');
+
         var data = localStorage.getItem('data');
         const menuBtn = document.querySelectorAll('.menu-btn');
-        // let flag = false;
+
+        var isTouching = false; // 用于追踪是否正在触摸
+        var startX, startY; // 用于记录触摸开始的位置
+        // var toggle = true;
+        let flag = false;
         menuBtn.forEach((menu, index) => {
             // console.log(menu, index);
 
             const info = academy[index];
             menu.addEventListener('click', () => {
-                // if(flag) return;
+                if (flag) return;
+
+                // console.log(toggle);
+                // 按按鈕會變色
                 menuBtn.forEach((e) => {
                     e.classList.remove('light');
                 })
 
                 menuBtn[index].classList.add('light');
-
 
                 content.innerHTML = `
                 <div class="info-left">
@@ -277,17 +288,45 @@
                         <p>${info.more.join('<br>')}</p>
                         <p>${info.teach.join('<br>')}</p>
                         </div>
-                    
+
                 </div>
                 `
                 loadingModel(info.model);
+                magicBox.classList.add('active');
             })
 
+            // 下方touchstart,touchend,touchmove是用來判斷如果手指按下去拖動到不一樣的位置就不會有效果
+            menu.addEventListener('touchstart', (e) => {
+                isTouching = true;
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
 
+                // 移除所有按钮的样式
+                menuBtn.forEach((e) => {
+                    e.classList.remove('light');
+                });
+
+                // 添加样式到当前按钮
+                menuBtn[index].classList.add('light');
+            });
+
+            menu.addEventListener('touchend', () => {
+                if (isTouching) {
+                    isTouching = false;
+
+                    // 移除当前按钮的样式
+                    menuBtn[index].classList.remove('light');
+                }
+            });
+
+            menu.addEventListener('touchmove', (e) => {
+                // 用户滑动手指，取消触摸状态
+                isTouching = false;
+                menuBtn[index].classList.remove('light');
+            });
 
 
             if (data == info.name) {
-                loadingModel(info.model);
                 content.innerHTML = `
                 <div class="info-left">
                     <ul class="building">
@@ -304,18 +343,19 @@
                         </div>
                     </div>
                 `
+                loadingModel(info.model);
             }
         })
-        
+
 
         //模型載入
         function loadingModel(modelPath) {
 
             modelLoading.classList.remove('hidden');
-            
+
             scene.remove(all);
 
-            // flag = true;
+            flag = true;
             loader.load(modelPath, function (object) {
 
                 // ALL是整個模組 root是模組裡各個"模型"的陣列
@@ -325,7 +365,8 @@
 
                 scene.add(all)
                 modelLoading.classList.add('hidden');
-                // flag = false;
+                flag = false;
+                magicBox.classList.remove('active');
             })
 
         }
