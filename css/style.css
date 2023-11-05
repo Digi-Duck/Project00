@@ -318,10 +318,10 @@ a {
         border-radius: 5px;
         top: 10%;
         z-index: 4;
-        display: block;
+        display: none;
     }
 
-    .card-active {
+    /* .card-active {
         display: none;
     }
 
@@ -358,7 +358,7 @@ a {
         font-size: 20px;
         color: #293855;
         margin: 2% 2%;
-    }
+    } */
 
     .container {
         width: 100%;
@@ -622,7 +622,7 @@ a {
     }
 }
 
-@media (max-width:454px) {
+@media (max-width:445px) {
     body {
         margin: 0;
         padding: 0;
