@@ -217,9 +217,7 @@ a {
 
     .container {
         width: 100%;
-        /* max-width: 640px; */
         height: 100vh;
-        /* margin: auto; */
     }
 
     .nav {
@@ -227,7 +225,7 @@ a {
         height: 100px;
         display: flex;
         justify-content: flex-start;
-        padding: 20px;
+        padding: 0px;
     }
 
     .nav img {
@@ -235,24 +233,26 @@ a {
     }
 
     .mid {
+        width: 100%;
+        height: calc(100vh - 100px);
         display: flex;
         justify-content: center;
-        margin-top: 50px;
+        margin-top: 5%;
     }
 
     .main-menu {
-        width: 800px;
-        height: 350px;
+        width: 70%;
+        height: 45%;
         display: flex;
         justify-content: space-between;
+        gap: 60px;
     }
 
     .the-map {
         width: 350px;
-        height: 350px;
+        /* height: 350px; */
         padding-top: 120px;
         cursor: pointer;
-        ;
     }
 
     .img-background-left,
@@ -268,13 +268,12 @@ a {
     .img-background-left img {
         width: 350px;
         position: absolute;
-        top: 200px;
     }
 
     .img-background-right img {
         width: 350px;
         position: absolute;
-        top: 200px;
+
     }
 
     .txt {
@@ -328,7 +327,7 @@ a {
 
     .card-nav {
         width: 100%;
-        height: 60px;
+        height: 50px;
         background-color: #293855;
         border-radius: 5px 5px 0 0;
         display: flex;
@@ -339,7 +338,7 @@ a {
 
     .card-content {
         width: 100%;
-        height: calc(100% - 60px);
+        height: calc(90% - 50px);
         border: solid 5px #293855;
         border-radius: 0 0 5px 5px;
         background-color: rgba(248, 246, 239);
@@ -356,7 +355,6 @@ a {
 
     .card-txt {
         width: 100%;
-        /* margin-top: 20px; */
         font-size: 20px;
         color: #293855;
         margin: 2% 2%;
@@ -364,8 +362,7 @@ a {
 
     .container {
         width: 100%;
-        /* max-width: 640px; */
-        height: 100vh;
+        height: 100vh
     }
 
     .nav {
@@ -373,7 +370,7 @@ a {
         height: 50px;
         display: flex;
         justify-content: flex-start;
-        padding: 20px;
+        padding: 0px;
     }
 
     .nav img {
@@ -381,29 +378,31 @@ a {
     }
 
     .mid {
+        width: 100%;
+        height: calc(100vh - 50px);
         display: flex;
         justify-content: center;
-        margin-top: 50px;
+        margin-top: 10%;
     }
 
     .main-menu {
-        width: 450px;
-        height: 200px;
+        width: 60%;
+        height: 55%;
         display: flex;
         justify-content: space-between;
     }
 
     .the-map {
         width: 200px;
-        height: 200px;
-        padding-top: 60px;
+        height: 60%;
+        padding-top: 0;
         cursor: pointer;
     }
 
     .img-background-left,
     .img-background-right {
         width: 200px;
-        height: 60px;
+        height: 60%;
         border-right: 3px solid #C0AE67;
         border-bottom: 2px solid #C0AE67;
         border-left: 3px solid #C0AE67;
@@ -413,18 +412,20 @@ a {
     .img-background-left img {
         width: 200px;
         position: absolute;
-        top: 100px;
+        margin-top: 9%;
+        top: 0px;
     }
 
     .img-background-right img {
         width: 200px;
         position: absolute;
-        top: 100px;
+        margin-top: 9%;
+        top: 0px;
     }
 
     .txt {
         width: 200px;
-        height: 95px;
+        height: 70px;
         flex-shrink: 0;
         border-radius: 0px 0px 10px 10px;
         border: 3px solid #C0AE67;
@@ -454,16 +455,6 @@ a {
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-
-    .card {
-        position: absolute;
-        width: 70%;
-        height: 220px;
-        border-radius: 5px;
-        top: 10%;
-        z-index: 4;
-        display: none;
     }
 
     .container {
@@ -646,7 +637,7 @@ a {
     }
 
 
-    .card-nav {
+    /* .card-nav {
         width: 100%;
         height: 60px;
         background-color: #293855;
@@ -676,11 +667,10 @@ a {
 
     .card-txt {
         width: 100%;
-        /* margin-top: 20px; */
         font-size: 20px;
         color: #293855;
         margin: 2% 2%;
-    }
+    } */
 
     .container {
         width: 100%;
@@ -718,7 +708,7 @@ a {
 
     .the-map {
         width: 200px;
-        height: 80%;
+        height: 100%;
         padding: 0px;
         cursor: pointer;
     }
@@ -726,7 +716,7 @@ a {
     .img-background-left,
     .img-background-right {
         width: 200px;
-        height: 80%;
+        height: 100%;
         margin: auto;
         position: relative;
         border-right: 3px solid #C0AE67;
@@ -739,14 +729,14 @@ a {
         width: 200px;
         position: absolute;
         margin-top: 0;
-        top:-70px;
+        top:-50px;
     }
 
     .img-background-right img {
         width: 200px;
         margin-top: 0;
         position: absolute;
-        top: -70px;
+        top: -50px;
     }
 
     .txt {
