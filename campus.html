@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/loading-style.css">
     <link rel="stylesheet" href="./css/about-us.css">
     <title>中興大學地圖導覽</title>
-    <link rel = "icon" type = "image/png" href = "./img/NCHU_Badge.png">
+    <link rel="icon" type="image/png" href="./img/NCHU_Badge.png">
 </head>
 
 <body>
@@ -575,7 +575,8 @@
         controls.maxDistance = 70;
 
         //旋轉速度
-        controls.speed
+        controls.zoomSpeed = 0.8;
+        controls.panSpeed = 0.5;
 
         controls.screenSpacePanning = false
 
@@ -590,6 +591,21 @@
             _v.sub(controls.target);
             camera.position.sub(_v);
         });
+
+        //旋轉關閉
+        controls.enableRotate = false;
+
+        //滑鼠左右鍵控制器
+        controls.mouseButtons = {
+            LEFT: THREE.MOUSE.PAN,
+            MIDDLE: THREE.MOUSE.DOLLY,
+        }
+
+        //行動版手指控制器
+        controls.touches = {
+            ONE: THREE.TOUCH.DOLLY_PAN,
+            TWO: THREE.TOUCH.DOLLY,
+        }
 
         // controls.target.clamp( minPan, maxPan );
         controls.update()
@@ -611,11 +627,8 @@
         // controls.minDistance = 0;
         // controls.maxDistance = 40;
 
-        controls.mouseButtons = {
-            LEFT: THREE.MOUSE.PAN,
-            MIDDLE: THREE.MOUSE.DOLLY,
-            RIGHT: THREE.MOUSE.ROTATE,
-        }
+        
+        
         // 到這裡
 
         // const onWindowResize = () => {
