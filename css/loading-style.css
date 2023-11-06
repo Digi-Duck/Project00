@@ -179,21 +179,10 @@
     right: -4px;
     top: 80%;
     transform: translatey(-45%);
-    width: 2px;
+    width: 3px;
     height: 1.3em;
     background: currentColor;
     opacity: 0.8;
-    animation: 1s blink steps(2) infinite;
-  }
-
-  @keyframes blink {
-    0% {
-      visibility: hidden;
-    }
-
-    100% {
-      visibility: visible;
-    }
   }
 
   @keyframes print {
