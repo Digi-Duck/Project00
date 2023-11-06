@@ -148,7 +148,11 @@ body {
     bottom: 5%;
     left: 5%;
     border-radius: 3px;
-    transition: 1s linear;
+    transition: .5s linear;
+}
+
+.choose-btn:hover{
+    background-color: #293855;
 }
 
 .choose-btn.hidden {
