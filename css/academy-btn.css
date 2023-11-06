@@ -68,7 +68,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 0px 70px;
+    gap: 20px 70px;
 }
 
 .link {
@@ -241,7 +241,7 @@ body {
     }
 }
 
-@media (max-width: 1220px) {
+@media (max-width: 1250px) {
     .container {
         width: 100%;
         /* max-width: 1920px; */
@@ -364,7 +364,7 @@ body {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        gap: 0;
+        gap: 10px;
     }
 
     .link {
@@ -450,7 +450,7 @@ body {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        gap: 0;
+        gap: 2px;
     }
 
     .link {
@@ -494,7 +494,7 @@ body {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 390px) {
     .container {
         width: 95%;
         position: relative;
@@ -536,12 +536,12 @@ body {
     }
 
     .big-box {
-        width: 100%;
+        width: 90%;
         height: 80%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        gap: 0;
+        gap: 10px;
     }
 
     .link {
