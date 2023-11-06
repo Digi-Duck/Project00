@@ -54,11 +54,12 @@ body {
 }
 
 .the-map:hover .img-background-left img {
-    filter: blur(3px);
+    transform: scale(1.03);
+    filter: blur(0px);
 }
 
 .the-map:hover .img-background-right img {
-    filter: blur(3px);
+    filter: blur(0px);
 }
 
 .the-map:hover .txt {
@@ -84,13 +85,13 @@ body {
     position: absolute;
     top: 195px;
     /* -webkit-filter:; */
-    filter: blur(0px);
+    filter: blur(3px);
 }
 
 .img-background-right img {
     position: absolute;
     top: 200px;
-    filter: blur(0px);
+    filter: blur(3px);
 }
 
 .txt {
