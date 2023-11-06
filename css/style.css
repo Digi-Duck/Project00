@@ -15,7 +15,7 @@ body {
 
 .container {
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     position: relative;
 }
 
@@ -201,7 +201,7 @@ a {
 
     .container {
         width: 100%;
-        height: 100vh;
+        height: 100dvh;
     }
 
     .nav {
@@ -218,7 +218,7 @@ a {
 
     .mid {
         width: 100%;
-        height: calc(100vh - 100px);
+        height: calc(100% - 100px);
         display: flex;
         justify-content: center;
         margin-top: 5%;
@@ -333,7 +333,7 @@ a {
 
     .container {
         width: 100%;
-        height: 100vh
+        height: 100dvh
     }
 
     .nav {
@@ -350,7 +350,7 @@ a {
 
     .mid {
         width: 100%;
-        height: calc(100vh - 50px);
+        height: calc(100% - 50px);
         display: flex;
         justify-content: center;
         margin-top: 10%;
@@ -417,7 +417,7 @@ a {
 
     .container {
         width: 100%;
-        height: 100vh;
+        height: 100dvh;
     }
 
     .nav {
@@ -610,7 +610,7 @@ a {
 
     .mid {
         width: 100%;
-        height: calc(100vh - 50px);
+        height: calc(100dvh - 50px);
         display: flex;
         justify-content: center;
         margin-top: 10%;
