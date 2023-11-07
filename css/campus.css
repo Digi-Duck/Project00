@@ -94,7 +94,6 @@ main canvas {
     height: 769px;
     border-radius: 0px 0px 4px 4px;
     border-radius: 5px;
-    animation: slideIn 1s linear 4.5s;
 }
 
 .switch {

@@ -89,21 +89,6 @@
     <!-- 關於我們彈跳視窗 -->
     <div class="about-us"></div>
 
-    <script>
-        //loading
-        const loading = document.onreadystatechange = function () {
-            if (document.readyState === "complete") {
-                setTimeout(function () {
-                    document.querySelector("#loader").style.opacity = "0";
-                    setTimeout(function () {
-                        document.querySelector("#loader").style.display = "none";
-                    }, 1000);
-                }, 1200);
-
-            } else { }
-        };
-    </script>
-
 
     <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 
@@ -357,7 +342,7 @@
         renderer.setSize(idiot.clientWidth, idiot.clientHeight);
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        renderer.outputEncoding = THREE.sRGBEncoding;
+        renderer.outputColorSpace = THREE.SRGBColorSpace;
         //聚光燈的輔助線
         // const spotLightHelper = new THREE.SpotLightHelper( spotLight );
         // scene.add( spotLightHelper );
@@ -371,9 +356,11 @@
 
         loader.load('./model/0.glb', function (object) {
             // ALL是整個模組 root是模組裡各個"模型"的陣列
+
             model1 = object.scene;
             const root = object.scenes[0].children;
             scene.add(model1);
+
             // console.log(root);
             // console.log(object);
             // const gui = new GUI();
@@ -402,7 +389,21 @@
             // } else {
             //     console.log('未使用 KHR_lights_punctual 扩展');
             // }
-        })
+        },
+            function (xhr) {
+
+                if((xhr.loaded / xhr.total * 100) >= 100 ){
+                    setTimeout(function () {
+                    document.querySelector("#loader").style.opacity = "0";
+                    setTimeout(function () {
+                        document.querySelector("#loader").style.display = "none";
+                    }, 2000);
+                }, 4500);
+                console.log(123);
+                };
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+
+            },)
 
         // 宣告zoom-in的效果
         //x,y,z是學院的位址
@@ -627,8 +628,8 @@
         // controls.minDistance = 0;
         // controls.maxDistance = 40;
 
-        
-        
+
+
         // 到這裡
 
         // const onWindowResize = () => {
