@@ -35,7 +35,6 @@
   }
 
   .cube-wrapper {
-    transform-style: preserve-3d;
     animation: bouncing 2s infinite;
   }
 
