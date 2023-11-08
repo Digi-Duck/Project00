@@ -150,12 +150,6 @@
             precision: 'highp',
         });
 
-        // 聚光燈顏色跟強度 參數一是顏色 參數二是強度
-        // const ambientLight = new THREE.AmbientLight( 0x404040, 1 );
-        // scene.add(ambientLight);
-
-        // 聚光燈位置，如果模型不會亮調整中間的數值就可以
-        // ambientLight.position.set(0, 20, 0);
         // 如果丟掉某個東西上大小要記得改
         renderer.setSize(window.innerWidth, window.innerHeight);
         // 把東西丟到idiot這個ID上
@@ -234,14 +228,11 @@
 
 
         const menuBox = document.querySelector('.menu-btn-box');
-        // const building = document.querySelector('.building-list p');
         const content = document.querySelector('.info');
-        // const title = document.querySelector('.right-title');
         const modelLoading = document.querySelector('.model-loader');
 
         // 簡化過後的js
         academy.forEach((e) => {
-            // console.log(e);
             menuBox.innerHTML += `
                 <div class="menu-btn">${e.name}</div>
             `
@@ -256,16 +247,13 @@
 
         var isTouching = false; // 用于追踪是否正在触摸
         var startX, startY; // 用于记录触摸开始的位置
-        // var toggle = true;
         let flag = false;
         menuBtn.forEach((menu, index) => {
-            // console.log(menu, index);
 
             const info = academy[index];
             menu.addEventListener('click', () => {
                 if (flag) return;
 
-                // console.log(toggle);
                 // 按按鈕會變色
                 menuBtn.forEach((e) => {
                     e.classList.remove('light');
@@ -319,7 +307,7 @@
             });
 
             menu.addEventListener('touchmove', (e) => {
-                // 用户滑动手指，取消触摸状态
+                // 滑动手指，取消触摸状态
                 isTouching = false;
                 menuBtn[index].classList.remove('light');
             });
@@ -360,7 +348,6 @@
                 // ALL是整個模組 root是模組裡各個"模型"的陣列
                 scene.remove(all);
                 all = object.scene
-                // const root = object.scenes[0].children
 
                 scene.add(all)
                 modelLoading.classList.add('hidden');

@@ -175,20 +175,11 @@
         });
 
 
-        // // 開啟上談式視窗
-        // openMenu.addEventListener('click', (toggle) => {
-        //     if (menu.classList.contains('hidden')) {
-        //         menu.classList.remove('hidden');
-        //         openMenu.classList.add('hidden');
-        //     } else {
-        //         menu.classList.add('hidden');
-        //     }
-        // });
+        
         // 學院科系迴圈生成選項按鈕
 
         for (var i = 0; i < 11; i++) {
             var currentData = academy[i];
-            // console.log(currentData);
             list.innerHTML += `
             <a href="#"><li class="option option-1 active">${currentData.name}</li></a>
             `
@@ -197,7 +188,6 @@
         // 公共資源迴圈生成選項按鈕
         for (var i = 11; i < academy.length; i++) {
             var currentData = academy[i];
-            // console.log(currentData);
             list.innerHTML += `
             <a href="#"><li class="option option-2">${currentData.name}</li></a>
             `
@@ -305,7 +295,6 @@
                     card.innerHTML = '';
                     zoomInTimeline(40, 10, 50,);
                     spotLight.position.set(35, 50, 55);
-                    // controls.reset();
                     options.forEach(r => {
                         r.classList.remove('light');
                     });
@@ -328,13 +317,10 @@
             precision: 'highp',
             antialias: true,
         });
-        // const light = new THREE.AmbientLight(0x404040); // soft white light
-        // scene.add(light);
-        //舊的燈
+        //聚光燈
         const spotLight = new THREE.SpotLight(0x404040, 400000);
         spotLight.position.set(0, 50, 0);
         scene.add(spotLight);
-        //新的燈
         const spotLightF1 = new THREE.SpotLight(0x404040, 2000);
         spotLight.position.set(35, 50, 55);
         scene.add(spotLight);
@@ -343,9 +329,7 @@
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
         renderer.outputColorSpace = THREE.SRGBColorSpace;
-        //聚光燈的輔助線
-        // const spotLightHelper = new THREE.SpotLightHelper( spotLight );
-        // scene.add( spotLightHelper );
+
         // 把東西丟到idiot這個ID上
         idiot.appendChild(renderer.domElement);
 
@@ -361,34 +345,6 @@
             const root = object.scenes[0].children;
             scene.add(model1);
 
-            // console.log(root);
-            // console.log(object);
-            // const gui = new GUI();
-            // console.log(model1.position);
-            // const modelFolder = gui.addFolder('Map');
-            // modelFolder.add(model1.position, 'x', -2, 66);
-            // modelFolder.add(model1.position, 'y', -2, 12);
-            // modelFolder.add(model1.position, 'z', -2, 60);
-
-
-
-
-            // const extensionsUsed = object.parser.json.extensionsUsed;
-            // const extensions = object.parser.json.extensions;
-
-            // if (extensionsUsed.includes('KHR_lights_punctual')) {
-            //     // 扩展已使用，你可以访问 extensions 对象来获取扩展的数据
-            //     const lightsPunctualData = extensions.KHR_lights_punctual;
-            //     lightsPunctualData.lights[0].intensity = 10;
-            //     lightsPunctualData.lights[1].intensity = 10;
-            //     lightsPunctualData.lights[2].intensity = 10;
-            //     lightsPunctualData.lights[3].intensity = 10;
-            //     lightsPunctualData.lights[4].intensity = 10;
-            //     console.log('KHR_lights_punctual 数据:', lightsPunctualData.lights[0].intensity);
-
-            // } else {
-            //     console.log('未使用 KHR_lights_punctual 扩展');
-            // }
         },
             function (xhr) {
 
@@ -417,24 +373,14 @@
                     onUpdate: function () {
                         camera.lookAt(a, b, c);
                     },
-                    // onComplete: function () {
-                    //     camera.updateProjectionMatrix()
-                    //     controls.update(updateDelta)
-                    // }
                 }, 0)
 
-            // .to(group.rotation, { x: 0, y: 0 }, 0);
         };
-
-        // console.log(options[0]);
 
         // 文學院
         options[0].addEventListener("click", () => {
             zoomInTimeline(39, 10, 33, 32, 5, 39);
             spotLight.position.set(39, 40, 33);
-            // setTimeout(() => {
-            //     camera.lookAt(27, 2, 44);
-            // },5000)
         });
 
         // 農業暨自然資源學院
@@ -540,22 +486,22 @@
             renderer.render(scene, camera);
         }
 
-        // 添加事件监听器
+        // 此監聽事件是用來抓取地圖座標位址
         // window.addEventListener('click', onDocumentClick);
 
         // function onDocumentClick(event) {
-        //     // 获取鼠标点击位置的屏幕坐标
+        //     // 獲取滑鼠點擊位置的座標
         //     const mouse = new THREE.Vector2((event.clientX / window.innerWidth) * 2 - 1, -(event.clientY / window.innerHeight) * 2 + 1);
 
-        //     // 从相机位置发射一条射线
+        //     // 從相機發出一條射線
         //     const raycaster = new THREE.Raycaster();
         //     raycaster.setFromCamera(mouse, camera);
 
-        //     // 计算射线与模型的相交点
+        //     // 計算設限與模型的焦點
         //     const intersects = raycaster.intersectObject(model1, true);
 
         //     if (intersects.length > 0) {
-        //         // 获取第一个相交点的坐标
+        //         // 獲取低一個相交的座標
         //         const intersectionPoint = intersects[0].point;
 
         //         // 在这里，你可以根据相交点的坐标来计算建筑物的相对位置
@@ -563,7 +509,6 @@
         //     }
         // }
 
-        // 問老師
         // 新增控制器
         const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -586,7 +531,6 @@
         var _v = new THREE.Vector3();
 
         controls.addEventListener("change", function () {
-            // console.log(_v);
             _v.copy(controls.target);
             controls.target.clamp(minPan, maxPan);
             _v.sub(controls.target);
@@ -608,37 +552,10 @@
             TWO: THREE.TOUCH.DOLLY_PAN,
         }
 
-        // controls.target.clamp( minPan, maxPan );
         controls.update()
-        // controls.saveState();
-
-        // controls.enableRotate = false;
-        // // 固定模型在45度角
-        // controls.target.set(0, 0, 0); // 将控制器的目标点设置在原点
-
-
-        // // 限制控制器只能左右旋转
-        // controls.minPolarAngle = Math.PI / 2; // 最小极角（垂直旋转）为45度
-        // controls.maxPolarAngle = Math.PI / 2; // 最大极角也为45度
-
-        // // 限制控制器只能左右平移
-        // controls.minAzimuthAngle = -Math.PI / 4; // 最小方位角（水平旋转）为-45度
-        // controls.maxAzimuthAngle = Math.PI / 4; // 最大方位角为45度
-
-        // controls.minDistance = 0;
-        // controls.maxDistance = 40;
-
-
+        
 
         // 到這裡
-
-        // const onWindowResize = () => {
-        //     camera.aspect = idiot.clientWidth / idiot.clientHeight;
-        //     camera.updateProjectionMatrix();
-        //     renderer.setSize(idiot.clientWidth, idiot.clientHeight);
-        // };
-
-        // window.addEventListener("resize", onWindowResize, false);
 
         animate();
     </script>

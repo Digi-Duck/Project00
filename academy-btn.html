@@ -86,7 +86,6 @@
         // 用迴圈生成出個系所的按鈕
         for (var i = 0; i < 15; i++) {
             var currentData = academy[i];
-            // console.log(currentData);
             academyBtn.innerHTML += `
             <a class="link" id="${currentData.link}">
                 <div class="box">
@@ -110,110 +109,9 @@
                 localStorage.setItem('data', `${info.name}`);
                 window.location.href = 'academy.html';
             });
-            // e.addEventListener('click', () => {
-            // })
+            
         })
-        // 抓取按鈕的id，並且把資料存放在在地資料庫，然後跳轉到各學院模型的頁面
-        // console.log(currentData.link);
-        // document.getElementById('link-1').addEventListener('click', function () {
-        //     console.log(123);
-        //     localStorage.setItem('data', '文學院');
-        //     window.location.href = 'academy.html';
-        // });
-        // document.getElementById('link-2').addEventListener('click', function () {
-        //     console.log(123);
-        //     localStorage.setItem('data', '農業暨自然資源學院');
-        //     window.location.href = 'academy.html';
-        // });
-        // document.getElementById('link-3').addEventListener('click', function () {
-        //     console.log(123);
-        //     localStorage.setItem('data', '理學院');
-        //     window.location.href = 'academy.html';
-        // });
-        // document.getElementById('link-4').addEventListener('click', function () {
-        //     console.log(123);
-        //     localStorage.setItem('data', '工學院');
-        //     window.location.href = 'academy.html';
-        // });
-        // document.getElementById('link-5').addEventListener('click', function () {
-        //     console.log(123);
-        //     localStorage.setItem('data', '生命科學院');
-        //     window.location.href = 'academy.html';
-        // });
-        // document.getElementById('link-6').addEventListener('click', function () {
-        //     console.log(123);
-        //     localStorage.setItem('data', '獸醫學院');
-        //     window.location.href = 'academy.html';
-        // });
-        // document.getElementById('link-7').addEventListener('click', function () {
-        //     console.log(123);
-        //     localStorage.setItem('data', '管理學院');
-        //     window.location.href = 'academy.html';
-        // });
-        // document.getElementById('link-8').addEventListener('click', function () {
-        //     console.log(123);
-        //     localStorage.setItem('data', '法政學院');
-        //     window.location.href = 'academy.html';
-        // });
-        // document.getElementById('link-9').addEventListener('click', function () {
-        //     console.log(123);
-        //     localStorage.setItem('data', '電機資訊學院');
-        //     window.location.href = 'academy.html';
-        // });
-        // document.getElementById('link-10').addEventListener('click', function () {
-        //     console.log(123);
-        //     localStorage.setItem('data', '醫學院');
-        //     window.location.href = 'academy.html';
-        // });
-        // document.getElementById('link-11').addEventListener('click', function () {
-        //     console.log(123);
-        //     localStorage.setItem('data', '創新產業暨國際學院');
-        //     window.location.href = 'academy.html';
-        // });
-        // document.getElementById('link-12').addEventListener('click', function () {
-        //     console.log(123);
-        //     localStorage.setItem('data', '行政');
-        //     window.location.href = 'academy.html';
-        // });
-        // document.getElementById('link-13').addEventListener('click', function () {
-        //     console.log(123);
-        //     localStorage.setItem('data', '圖書');
-        //     window.location.href = 'academy.html';
-        // });
-        // document.getElementById('link-14').addEventListener('click', function () {
-        //     console.log(123);
-        //     localStorage.setItem('data', '體育');
-        //     window.location.href = 'academy.html';
-        // });
-        // document.getElementById('link-15').addEventListener('click', function () {
-        //     console.log(123);
-        //     localStorage.setItem('data', '餐廳');
-        //     window.location.href = 'academy.html';
-        // });
-
-
-        // const groupMember = [
-        //     {
-        //         name: '黃絜琳',
-        //         position: '組長/程式',
-        //     },
-        //     {
-        //         name: '蔡明哲',
-        //         position: '程式',
-        //     },
-        //     {
-        //         name: '陳映達',
-        //         position: '企劃',
-        //     },
-        //     {
-        //         name: '吳睿燊',
-        //         position: '設計',
-        //     },
-        //     {
-        //         name: '賴菱俐',
-        //         position: '設計',
-        //     },
-        // ]
+        
         const aboutUs = document.querySelector('.about-us');
         const aboutBtn = document.querySelector('.about-icon');
 
